@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Log & Reg</title>
+        {% load static %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'login_reg/styles.css' %}">
+    </head>
+    <body>
+        <div class='container-fluid'>
+            <div class='row'>
+                <div class='col-md-4 col-md-offset-4'>
+                    <h1 class='text-center'>Registration</h1>
+                    {% if request.session.action == 'register success' %}
+                        <h4 class='col-md-12 text-center success-msg'>Registration successful! Please log in to get started.</h4>
+                    {% endif %}
+                    <form action='/register' method='post'>
+                        {% csrf_token %}
+                        <div class="form-group row">
+                            <label for="first_name" class="col-1 col-form-label">First Name:</label>
+                            <div class="col-4"><input class="form-control" type="text" name="first_name"></div>
+                            <label for="last_name" class="col-1 col-form-label">Last Name:</label>
+                            <div class="col-4"><input class="form-control" type="text" name="last_name"></div>
+                            <label for="email" class="col-1 col-form-label">Email:</label>
+                            <div class="col-4"><input class="form-control" type="text" name="email"></div>
+                            <label for="password" class="col-1 col-form-label">Password:</label>
+                            <div class="col-4"><input class="form-control" type="password" name="password"></div>
+                            <label for="confirm_pw" class="col-1 col-form-label">Confirm Password:</label>
+                            <div class="col-4"><input class="form-control" type="password" name="confirm_pw"></div>
+                            <div class="col-4"><input class="btn btn-primary register" type="submit" value='Register'></div>
+                        </div>
+                    </form>
+                </div> 
+                {% if request.session.action == 'register' %}
+                    {% for message in messages %}
+                    <div class='col-md-12 msg'>{{message}}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class='row'>
+                <div class='col-md-4 col-md-offset-4'>
+                    <h1 class='text-center'>Login</h1>
+                    <form action='/authenticate' method='post'>
+                        {% csrf_token %}
+                        <div class="form-group row">
+                            <label for="email" class="col-1 col-form-label">Email:</label>
+                            <div class="col-4"><input class="form-control" type="text" name="email"></div>
+                            <label for="password" class="col-1 col-form-label">Password:</label>
+                            <div class="col-4"><input class="form-control" type="password" name="password"></div>
+                            <div class="col-4"><input class="btn btn-primary login" type="submit" value='Login'></div>
+                        </div>
+                    </form>
+                </div>
+                {% if request.session.action == 'login' %}
+                    {% for message in messages %}
+                    <div class='col-md-12 msg'>{{message}}</div>
+                    {% endfor %}
+                {% endif %}
+                <div class='col-md-12 footer'>
+            </div>
+        </div>
+    </body>
+</html>
