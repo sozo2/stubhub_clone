@@ -7,6 +7,7 @@ import bcrypt
 import re
 from django.core.urlresolvers import reverse
 
+
 def index(request):
     if 'current_user_name' not in request.session:
         request.session['current_user_id'] = 0
@@ -36,22 +37,22 @@ def register(request):
     else:
         return redirect('/')
 
-def authenticate(request):
-    if request.method == 'POST':
-        errors = User.objects.login_validator(request.POST)
-        request.session['action'] = 'login'
-        if len(errors):
-            for error, error_message in errors.iteritems():
-                messages.error(request, error_message, extra_tags = error)
-            return redirect('/')
-        else:
-            email = request.POST['email']
-            this_user = User.objects.get(email = email)
-            this_user.save()
-            request.session['current_user_id'] = this_user.id
-            return redirect(REDIRECT TO INNER HOME PAGE) ********* needs editing
-    else:
-        return redirect('/')
+# def authenticate(request):
+#     if request.method == 'POST':
+#         errors = User.objects.login_validator(request.POST)
+#         request.session['action'] = 'login'
+#         if len(errors):
+#             for error, error_message in errors.iteritems():
+#                 messages.error(request, error_message, extra_tags = error)
+#             return redirect('/')
+#         else:
+#             email = request.POST['email']
+#             this_user = User.objects.get(email = email)
+#             this_user.save()
+#             request.session['current_user_id'] = this_user.id
+#             return redirect(REDIRECT TO INNER HOME PAGE) ********* needs editing
+#     else:
+#         return redirect('/')
 
 # def load_home(request):
 #     user = User.objects.get(id = request.session['current_user_id'])

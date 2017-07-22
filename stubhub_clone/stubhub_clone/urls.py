@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^$', include("apps.main.urls"), name='main'),
+    url(r'^', include("apps.main.urls"), name='main'),
     url(r'^login', include("apps.login_reg.urls"), name='login'),
     #url(r'^checkout', include("apps.checkout.urls"), name='checkout'),
     #url(r'^find_tickets', include("apps.find_tickets.urls"), name='sell_tickets'),

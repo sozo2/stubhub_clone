@@ -44,24 +44,21 @@ class User(models.Model):
     last_name = models.CharField(max_length = 255)
     email = models.CharField(max_length = 255, unique = True)
     password = models.CharField(max_length = 45)
-    address = models.CharField(max_length = 255, required = False)
-    city = models.CharField(max_length = 45, required = False)
-    state = models.CharField(max_length = 45, required = False)
-    zip_code = models.CharField(max_length = 45, required = False)
+    address = models.CharField(max_length = 255)
+    city = models.CharField(max_length = 45)
+    state = models.CharField(max_length = 45)
+    zip_code = models.CharField(max_length = 45)
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
     objects = UserManager()
-
-
-class Event(models.Model):
-    title = models.CharField(max_length = 255)
-    venue = models.ForeignKey(Venue, related_name = events)
-    performers = models.ManyToManyField(Performer, related_name = events)
-    start_time = models.DateTimeField(default=datetime.now)
-    end_time = models.DateTimeField(default=datetime.now)
+  
+class Performer(models.Model):
+    name = models.CharField(max_length = 255)
+    category = models.CharField(max_length = 255)
     popularity = models.IntegerField(default = 0)
+    thumbnail = models.CharField(max_length = 255)
     created_at = models.DateTimeField(auto_now_add = True)
-    updated_at = models.DateTimeField(auto_now = True)    
+    updated_at = models.DateTimeField(auto_now = True) 
 
 class Venue(models.Model):
     title = models.CharField(max_length = 255)
@@ -71,19 +68,21 @@ class Venue(models.Model):
     zip_code = models.CharField(max_length = 45)
     seating_map = models.CharField(max_length = 255)
     created_at = models.DateTimeField(auto_now_add = True)
-    updated_at = models.DateTimeField(auto_now = True)    
+    updated_at = models.DateTimeField(auto_now = True)      
 
-class Ticket(models.Model):
-    listing = models.ForeignKey(Listing related_name = tickets)
-    seat = models.IntegerField(default = 0)
-    price = models.FloatField(default = 0.0)
-    sold = models.BooleanField(default = False)
+class Event(models.Model):
+    title = models.CharField(max_length = 255)
+    venue = models.ForeignKey(Venue, related_name = 'events')
+    performers = models.ManyToManyField(Performer, related_name = 'events')
+    start_time = models.DateTimeField(default=datetime.now)
+    popularity = models.IntegerField(default = 0)
+    banner = models.CharField(max_length = 255)
     created_at = models.DateTimeField(auto_now_add = True)
-    updated_at = models.DateTimeField(auto_now = True)    
+    updated_at = models.DateTimeField(auto_now = True)  
 
 class Listing(models.Model):
-    seller = models.ForeignKey(User, related_name = listings)
-    event = models.ForeignKey(Event,related_name = listings)
+    seller = models.ForeignKey(User, related_name = 'listings')
+    event = models.ForeignKey(Event,related_name = 'listings')
     zone = models.CharField(max_length = 255)
     section = models.CharField(max_length = 255)
     tickets_for_sale = models.IntegerField(default = 0)
@@ -91,28 +90,29 @@ class Listing(models.Model):
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True) 
 
+class Ticket(models.Model):
+    listing = models.ForeignKey(Listing, related_name = 'tickets')
+    seat = models.IntegerField(default = 0)
+    price = models.FloatField(default = 0.0)
+    sold = models.BooleanField(default = False)
+    created_at = models.DateTimeField(auto_now_add = True)
+    updated_at = models.DateTimeField(auto_now = True)  
+
+class CreditCard(models.Model):
+    user = models.ForeignKey(User, related_name = 'credit_cards')
+    name_on_card = models.CharField(max_length = 255)
+    number = models.CharField(max_length = 45)
+    expiration = models.CharField(max_length = 16)
+    created_at = models.DateTimeField(auto_now_add = True)
+    updated_at = models.DateTimeField(auto_now = True) 
+
 class Transaction(models.Model):
-    buyer = models.ForeignKey(User, related_name = transactions) 
-    listing = models.ForeignKey(Listing, related_name = transactions)
+    buyer = models.ForeignKey(User, related_name = 'transactions') 
+    listing = models.ForeignKey(Listing, related_name = 'transactions')
     tickets_bought = models.IntegerField(default = 0)
-    credit_card = models.ForeignKey(CreditCard, related_name = transactions)
+    credit_card = models.ForeignKey(CreditCard, related_name = 'transactions')
     total = models.FloatField(default = 0.0)
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True) 
 
-
-class Performer(models.Model):
-    title = models.CharField(max_length = 255)
-    category = models.CharField(max_length = 255)
-    popularity = models.IntegerField(default = 0)
-    created_at = models.DateTimeField(auto_now_add = True)
-    updated_at = models.DateTimeField(auto_now = True) 
-
-class CreditCard(models.Model):
-    user = models.ForeignKey(User, related_name = credit_cards)
-    name_on_card = models.CharField(max_length = 255)
-    number = models.CharField(max_length = 45)
-    expiration = models.DateTimeField(default=datetime.now)
-    created_at = models.DateTimeField(auto_now_add = True)
-    updated_at = models.DateTimeField(auto_now = True) 
 
