@@ -1,1 +1,1 @@
-This is a Read Me file created by mike sullivan
+This is a Read Me file created by Erick Ruiz
