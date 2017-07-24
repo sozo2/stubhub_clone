@@ -38,8 +38,11 @@
                         </div>
                     </div>
                     <div class="col-md-12 searchBar">
-                        <input id="searchBar" type="text" placeholder="Seach for events, artist, teams or venues">
-                        <input id="searchIcon" type="image" src="{% static 'main/images/searchIcon.png' %}" alt="searchIcon">
+                        <form action="{% url 'search:results' %}" method="post">
+                            {% csrf_token %}
+                            <input id="searchBar" name="searchInfo" type="text" placeholder="Seach for events, artist, teams or venues">
+                            <input id="searchIcon" type="image" src="{% static 'main/images/searchIcon.png' %}" alt="searchIcon">
+                        </form>
                     </div>
                 </div>
             </div>

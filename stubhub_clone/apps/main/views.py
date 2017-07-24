@@ -5,12 +5,13 @@ from django.shortcuts import render,HttpResponse,reverse
 from  models import *
 
 def index(request):
-    
-    primaryPerformer = "Chicago Cubs"
-    events = Event.objects.filter(performers__name=primaryPerformer)
-
+    events = Event.objects.all().order_by('-popularity')[:1]
+    # for event in events:
+    #     performers = event.performers.all()
+    #     for i in range(len(performers)):
+    #         if i == 0:
+    #             print performers[i].name
     context = {
         'events':events,
-        'primaryPerformer': primaryPerformer
     }
     return render(request, "main/index.html", context)
