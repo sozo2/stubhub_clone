@@ -9,3 +9,5 @@ from django.core.urlresolvers import reverse
 def results(request):
     if request.method !="POST":
         return redirect(reverse('main:index')) 
+    #search_query = request.POST['query']
+    search_events=Event.objects.filter(string_icontains="")
