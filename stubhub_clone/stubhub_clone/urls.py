@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^login', include("apps.login_reg.urls", namespace='login')),
     url(r'^my_hub', include("apps.my_hub.urls", namespace='my_hub')),
     #url(r'^checkout', include("apps.checkout.urls"), name='checkout'),
-    url(r'^search', include("apps.find_tickets.urls"), name='search'),
+    url(r'^search', include("apps.find_tickets.urls", namespace='search')),
     # url(r'^sell_tickets', include("apps.sell_tickets.urls"), name='sell_tickets'),
     # url(r'^admin/', admin.site.urls),
 ]
