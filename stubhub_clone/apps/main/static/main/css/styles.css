@@ -1,0 +1,291 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#wrapper{
+    width: auto;
+}
+.headerLeft{ 
+    background-color: #260354;
+    height: 75px;
+    padding-left: 100px;
+    padding-top: 15px;
+}
+.headerRight{
+    background-color: #260354;
+    height: 75px;
+    padding-right: 100px;
+    padding-top: 15px;
+}
+.searchBar{
+    height: 70px;
+    background-color: #260354;
+}
+#logo{
+    height: 75px;
+    width: 125px;
+}
+.inlineBlock{
+    display: inline-block;
+    color: white;
+}
+.marginLeft{
+    float: right;
+    margin-left: 20px;
+}
+#headerGHE{
+    height: 30px;
+}
+#headerSMS{
+    height: 30px;
+}
+#searchBar{
+    width: 450px;
+    height: 45px;
+    margin-top: 15px;
+    margin-left: 33%;
+    font-size: 18px;
+    vertical-align: top;
+    margin-right: 0px;
+}
+#searchIcon{
+    height: 45px;
+    width: 45px;
+    margin-top: 15px;
+}
+#locationRow{
+    height: 50px;
+    border-bottom: 1px solid #E7EAEC;
+    background-color: #F6F8F9;
+}
+#location{
+    width: 250px;
+    height: 50px;
+    display: inline-block;
+    padding: 7px;
+    margin-left: 470px;
+    vertical-align: top;
+    border-left: 1px solid #E7EAEC;
+    border-right: 1px solid #E7EAEC;
+}
+#when{
+    width: 250px;
+    height: 50px;
+    display: inline-block;
+    padding: 7px;
+    vertical-align: top;
+    border-right: 1px solid #E7EAEC;
+}
+.dropDownIcon{
+    height: 15px;
+    width: 45px;
+    display: inline-block;
+    float: right;
+    margin-top: 10px;
+}
+.locationWhenText{
+    display: inline-block;
+    color: #525252;
+}
+.locationIcon{
+    height: 17px;
+    width: 17px;
+}
+#body{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #F6F8F9;
+}
+.eventContainer{
+    text-align: left;
+    border: 1px solid #e7eaec;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+.title{
+    height: 68px;
+    padding-top: 25px;
+    padding-left: 20px;
+}
+.event-groupings-list{
+    display: block;
+}
+.event{
+    position: relative;
+    height: 95px;
+    box-sizing: border-box;
+    border-top: 1px solid #e7eaec;
+    cursor: pointer;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: flex;
+}
+.seeMore{
+    height: 56px;
+    box-sizing: border-box;
+    padding: 17px;
+    border-top: 1px solid #e7eaec;
+    color: #206EA3;
+}
+.starIcon{
+    height: 15px;
+    width: 17px;
+    display: inline-block;
+}
+.eventTitleHeader{
+    display: inline-block;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    color: #525252;
+    font-weight: bold;
+    font-size: 17px;
+    overflow:hidden;
+}
+.eventDate{
+    width: 95px;
+    height: 95px;
+    padding-top: 15px;
+    display: inline-block;
+}
+.eventDay{
+    width: 95px;
+    height: 50px;
+    border-right: 1px solid #CFD4D9;
+    padding-left: 25px;
+}
+.day{
+    margin-top: 10px;
+    height: 24px;
+    width: 100%;
+    color: #00A1A1;
+    font-weight: 500;
+    font-size: 21px;
+}
+.monthDay{
+    height: 20px;
+    color: #87909A;
+    margin-top: 5px;
+}
+.eventDetails{
+    display: inline-block;
+    margin-left: 5px;
+    padding-right: 10px;
+    vertical-align: top;
+    padding-top: 25px;
+    overflow:hidden;
+}
+.eventTitle{
+    font-size: 16px;
+    color: #085F99;
+    overflow:hidden;
+}
+.eventTimeLocation{
+    height: 25px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #828282;
+    line-height: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow:hidden;
+}
+#footer{
+    height: 250px;
+    border-top: 1px solid #CFD4D9;
+    padding: 20px 20px 20px 150px;
+    background-color: #F6F8F9;
+}
+#footerGetApps{
+    width: 300px;
+    height: 250px;
+    display: inline-block;
+    margin-right: 100px;
+    vertical-align: top;
+    color: #5C6570;
+}
+#footerConnectWithUs{
+    width: 200px;
+    height: 250px;
+    display: inline-block;
+    margin-right: 100px;
+    vertical-align: top;
+    color: #5C6570;
+}
+#footerAbout{
+    width: 500px;
+    height: 250px;
+    display: inline-block;
+    vertical-align: top;
+}
+.connectWithUsMedia{
+    height: 20px;
+    width: 20px;
+    margin-left: 20px;
+}
+#messenger{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+#usaLogo{
+    height: 20px;
+    width: 20px;
+    border-radius: 9px;
+    display: inline-block;
+}
+#usaText{
+    display: inline-block;
+}
+#aboutStubHub{
+    width: 250px;
+    height: 250px; 
+    display: inline-block;
+    vertical-align: top;
+    color: #5C6570;
+}
+#fanHub{
+    width: 220px;
+    height: 250px;
+    display: inline-block;
+    vertical-align: top;
+    color: #5C6570;
+}
+li{
+    list-style-type: none;
+    margin-top: 5px;
+}
+#rights{
+    height: 120px;
+    width: 90%;
+    border-top: 1px solid #CFD4D9;
+}
+#fanProtect{
+    width: 300px;
+    height: 120px;
+    display: inline-block;
+    vertical-align: top;
+}
+#allRightsReserved{
+    width: 825px;
+    height: 120px;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 70px;
+    padding-left: 175px;
+}
+h6{
+    margin-bottom: 0px;
+    color: #616A75;
+}
+#rightsTextTop{
+    font-size: 10px;
+    margin-bottom: 0px;
+    color: #7E868F;
+}
+#rightsTextBottom{
+    font-size: 10px;
+    margin-left: 40px;
+    color: #7E868F;
+}

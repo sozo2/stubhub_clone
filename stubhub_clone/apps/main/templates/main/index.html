@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="homePage.js"></script>
+        <link rel="icon" href="{% static 'main/images/logo.png' %}">
+        <title>Buy sports, concert and theater</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                <div class="row">
+                    <div class="col-md-6 headerLeft">
+                        <img id="logo" class="inlineBlock" src="{% static 'main/images/StubHubLogo.png' %}" alt="StubHubLogo">
+                        <p class="inlineBlock">Find events</p>
+                    </div>
+                    <div class="col-md-6 headerRight">
+                        <div class="row">
+                            <div class="col-md-12" id="headerGHE">
+                                <a href=""><h6 class="inlineBlock marginLeft">Gift cards</h6></a>
+                                <a href=""><h6 class="inlineBlock marginLeft">Help</h6></a>
+                                <a href=""><h6 class="inlineBlock marginLeft">English</h6></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" id="headerSMS">
+                                <a href=""><h5 class="inlineBlock marginLeft">Sell Tickets</h5></a>
+                                <a href=""><h5 class="inlineBlock marginLeft">My Tickets</h5></a>
+                                <a href=""><h5 class="inlineBlock marginLeft">Sign in</h5></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 searchBar">
+                        <input id="searchBar" type="text" placeholder="Seach for events, artist, teams or venues">
+                        <input id="searchIcon" type="image" src="{% static 'main/images/searchIcon.png' %}" alt="searchIcon">
+                    </div>
+                </div>
+            </div>
+            <div id="locationRow">
+                <div id="location">
+                    <img class="locationIcon" src="{% static 'main/images/locationIcon.png' %}" alt="locationIcon">
+                    <h5 class="locationWhenText">Chicago, IL</h5>
+                    <img class="dropDownIcon" src="https://image.flaticon.com/icons/svg/118/118738.svg" alt="dropdownicon">
+                </div>
+                <div id="when">
+                    <img class="locationIcon" src="{% static 'main/images/calenderIcon.png' %}" alt="calenderIcon">
+                    <h5 class="locationWhenText">When</h5>
+                    <img class="dropDownIcon" src="https://image.flaticon.com/icons/svg/118/118738.svg" alt="dropdownicon">
+                </div>
+            </div>
+            <div id="body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="eventContainer">
+                            <div class="title">
+                                <img class="starIcon" src="{% static 'main/images/starIcon.png' %}" alt="starIcon">
+                                <p class="eventTitleHeader">CHICAGO CUBS</p>
+                            </div>
+                            <div class="event-groupings-list">
+                                <div class="event">
+                                    <div class="eventDate">
+                                        <div class="eventDay">
+                                            <div class="day">
+                                                <p>WED</p>
+                                            </div>
+                                            <div class="monthDay">
+                                                <p>JUL 26</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="eventDetails">
+                                        <div class="eventTitle">
+                                            <p>Chicago Cubs at Chicago White Sox</p>
+                                        </div>
+                                        <div class="eventTimeLocation">
+                                            <p>1:20 PM - Wrigley Field</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="event">
+                                    <div class="eventDate">
+                                        <div class="eventDay">
+                                            <div class="day">
+                                                <p>FRI</p>
+                                            </div>
+                                            <div class="monthDay">
+                                                <p>JUL 27</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="eventDetails">
+                                        <div class="eventTitle">
+                                            <p>Chicago Cubs at Chicago White Sox</p>
+                                        </div>
+                                        <div class="eventTimeLocation">
+                                            <p>1:20 PM - Wrigley Field</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="event">
+                                    <div class="eventDate">
+                                        <div class="eventDay">
+                                            <div class="day">
+                                                <p>SAT</p>
+                                            </div>
+                                            <div class="monthDay">
+                                                <p>JUL 30</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="eventDetails">
+                                        <div class="eventTitle">
+                                            <p>Chicago Cubs at Chicago White Sox</p>
+                                        </div>
+                                        <div class="eventTimeLocation">
+                                            <p>1:20 PM - Wrigley Field</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="seeMore">
+                                    <p>View more events</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="eventContainer">
+                            <div class="title">
+                                <img class="starIcon" src="starIcon.png" alt="starIcon">
+                                <p class="eventTitleHeader">CHICAGO WHITESOX</p>
+                            </div>
+                            <div class="event-groupings-list">
+                                <div class="event">
+                                    <div class="eventDate">
+                                        <div class="eventDay">
+                                            <div class="day">
+                                                <p>WED</p>
+                                            </div>
+                                            <div class="monthDay">
+                                                <p>JUL 26</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="eventDetails">
+                                        <div class="eventTitle">
+                                            <p>Chicago Cubs at Chicago White Sox</p>
+                                        </div>
+                                        <div class="eventTimeLocation">
+                                            <p>1:20 PM - Wrigley Field</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="event">
+                                    <div class="eventDate">
+                                        <div class="eventDay">
+                                            <div class="day">
+                                                <p>WED</p>
+                                            </div>
+                                            <div class="monthDay">
+                                                <p>JUL 26</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="eventDetails">
+                                        <div class="eventTitle">
+                                            <p>Chicago Cubs at Chicago White Sox</p>
+                                        </div>
+                                        <div class="eventTimeLocation">
+                                            <p>1:20 PM - Wrigley Field</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="event">
+                                    <div class="eventDate">
+                                        <div class="eventDay">
+                                            <div class="day">
+                                                <p>WED</p>
+                                            </div>
+                                            <div class="monthDay">
+                                                <p>JUL 26</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="eventDetails">
+                                        <div class="eventTitle">
+                                            <p>Chicago Cubs at Chicago White Sox</p>
+                                        </div>
+                                        <div class="eventTimeLocation">
+                                            <p>1:20 PM - Wrigley Field</p>
+                                        </div>
+                                    </div>
+                                </div>  
+                                <div class="seeMore">
+                                    <p>View more events</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="eventContainer">
+                            <div class="title">
+                                <img class="starIcon" src="starIcon.png" alt="starIcon">
+                                <p class="eventTitleHeader">CHICAGO CUBS</p>
+                            </div>
+                            <div class="event-groupings-list">
+                                <div class="event">
+                                    <div class="eventDate">
+                                        <div class="eventDay">
+                                            <div class="day">
+                                                <p>WED</p>
+                                            </div>
+                                            <div class="monthDay">
+                                                <p>JUL 26</p>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                    <div class="eventDetails">
+                                        <div class="eventTitle">
+                                            <p>Chicago Cubs at Chicago White Sox</p>
+                                        </div>
+                                        <div class="eventTimeLocation">
+                                            <p>1:20 PM - Wrigley Field</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="event">
+                                    <div class="eventDate">
+                                        <div class="eventDay">
+                                            <div class="day">
+                                                <p>WED</p>
+                                            </div>
+                                            <div class="monthDay">
+                                                <p>JUL 26</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="eventDetails">
+                                        <div class="eventTitle">
+                                            <p>Chicago Cubs at Chicago White Sox</p>
+                                        </div>
+                                        <div class="eventTimeLocation">
+                                            <p>1:20 PM - Wrigley Field</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="event">
+                                    <div class="eventDate">
+                                        <div class="eventDay">
+                                            <div class="day">
+                                                <p>WED</p>
+                                            </div>
+                                            <div class="monthDay">
+                                                <p>JUL 26</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="eventDetails">
+                                        <div class="eventTitle">
+                                            <p>Chicago Cubs at Chicago White Sox</p>
+                                        </div>
+                                        <div class="eventTimeLocation">
+                                            <p>1:20 PM - Wrigley Field</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="seeMore">
+                                    <p>View more events</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                <div id="footerGetApps">
+                    <img id="usaLogo" src="{% static 'main/images/usa.png' %}" alt="usa">
+                    <h4 id="usaText">United States</h4>
+                    <h4>Get the StubHub app</h4>
+                    <img src="{% static 'main/images/apps.png' %}" alt="apps">
+                </div>
+                <div id="footerConnectWithUs">
+                    <h4>Connect with us</h4>
+                    <img class="connectWithUsMedia" src="{% static 'main/images/facebookLogo.png' %}" alt="facebook">
+                    <img class="connectWithUsMedia" src="{% static 'main/images/instagramLogo.jpg' %}" alt="instagram">
+                    <img class="connectWithUsMedia" src="{% static 'main/images/twitterLogo.png' %}" alt="twitter">
+                    <img id="messenger" src="{% static 'main/images/messenger.png' %}" alt="messenger">
+                </div>
+                <div id="footerAbout">
+                    <div id="aboutStubHub">
+                        <h4>About StubHub</h4>
+                        <ul>
+                            <a href=""><li>About us</li></a>
+                            <a href=""><li>Careers</li></a>
+                            <a href=""><li>Help</li></a>
+                            <a href=""><li>Partners</li></a>
+                            <a href=""><li>Press Box</li></a>
+                            <a href=""><li>Terms, Privacy & Cookies</li></a>
+                        </ul>
+                    </div>
+                    <div id="fanHub">
+                        <h4>Fan Hub</h4>
+                        <ul>
+                            <a href=""><li>Events by venue</li></a>
+                            <a href=""><li>Gift cards</li></a>
+                            <a href=""><li>Last Minute Services</li></a>
+                            <a href=""><li>Notifications</li></a>
+                            <a href=""><li>The StubHub Promise</li></a>
+                        </ul>
+                    </div>
+                </div>
+                <div id="rights">
+                    <div id="fanProtect">
+                        <img src="{% static 'main/images/fanprotect.png' %}" alt="fanprotect">
+                        <h6>Buy and sell with confidence</h6>
+                        <h6>Customer service all the way to your seat</h6>
+                        <h6>Every order is 100% guaranteed</h6>
+                    </div>
+                    <div id="allRightsReserved">
+                        <p id="rightsTextTop">2000-2017. All Rights Reserved. Use of this website signifies your agreement to our <a href="">User Agreement, Privacy Notice and Cookie Notice.</a></p>
+                        <p id="rightsTextBottom">You are buying tickets from a third party; StubHub is not the ticket seller. Prices are set by sellers and may be above face value</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
