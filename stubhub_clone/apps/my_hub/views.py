@@ -9,7 +9,7 @@ from django.core.urlresolvers import reverse
 # Create your views here.
 
 def index(request):
-    return HttpResponse("This is the my_hub home")
+    return render(request, "my_hub/index.html")
 
 def gift_codes(request):
     return HttpResponse("This is the my_hub gift_codes page")
