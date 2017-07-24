@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'apps.find_tickets',
     'apps.login_reg',
     'apps.sell_tickets',
+    'apps.my_hub',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
