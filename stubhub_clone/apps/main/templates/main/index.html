@@ -6,8 +6,10 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         {% load static %}
         <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="homePage.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="{% static 'main/javascript/homePage.js' %}"></script>
         <link rel="icon" href="{% static 'main/images/logo.png' %}">
         <title>Buy sports, concert and theater</title>
     </head>
@@ -31,7 +33,7 @@
                             <div class="col-md-12" id="headerSMS">
                                 <a href=""><h5 class="inlineBlock marginLeft">Sell Tickets</h5></a>
                                 <a href=""><h5 class="inlineBlock marginLeft">My Tickets</h5></a>
-                                <a href=""><h5 class="inlineBlock marginLeft">Sign in</h5></a>
+                                <a href=""><h5 id="signIn" class="inlineBlock marginLeft">Sign in</h5></a>
                             </div>
                         </div>
                     </div>
@@ -55,225 +57,17 @@
             </div>
             <div id="body">
                 <div class="row">
+                    {% for event in events %}
                     <div class="col-md-4">
-                        <div class="eventContainer">
-                            <div class="title">
-                                <img class="starIcon" src="{% static 'main/images/starIcon.png' %}" alt="starIcon">
-                                <p class="eventTitleHeader">CHICAGO CUBS</p>
-                            </div>
-                            <div class="event-groupings-list">
-                                <div class="event">
-                                    <div class="eventDate">
-                                        <div class="eventDay">
-                                            <div class="day">
-                                                <p>WED</p>
-                                            </div>
-                                            <div class="monthDay">
-                                                <p>JUL 26</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="eventDetails">
-                                        <div class="eventTitle">
-                                            <p>Chicago Cubs at Chicago White Sox</p>
-                                        </div>
-                                        <div class="eventTimeLocation">
-                                            <p>1:20 PM - Wrigley Field</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="event">
-                                    <div class="eventDate">
-                                        <div class="eventDay">
-                                            <div class="day">
-                                                <p>FRI</p>
-                                            </div>
-                                            <div class="monthDay">
-                                                <p>JUL 27</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="eventDetails">
-                                        <div class="eventTitle">
-                                            <p>Chicago Cubs at Chicago White Sox</p>
-                                        </div>
-                                        <div class="eventTimeLocation">
-                                            <p>1:20 PM - Wrigley Field</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="event">
-                                    <div class="eventDate">
-                                        <div class="eventDay">
-                                            <div class="day">
-                                                <p>SAT</p>
-                                            </div>
-                                            <div class="monthDay">
-                                                <p>JUL 30</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="eventDetails">
-                                        <div class="eventTitle">
-                                            <p>Chicago Cubs at Chicago White Sox</p>
-                                        </div>
-                                        <div class="eventTimeLocation">
-                                            <p>1:20 PM - Wrigley Field</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="seeMore">
-                                    <p>View more events</p>
-                                </div>
-                            </div>
-                        </div>
+                        {% include 'main/eventContainerSnippet.html' %}
                     </div>
                     <div class="col-md-4">
-                        <div class="eventContainer">
-                            <div class="title">
-                                <img class="starIcon" src="starIcon.png" alt="starIcon">
-                                <p class="eventTitleHeader">CHICAGO WHITESOX</p>
-                            </div>
-                            <div class="event-groupings-list">
-                                <div class="event">
-                                    <div class="eventDate">
-                                        <div class="eventDay">
-                                            <div class="day">
-                                                <p>WED</p>
-                                            </div>
-                                            <div class="monthDay">
-                                                <p>JUL 26</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="eventDetails">
-                                        <div class="eventTitle">
-                                            <p>Chicago Cubs at Chicago White Sox</p>
-                                        </div>
-                                        <div class="eventTimeLocation">
-                                            <p>1:20 PM - Wrigley Field</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="event">
-                                    <div class="eventDate">
-                                        <div class="eventDay">
-                                            <div class="day">
-                                                <p>WED</p>
-                                            </div>
-                                            <div class="monthDay">
-                                                <p>JUL 26</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="eventDetails">
-                                        <div class="eventTitle">
-                                            <p>Chicago Cubs at Chicago White Sox</p>
-                                        </div>
-                                        <div class="eventTimeLocation">
-                                            <p>1:20 PM - Wrigley Field</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="event">
-                                    <div class="eventDate">
-                                        <div class="eventDay">
-                                            <div class="day">
-                                                <p>WED</p>
-                                            </div>
-                                            <div class="monthDay">
-                                                <p>JUL 26</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="eventDetails">
-                                        <div class="eventTitle">
-                                            <p>Chicago Cubs at Chicago White Sox</p>
-                                        </div>
-                                        <div class="eventTimeLocation">
-                                            <p>1:20 PM - Wrigley Field</p>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <div class="seeMore">
-                                    <p>View more events</p>
-                                </div>
-                            </div>
-                        </div>
+                        {% include 'main/eventContainerSnippet.html' %}
                     </div>
                     <div class="col-md-4">
-                        <div class="eventContainer">
-                            <div class="title">
-                                <img class="starIcon" src="starIcon.png" alt="starIcon">
-                                <p class="eventTitleHeader">CHICAGO CUBS</p>
-                            </div>
-                            <div class="event-groupings-list">
-                                <div class="event">
-                                    <div class="eventDate">
-                                        <div class="eventDay">
-                                            <div class="day">
-                                                <p>WED</p>
-                                            </div>
-                                            <div class="monthDay">
-                                                <p>JUL 26</p>
-                                            </div>
-                                        </div>
-                                    </div>  
-                                    <div class="eventDetails">
-                                        <div class="eventTitle">
-                                            <p>Chicago Cubs at Chicago White Sox</p>
-                                        </div>
-                                        <div class="eventTimeLocation">
-                                            <p>1:20 PM - Wrigley Field</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="event">
-                                    <div class="eventDate">
-                                        <div class="eventDay">
-                                            <div class="day">
-                                                <p>WED</p>
-                                            </div>
-                                            <div class="monthDay">
-                                                <p>JUL 26</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="eventDetails">
-                                        <div class="eventTitle">
-                                            <p>Chicago Cubs at Chicago White Sox</p>
-                                        </div>
-                                        <div class="eventTimeLocation">
-                                            <p>1:20 PM - Wrigley Field</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="event">
-                                    <div class="eventDate">
-                                        <div class="eventDay">
-                                            <div class="day">
-                                                <p>WED</p>
-                                            </div>
-                                            <div class="monthDay">
-                                                <p>JUL 26</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="eventDetails">
-                                        <div class="eventTitle">
-                                            <p>Chicago Cubs at Chicago White Sox</p>
-                                        </div>
-                                        <div class="eventTimeLocation">
-                                            <p>1:20 PM - Wrigley Field</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="seeMore">
-                                    <p>View more events</p>
-                                </div>
-                            </div>
-                        </div>
+                        {% include 'main/eventContainerSnippet.html' %}
                     </div>
+                    {% endfor %}
                 </div>
             </div>
             <div id="footer">
