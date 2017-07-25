@@ -1,0 +1,23 @@
+{% load static %}
+    <div class="event-groupings-list">
+        <div class="event">
+            <div class="eventDate">
+                <div class="eventDay">
+                    <div class="day">
+                        <p>{{event.day}}</p>
+                    </div>
+                    <div class="monthDay">
+                        <p>{{event.date}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="eventDetails">
+                <div class="eventTitle">
+                    <p>{{event.title}}</p>
+                </div>
+                <div class="eventTimeLocation">
+                    <p>{{event.time}} - {{event.venue.title}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
