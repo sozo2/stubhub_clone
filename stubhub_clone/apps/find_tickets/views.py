@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect, HttpResponse
 from .models import *
 from django.contrib import messages
 from django.core.urlresolvers import reverse
+from django.db.models import Min
 from datetime import *
 
 # Create your views here.
@@ -15,20 +16,25 @@ def process(request):
 
 def results(request):
     search_string = request.session['search_string']
-    search_results = Event.objects.filter(title__icontains=search_string).order_by('start_time')
+    
+    event_results = Event.objects.filter(title__icontains=search_string).order_by('start_time')
     search_count = Event.objects.filter(title__icontains=search_string).count()
-    results=[]
-    for search_result in search_results:
+    
+    events=[]
+    for search_result in event_results:
         curr_dict = {}
+        Ticket_Min = Ticket.objects.filter(listing__event__id = search_result.id).aggregate(Min('price'))        
         curr_dict['day']=search_result.start_time.strftime('%a')
         curr_dict['time']=search_result.start_time.strftime('%I:%M %p')
         curr_dict['title']= search_result.title
         curr_dict['venue']= search_result.venue.title
         curr_dict['date']=search_result.start_time.strftime('%b %d')
         curr_dict['id']=search_result.id
-        results.append(curr_dict)
+        curr_dict['min_price']= int(Ticket_Min['price__min'])
+        events.append(curr_dict)
+    
     context = {
-        'search_results':results,
+        'search_results':events,
         'search_count':search_count
     }
     return render(request, 'find_tickets/results.html', context)

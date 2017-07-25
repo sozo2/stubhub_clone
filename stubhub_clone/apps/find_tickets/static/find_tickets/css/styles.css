@@ -29,6 +29,7 @@
     float: right;
     margin-left: 20px;
 }
+
 #headerGHE{
     height: 30px;
 }
@@ -76,4 +77,13 @@ li{
 }
 .sms{
     font-size: 14px;
+}
+
+
+#price{
+    float: right;
+    text-align: left
+}
+.event{
+    width: 100%;
 }
