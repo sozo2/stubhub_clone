@@ -1,0 +1,42 @@
+<div id="header">
+                <div class="row">
+                    <div class="col-md-6 headerLeft">
+                        <img id="logo" class="inlineBlock" src="{% static 'main/images/StubHubLogo.png' %}" alt="StubHubLogo">
+                        <p class="inlineBlock">Find events</p>
+                    </div>
+                    <div class="col-md-6 headerRight">
+                        <div class="row">
+                            <div class="col-md-12" id="headerGHE">
+                                <a href=""><h6 class="inlineBlock marginLeft">Gift cards</h6></a>
+                                <a href=""><h6 class="inlineBlock marginLeft">Help</h6></a>
+                                <a href=""><h6 class="inlineBlock marginLeft">English</h6></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" id="headerSMS">
+                                <a href=""><h5 class="inlineBlock marginLeft">Sell Tickets</h5></a>
+                                <a href=""><h5 class="inlineBlock marginLeft">My Tickets</h5></a>
+                                <!--<a href=""><h5 id="signIn" class="inlineBlock marginLeft">Sign in</h5></a>-->
+                                <h5 class="inlineBlock marginLeft modal-btn" data-toggle="modal" data-target="#myModal">
+                                Sign in
+                                </h5>   
+                                <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                            {% include 'main/snippet.html' %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 searchBar">
+                        <input id="searchBar" type="text" placeholder="Seach for events, artist, teams or venues">
+                        <input id="searchIcon" type="image" src="{% static 'main/images/searchIcon.png' %}" alt="searchIcon">
+                    </div>
+                </div>
+            </div>

@@ -21,8 +21,6 @@ class UserManager(models.Manager):
             errors['name_chars'] = 'Name fields can only contain letters of the alphabet'
         if len(user_input['last_name']) < 2:
             errors['last_name'] = 'Last name must be at least 2 characters long'
-        if user_input['password'] != user_input['confirm_pw']:
-            errors['confirm_pw'] = 'Passwords do not match. Try again.'
         if len(user_input['password']) < 8:
             errors['password'] = 'Password must be at least 8 characters long'
         if not EMAIL_REGEX.match(user_input['email']):

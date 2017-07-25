@@ -133,6 +133,7 @@
     height: 15px;
     width: 17px;
     display: inline-block;
+    margin-bottom: 16px;
 }
 .eventTitleHeader{
     display: inline-block;
@@ -288,4 +289,223 @@ h6{
     font-size: 10px;
     margin-left: 40px;
     color: #7E868F;
+}
+
+
+/* ADDING LOGIN MODAL STYLES HERE */
+
+.msg {
+    text-align: center;
+    color: red;
+    margin-bottom: 10px;
+}
+
+.left{
+    margin: -15px;
+}
+
+.modal.custom .modal-dialog {
+    margin:0 auto;
+}
+
+.modal.custom .modal-content {
+    border-radius: 0px;
+}
+
+.custom-close{
+    margin: 10px;
+    display: block;
+    margin-left: 95%;
+}
+
+.custom-input {
+    margin-bottom: 10px;
+    border: none;
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid grey;
+}
+
+.custom-name-input{
+    margin-bottom: 10px;
+    margin-top: 20px;
+    border: none;
+    width: 80%;
+    height: 40px;
+    border-bottom: 1px solid grey;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.custom-input:focus {
+    outline: none !important;
+    border-bottom: 3px solid rgb(217,65,133);
+    box-shadow: none;
+}
+
+.custom-name-input:focus {
+    outline: none !important;
+    border-bottom: 3px solid rgb(217,65,133);
+    box-shadow: none;
+}
+
+.login-img{
+    width: 150px;
+    height: 180px;
+}
+
+.login{
+    display: block;
+    margin-left: 22px;;
+    margin-top: 10px;
+    border-radius: 0px;
+    border: none;
+    height: 50px;
+    width: 260px;
+    background: rgb(217,65,133);
+    color: white;
+}
+
+.fb-login{
+    display: block;
+    margin: 10px 0px 10px 22px;
+    border-radius: 0px;
+    border: none;
+    height: 50px;
+    width: 260px;
+    background: rgb(76,104,167);
+    color: white;
+    line-height: 50px;
+    font-size: 18px;
+}
+
+.fb-register{
+    display: block;
+    margin: 10px 0px 10px 62px;
+    border-radius: 0px;
+    border: none;
+    height: 50px;
+    width: 260px;
+    background: rgb(76,104,167);
+    color: white;
+    line-height: 50px;
+    font-size: 16px;
+}
+
+.fb-logo{
+    width:60px;
+    height:20px;
+    margin-bottom: 2px;
+}
+
+.login-head{
+    color: rgb(82,82,82);
+}
+
+.or-bar{
+    height: 14px;
+    font-size: 12px;
+    padding: 2px;
+}
+
+.or-left {
+    height: 2px;
+    width: 135px;
+    background: rgb(230,233,235);
+    display: inline-block;
+    margin-bottom: 6px;
+    margin-right: 4px;
+}
+
+.or-right {
+    height: 2px;
+    width: 135px;
+    background: rgb(230,233,235);
+    display: inline-block;
+    margin-bottom: 6px;
+    margin-left: 4px;
+}
+
+.or-bar p{
+    font-size: 14px;
+    vertical-align: center;
+    display: inline-block;
+    margin-bottom: 10px;
+    color: rgb(102,102,102);
+}
+
+.login-form{
+    margin-top: 20px;
+}
+
+.forgot{
+    text-align: center;
+    color: rgb(8,95,153);
+    height: 130px;
+}
+
+.new-to-stub{
+    text-align: center;
+}
+
+#sign-up, #login-now, .blue-text{
+    color: rgb(8,95,153);
+}
+
+
+.indent{
+    margin-left: 40px;
+}
+
+.with-stub{
+    margin-bottom: -10px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(91,101,112);
+}
+
+.agreement{
+    color: rgb(102,102,102);  
+    font-size: 12px;  
+    margin-bottom: 50px;
+}
+
+.blue-text{
+    font-weight: bold;
+    font-size: 13px;
+}
+
+#login-now, #sign-up{
+    font-size: 16px;
+}
+
+#choose-reg{
+    display: none;
+}
+
+#modal-btn{
+    text-decoration: none;
+    border: none;
+    background: #260354;
+}
+
+#modal-btn:focus{
+    outline: none !important;
+    box-shadow: none;
+}
+
+#modal-btn h5{
+    font-weight: bold;
+}
+
+.modal-switch{
+    text-decoration: none;
+    border: none;
+    background: white;
+}
+
+.modal-switch:focus{
+    outline: none !important;
+    box-shadow: none;
 }

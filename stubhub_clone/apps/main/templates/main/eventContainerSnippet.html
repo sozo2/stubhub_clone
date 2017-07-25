@@ -2,26 +2,26 @@
 <div class="eventContainer">
     <div class="title">
         <img class="starIcon" src="{% static 'main/images/starIcon.png' %}" alt="starIcon">
-        <p class="eventTitleHeader">{{event.title}}</p>
+        <p class="eventTitleHeader">{{performer.performer}}</p>
     </div>
     <div class="event-groupings-list">
         <div class="event">
             <div class="eventDate">
                 <div class="eventDay">
                     <div class="day">
-                        <p>{{event.start_time | date:"D"}}</p>
+                        <p>{{performer.p1.day | date:"D"}}</p>
                     </div>
                     <div class="monthDay">
-                        <p>{{event.start_time | date:"M d"}}</p>
+                        <p>{{performer.p1.date | date:"M d"}}</p>
                     </div>
                 </div>
             </div>
             <div class="eventDetails">
                 <div class="eventTitle">
-                    <p>{{event.title}}</p>
+                    <p>{{performer.p1.title}}</p>
                 </div>
                 <div class="eventTimeLocation">
-                    <p>{{event.start_time | date:"g:i A"}} - {{event.venue.title}}</p>
+                    <p>{{performer.p1.time | date:"g:i A"}} - {{performer.p1.venue}}</p>
                 </div>
             </div>
         </div>
@@ -29,19 +29,19 @@
             <div class="eventDate">
                 <div class="eventDay">
                     <div class="day">
-                        <p>FRI</p>
+                        <p>{{performer.p2.day | date:"D"}}</p>
                     </div>
                     <div class="monthDay">
-                        <p>JUL 27</p>
+                        <p>{{performer.p2.date | date:"M d"}}</p>
                     </div>
                 </div>
             </div>
             <div class="eventDetails">
                 <div class="eventTitle">
-                    <p>Chicago Cubs at Chicago White Sox</p>
+                    <p>{{performer.p2.title}}</p>
                 </div>
                 <div class="eventTimeLocation">
-                    <p>1:20 PM - Wrigley Field</p>
+                    <p>{{performer.p2.time | date:"g:i A"}} - {{performer.p2.venue}}</p>
                 </div>
             </div>
         </div>
@@ -49,24 +49,21 @@
             <div class="eventDate">
                 <div class="eventDay">
                     <div class="day">
-                        <p>SAT</p>
+                        <p>{{performer.p3.day | date:"D"}}</p>
                     </div>
                     <div class="monthDay">
-                        <p>JUL 30</p>
+                        <p>{{performer.p3.date | date:"M d"}}</p>
                     </div>
                 </div>
             </div>
             <div class="eventDetails">
                 <div class="eventTitle">
-                    <p>Chicago Cubs at Chicago White Sox</p>
+                    <p>{{performer.p3.title}}</p>
                 </div>
                 <div class="eventTimeLocation">
-                    <p>1:20 PM - Wrigley Field</p>
+                    <p>{{performer.p3.time | date:"g:i A"}} - {{performer.p3.venue}}</p>
                 </div>
             </div>
-        </div>
-        <div class="seeMore">
-            <p>View more events</p>
         </div>
     </div>
 </div>

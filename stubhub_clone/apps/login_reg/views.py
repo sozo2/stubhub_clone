@@ -35,7 +35,7 @@ def register(request):
             request.session['action'] = 'register success'
             return redirect('/')
     else:
-        return redirect('/')
+        return redirect(reverse('my_hub:index'))
 
 # def authenticate(request):
 #     if request.method == 'POST':
@@ -52,14 +52,7 @@ def register(request):
 #             request.session['current_user_id'] = this_user.id
 #             return redirect(REDIRECT TO INNER HOME PAGE) ********* needs editing
 #     else:
-#         return redirect('/')
-
-# def load_home(request):
-#     user = User.objects.get(id = request.session['current_user_id'])
-#     context = {
-#         'user' : user,
-#     }
-#     return render(request, 'log_reg/HOME HTML', context) ******* needs editing
+#         return redirect(reverse('my_hub:index'))
 
 def logout(request):
     request.session.clear()

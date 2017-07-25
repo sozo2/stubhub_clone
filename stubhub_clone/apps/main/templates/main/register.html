@@ -1,0 +1,30 @@
+{% load static %}
+<div class="container-fluid" id="register-page">
+    <div class='row'>
+        <div class='col-md-11 col-md-offset-1'>
+            <h3 class='text-left login-head'>Sign up and make it happen</h3>
+            <div class='fb-register'><img class='fb-logo' src="{% static 'main/images/facebook-logo.png' %}">Sign up with Facebook</div>
+            <div class='indent'>
+                <div class='or-bar'>
+                    <div class='or-left'></div><p>OR</p><div class='or-right'></div>
+                </div>
+                <div class='with-stub'>Sign up with Stubhub</div>
+                <form id="register-form" method='post'>
+                    {% csrf_token %}
+                    <div class="form-group row">
+                        <div class="col-md-6"><input class="custom-name-input" type="text" name="first_name" placeholder="First name"></div>
+                        <div class="col-md-6"><input class="custom-name-input" type="text" name="last_name" placeholder="Last name"></div>
+                        <div class="col-md-11 col-md-offset-1"><input class="custom-input" type="text" name="email" placeholder="Email"></div>
+                        <div class="col-md-11 col-md-offset-1"><input class="custom-input" type="password" name="password" placeholder="Password"></div>
+                        <div class="col-md-8"><input class="login" type="submit" value='Register'></div>
+                    </div>
+                </form>
+            </div>
+        </div> 
+        <div class="col-md-11 col-md-offset-1 text-center agreement">By signing up, you agree to our <span class="blue-text">user agreement</span> and <span class="blue-text">privacy notice</span>.<br>
+            <div class='col-md-12' id='register-msg-placeholder'></div></div>
+        </div>
+        <div class="new-to-stub col-md-11 col-md-offset-1">Have a Stubhub account? <button id="login-now" class="blue-text modal-switch">Sign in</button></div>
+    </div> 
+
+</div>

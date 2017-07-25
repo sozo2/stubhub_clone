@@ -1,0 +1,16 @@
+{% load static %}
+<div class='row'>
+    <div class='col-md-5 left'><img id="login-img" src="{% static 'main/images/login.png' %}">
+    </div>
+    <div class='col-md-7 right'>
+        <div class='row'>
+        <button type="button" class="close custom-close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div id="log-reg-choice">
+            <div id="choose-log"> {% include 'main/login.html' %}</div>
+            <div id="choose-reg"> {% include 'main/register.html' %}</div>
+        </div>
+    </div>
+</div>
