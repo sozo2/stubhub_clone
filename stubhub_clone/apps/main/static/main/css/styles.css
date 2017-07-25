@@ -133,6 +133,7 @@
     height: 15px;
     width: 17px;
     display: inline-block;
+    margin-bottom: 16px;
 }
 .eventTitleHeader{
     display: inline-block;

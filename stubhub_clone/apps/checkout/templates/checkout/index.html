@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'checkout/css/styles.css' %}">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="{% static 'checkout/javascript/script.js' %}"></script>
+        <title>Checkout</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                <div class="row">
+                    <div class="col-md-6 headerLeft">
+                        <img id="logo" class="inlineBlock" src="{% static 'main/images/StubHubLogo.png' %}" alt="StubHubLogo"> 
+                        <p class="inlineBlock">Find events</p>
+                    </div>
+                    <div class="col-md-6 headerRight">
+                        <div class="row">
+                            <div class="col-md-12" id="headerGHE">
+                                <a href=""><p class="inlineBlock marginLeft ghe">Gift cards</p></a>
+                                <a href=""><p class="inlineBlock marginLeft ghe">Help</p></a>
+                                <a href=""><p class="inlineBlock marginLeft ghe">English</p></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" id="headerSMS">
+                                <a href=""><p class="inlineBlock marginLeft sms">Sell Tickets</p></a>
+                                <a href=""><p class="inlineBlock marginLeft sms">My Tickets</p></a>
+                                <a href=""><p class="inlineBlock marginLeft sms">Signout</p></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="body">
+                <div id="venuePic">
+                    <h3>Order Details</h3>
+                </div>
+                <div id="ticketInfoContainer">
+                    <div class="event">
+                        <div class="eventDate">
+                            <div class="eventDay">
+                                <div class="day">
+                                    <p>WED</p>
+                                </div>
+                                <div class="monthDay">
+                                    <p>Jun 27</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eventDetails">
+                            <div class="eventTitle">
+                                <p>Cubs vs Sox</p>
+                            </div>
+                            <div class="eventTimeLocation">
+                                <p>7:30 PM - Wriggle Field</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h4>SELECTED SEATS</h4>
+                    <div id="sectionRowSeatText">
+                        <p class="inlineBlock srs">Section</p>
+                        <p class="inlineBlock srs">Row</p>
+                        <p class="inlineBlock srs">Seat</p>
+                    </div>
+                    <div id="features">
+                        <h5>SEAT FEATURES & TICKET DISCLOURES</h5>
+                    </div>
+                    <div id="delivery">
+                        <h4>DELIVERY</h4>
+                        <h5>Instant Download</h5>
+                        <h5>Ready to download and print within minuetes</h5>
+                    </div>
+                    <div id="TicketPriceContainer">
+                        <div id="TicketPrice">
+                            <h4>TICKET PRICE</h4>
+                            <h3 id="ticketPriceText">$20.00each.</h3>
+                        </div>
+                        <div id="numOfTickets">
+                            <h4>NUMBER OF TICKETS</h4>
+                            <select name="number" id="numberOfTix">
+                                <option>1</option>
+                                <option selected="selected">2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                            </select>
+                        </div>
+                    </div>
+                    <input id="checkoutButton" type="submit" value="Go to checkout">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

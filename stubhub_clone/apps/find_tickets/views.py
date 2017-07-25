@@ -33,5 +33,5 @@ def results(request):
     return render(request, 'find_tickets/results.html', context)
     
 def event(request, event_id):
-    #return render(request,"find_tickets/event_home.html")
-    return HttpResponse('Hello World')
+    return render(request,"find_tickets/event_home.html")
+    
