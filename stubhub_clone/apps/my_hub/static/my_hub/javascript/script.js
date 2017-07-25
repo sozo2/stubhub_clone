@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $( "#logo" ).click(function(){
+    $('#logo').click(function(){
         $(location).attr('href', '/')
     });
 });
