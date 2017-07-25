@@ -1,0 +1,27 @@
+{% load static %}
+<div class='container-fluid' id='login-page'>
+            <div class='row'>
+                <div class='col-md-11 col-md-offset-1'>
+                    <h3 class='text-left login-head'>Get seats you'll love, anytime</h3>
+            <div class='row'>
+                <div class='col-md-11 col-md-offset-1'>
+                    <div class='fb-login'><img class='fb-logo' src="{% static 'main/images/facebook-logo.png' %}">Sign in with Facebook</div>
+                    <div class='or-bar'>
+                        <div class='or-left'></div><p>OR</p><div class='or-right'></div>
+                    </div>
+                    <form class='login-form' id='login-form'>
+                        {% csrf_token %}
+                        <div class="form-group row">
+                            <div class="col-11"><input class="custom-input" type="text" name="email" placeholder="Email"></div>
+                            <div class="col-11"><input class="custom-input" type="password" name="password" placeholder="Password"></div>
+                            <div class="col-8"><input class="login" type="submit" value='Sign in'></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="forgot col-md-11 col-md-offset-1">Forgot your password?<br>
+                    <div class='col-md-12' id='login-msg-placeholder'></div></div>
+                <div class="new-to-stub col-md-11 col-md-offset-1">New to Stubhub? <button id="sign-up" class="modal-switch blue-text">Sign up</button></div>
+            </div>
+        </div>
+    </div>
+</div>

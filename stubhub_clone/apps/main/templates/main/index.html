@@ -3,12 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         {% load static %}
         <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        
         <script src="{% static 'main/javascript/homePage.js' %}"></script>
         <link rel="icon" href="{% static 'main/images/logo.png' %}">
         <title>Buy sports, concert and theater</title>
@@ -33,7 +38,24 @@
                             <div class="col-md-12" id="headerSMS">
                                 <a href=""><h5 class="inlineBlock marginLeft">Sell Tickets</h5></a>
                                 <a href=""><h5 class="inlineBlock marginLeft">My Tickets</h5></a>
-                                <a href=""><h5 id="signIn" class="inlineBlock marginLeft">Sign in</h5></a>
+                            {% if request.session.user_status == 'logged in' %}
+                                 <a href="{% url 'main:logout' %}"><h5 class="inlineBlock marginLeft">Log Out</h5></a>  
+                            {% else %}
+                                <button type="button" id="modal-btn" class="inlineBlock marginLeft" data-toggle="modal" data-target="#myModal">
+                                <h5 class="inlineBlock marginLeft">Sign in</h5>
+                                </button> 
+                            {% endif %}
+                                <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                            {% include 'main/snippet.html' %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             </div>
                         </div>
                     </div>
