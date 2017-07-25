@@ -3,5 +3,6 @@ from views import *
 
 urlpatterns = [
     url(r'results$', results, name='results'),
-    url(r'process$', process,name='process'),
+    url(r'process$', process, name='process'),
+    url(r'event/(?P<event_id>\d+)$', event, name='event'),
     ]
