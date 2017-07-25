@@ -1,0 +1,79 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#wrapper{
+    width: auto;
+}
+.headerLeft{ 
+    background-color: #260354;
+    height: 90px;
+    padding-left: 100px;
+    padding-top: 15px;
+}
+.headerRight{
+    background-color: #260354;
+    height: 90px;
+    padding-right: 100px;
+    padding-top: 15px;
+}
+#logo{
+    height: 75px;
+    width: 125px;
+}
+.inlineBlock{
+    display: inline-block;
+    color: white;
+}
+.marginLeft{
+    float: right;
+    margin-left: 20px;
+}
+#headerGHE{
+    height: 30px;
+}
+#headerSMS{
+    height: 30px;
+}
+#bannerContainer{
+    height: 150px;
+    background-image: url("/static/my_hub/images/hands.jpg");
+    background-repeat: no-repeat;
+    background-position: 0px -230px; 
+    background-attachment: fixed;
+    max-width:100%;
+    max-height:100%;
+    padding-left: 200px;
+    padding-top: 25px;
+}
+#profileContainerPic{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    vertical-align: top;
+}
+#profilePic{
+    width: 100px;
+    height: 100px;
+}
+#profileBannerName{
+    width: 200px;
+    height: 100px;
+    display: inline-block;
+    padding: 15px;
+    color: #FFFFFF;
+}
+#navbarBorder{
+    border-bottom: 1px solid #E7EAEC;
+    padding-left: 125px;
+    height: 80px;
+}
+li{
+    margin-right: 60px;
+}
+.ghe{
+    font-size: 12px;
+}
+.sms{
+    font-size: 14px;
+}
