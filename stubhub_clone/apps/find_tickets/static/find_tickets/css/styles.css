@@ -29,6 +29,7 @@
     float: right;
     margin-left: 20px;
 }
+
 #headerGHE{
     height: 30px;
 }
@@ -125,4 +126,14 @@
     background-color: orange;
     width: 100%;
     height: 100%;
+}
+.sms{
+    font-size: 14px;
+}
+#price{
+    float: right;
+    text-align: left
+}
+.event{
+    width: 100%;
 }

@@ -13,11 +13,15 @@
             </div>
             <div class="eventDetails">
                 <div class="eventTitle">
-                    <p>{{event.title}}</p>
-                </div>
+                    <a href="{% url 'search:event' event_id=event.id %} ">{{event.title}}</a>
+                </div> 
                 <div class="eventTimeLocation">
-                    <p>{{event.time}} - {{event.venue.title}}</p>
+                    <p>{{event.time}} - {{event.venue}}</p>
                 </div>
+                 
             </div>
+            <div><p id="price">From ${{ event.min_price}}</p></div>
         </div>
+        
     </div>
+        
