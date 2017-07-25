@@ -30,6 +30,7 @@ $(document).ready(function (){
     $("#sign-up").click(function() {
         $("#choose-log").hide();
         $("#choose-reg").show();
+    });
 
     $("#login-now").click(function() {
         $("#choose-reg").hide();
