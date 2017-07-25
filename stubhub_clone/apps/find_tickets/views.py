@@ -25,6 +25,7 @@ def results(request):
         curr_dict['title']= search_result.title
         curr_dict['venue']= search_result.venue.title
         curr_dict['date']=search_result.start_time.strftime('%b %d')
+        curr_dict['id']=search_result.id
         results.append(curr_dict)
     context = {
         'search_results':results,

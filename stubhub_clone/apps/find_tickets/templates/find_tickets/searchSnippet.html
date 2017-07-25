@@ -13,7 +13,7 @@
             </div>
             <div class="eventDetails">
                 <div class="eventTitle">
-                    <p>{{event.title}}</p>
+                    <a href="{% url 'search:event' event_id=event.id %} ">{{event.title}}</a>
                 </div>
                 <div class="eventTimeLocation">
                     <p>{{event.time}} - {{event.venue.title}}</p>
