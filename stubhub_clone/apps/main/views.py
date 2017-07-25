@@ -10,19 +10,8 @@ import json
 from django.http import JsonResponse
 
 def index(request):
-    primaryPerformer = "Chicago Cubs"
-    events = Event.objects.filter(performers__name=primaryPerformer)
-    if 'current_user_id' not in request.session:
-        request.session['current_user_id'] = 0
-    else:
-        print request.session['current_user_id']
-    if 'action' not in request.session:
-        request.session['action'] = ''
-    if 'user_status' not in request.session:
-        request.session['user_status'] = 'logged out'
     context = {
         'events':events,
-        'primaryPerformer': primaryPerformer
     }
     return render(request, "main/index.html", context)
 
@@ -32,8 +21,6 @@ def register(request):
         errors = User.objects.register_validator(request.POST)
         request.session['action'] = 'register'
         if len(errors):
-            #for error, error_message in errors.iteritems():
-               # messages.error(request, error_message, extra_tags = error)
             msgs =[]
             fail = True
             for error, error_message in errors.iteritems():
@@ -61,8 +48,6 @@ def authenticate(request):
         errors = User.objects.login_validator(request.POST)
         request.session['action'] = 'login'
         if len(errors):
-            #for error, error_message in errors.iteritems():
-            #    messages.error(request, error_message, extra_tags = error)
             msgs =[]
             fail = True
             for error, error_message in errors.iteritems():

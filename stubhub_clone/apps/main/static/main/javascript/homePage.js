@@ -8,10 +8,14 @@ function list_html(arr){
 
 
 $(document).ready(function (){
+
+    $( "#logo" ).click(function(){
+        $(location).attr('href', '/')
+    });
+
     $("#sign-up").click(function() {
         $("#choose-log").hide();
         $("#choose-reg").show();
-    });
 
     $("#login-now").click(function() {
         $("#choose-reg").hide();
