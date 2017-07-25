@@ -82,8 +82,31 @@ li{
 
 #price{
     float: right;
-    text-align: left
+    text-align: left;
 }
 .event{
     width: 100%;
+}
+
+.ticket-list{
+    overflow: scroll;
+    width: 200px;
+    height: 600px;
+}
+
+.img-container {
+    position:relative;
+    padding-top:66.59%;
+    padding-bottom:66.59%;
+    padding-left:66.59%;
+    padding-right:66.59%;
+
+}
+
+img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height:600px
 }

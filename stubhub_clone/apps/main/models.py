@@ -85,6 +85,7 @@ class Listing(models.Model):
     event = models.ForeignKey(Event,related_name = 'listings')
     zone = models.CharField(max_length = 255)
     section = models.CharField(max_length = 255)
+    row = models.CharField(max_length=45,default = 'A')
     tickets_for_sale = models.IntegerField(default = 0)
     delivery_method = models.CharField(max_length = 255)
     created_at = models.DateTimeField(auto_now_add = True)
