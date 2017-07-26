@@ -17,6 +17,12 @@
     padding-right: 100px;
     padding-top: 15px;
 }
+.headerTextTop{
+    font-size: 13px;
+}
+.headerTextBottom{
+    font-size: 15px;
+}
 .searchBar{
     height: 70px;
     background-color: #260354;
@@ -496,9 +502,8 @@ h6{
 }
 
 #modal-btn h5{
-    font-weight: bold;
+    font-size: 15px;
 }
-
 .modal-switch{
     text-decoration: none;
     border: none;
