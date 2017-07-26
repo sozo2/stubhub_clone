@@ -121,7 +121,7 @@
 }
 .event{
     position: relative;
-    height: 95px;
+    height: 105px;
     box-sizing: border-box;
     border-top: 1px solid #e7eaec;
     cursor: pointer;

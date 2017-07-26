@@ -9,8 +9,9 @@
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <link rel="icon" href="{% static 'main/images/logo.png' %}">
         <script src="{% static 'checkout/javascript/script.js' %}"></script>
-        <title>Checkout</title>
+        <title>{{listing.event.title}}</title>
     </head>
     <body>
         <div id="wrapper">
@@ -89,30 +90,20 @@
                         </div>
                         <div id="numOfTickets">
                             <h4>NUMBER OF TICKETS</h4>
-                            <select name="number" id="numberOfTix">
-                                <option>1</option>
-                                <option selected="selected">2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                                <option>11</option>
-                                <option>12</option>
-                                <option>13</option>
-                                <option>14</option>
-                                <option>15</option>
-                                <option>16</option>
-                                <option>17</option>
-                                <option>18</option>
-                                <option>19</option>
+                        <form action="{%url 'checkout:process' listing_id=listing.id%}" method="post">
+                        {% csrf_token %}
+                            <select name="numberOfTix" id="numberOfTix">
+                                {% for seat in maxSeatsList %}
+                                    <option value="{{seat}}">{{seat}}</option>
+                                {% endfor %}
                             </select>
                         </div>
                     </div>
-                    <input id="checkoutButton" type="submit" value="Go to checkout">
+                    <div>
+                        <input type="hidden" name="priceOfTix" value="{{price}}">
+                        <input id="checkoutButton" type="submit" value="Go to checkout">
+                    </div>
+                        </form>
                 </div>
             </div>
         </div>

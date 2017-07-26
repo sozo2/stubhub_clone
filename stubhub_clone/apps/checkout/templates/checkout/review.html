@@ -7,8 +7,8 @@
         {% load static %}
         <link rel="stylesheet" href="{% static 'checkout/css/review.css' %}">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="script.js"></script>
-        <title>Review</title>
+        <link rel="icon" href="{% static 'main/images/logo.png' %}">
+        <title>StubHub!</title>
     </head>
     <body>
         <div id="wrapper">
@@ -41,10 +41,70 @@
                     <h1 id="reviewAndBuyText">Review And Buy</h1>
                 </div>
                 <div id="reviewTicketsContainer">
-
+                    <div class="event">
+                        <div class="eventDate">
+                            <div class="eventDay">
+                                <div class="day">
+                                    <p>{{listing.event.start_time | date:"D"}}</p>
+                                </div>
+                                <div class="monthDay">
+                                    <p>{{listing.event.start_time | date:"M d"}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eventDetails">
+                            <div class="eventTitle">
+                                <p>{{listing.event.title}}</p>
+                            </div>
+                            <div class="eventTimeLocation">
+                                <p>{{listing.event.start_time | date:"g:i A"}} - {{listing.event.venue.title}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="seatsContainer">
+                        <div id="seats">
+                            <h4 class="greyText">Seats</h4>
+                        </div>
+                        <div id="seatInfo">
+                            <h4 class="darkGreyText">{{request.session.context.tickets}} Ticket(s)</h4>
+                            <h5 class="greyText">SECTION</h5>
+                            <h4 class="darkGreyText">{{listing.section}}</h4>
+                            <div id="row">
+                                <h4 class="greyText">ROW</h4>
+                                <h4 class="darkGreyText">{{listing.zone}}</h4>
+                            </div>
+                            <div id="seat">
+                                <h4 class="greyText">SEAT</h4>
+                                <h4 class="darkGreyText">{{request.session.context.minSeat}} - {{request.session.context.maxSeat}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="deliveryContainer">
+                        <div id="deliveryText">
+                            <h4 class="greyText">DELIVERY</h4>
+                        </div>
+                        <div id="deliveryLogoContainer">
+                            <img id="downloadIcon" src="{% static 'checkout/images/downloadIcon.png' %}" alt="icon">
+                        </div>
+                        <div id="instantDownloadContainer">
+                            <h4 class="darkGreyText">Instant Download</h4>
+                            <h5>Ready to download and print within minutes.</h5>
+                        </div>
+                    </div>
                 </div>
                 <div id="addPaymentContainer">
-
+                    <div id="discountContainer">
+                        <h4 class="greyText">Discount Codes</h4>
+                        <h4 class="darkGreyText">None</h4>
+                        <div id="orderTotalContainer">
+                            <h4 class="greyText">Order Total</h4>
+                            <h3 class="darkGreyText">${{total}}0USD</h3>
+                            <h6>Includes all fees</h6>
+                        </div>
+                        <a href="checkout/payment"><input type="submit" id="paymentButton" value="Add payment"></a>
+                        <img id="fanProtect" src="/static/checkout/images/fanprotect.png" alt="fanprotect">
+                        <h5 id="fanProtectText">We back every order so you can buy & sell with 100% confidence.</h5>
+                    </div>
                 </div>
             </div>
         </div>
