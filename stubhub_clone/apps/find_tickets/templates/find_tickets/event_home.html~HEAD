@@ -1,0 +1,66 @@
+{% include 'find_tickets/header.html' %}
+{% load static %}
+    <div class="event-groupings-list">
+        <div class="event">
+            <div class="eventDate">
+                <div class="eventDay">
+                    <div class="day">
+                        <p>{{event.day}}</p>
+                    </div>
+                    <div class="monthDay">
+                        <p>{{event.date}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="eventDetails">
+                <div class="eventTitle">
+                    <a href="{% url 'search:event' event_id=event.id %} ">{{event.title}}</a>
+                </div> 
+                <div class="eventTimeLocation">
+                    <p>{{event.time}} - {{event.venue}}</p>
+                </div>
+                 
+            </div>
+           </div>
+        
+    </div>
+    <div>
+
+        <div class="col-md-9">
+            <div class="img-container">
+                <img src="{% static event.image %}">
+            </div>
+        </div> 
+        <table class="ticket-table"  style="overflow-y:scroll" >   
+            <thead>
+                <tr class='clickable-row' data-href="{% url 'main:index' %}">
+                    <th>Zone</th>
+                    <th>Section</th>
+                    <th>Row</th>
+                    <th>Price</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for listing in listings %}
+                <tr> 
+                    <td>
+                        {{listing.zone}}
+                        {{listing.num_tix}} 
+                    </td>
+                    <td>{{listing.section}} </td>
+                    <td>{{listing.row}}</td>
+                    <td>
+                        {{listing.price}}
+                        {{listing.delivery}} 
+                    </td>
+                    <td>Value</td>
+                </tr>
+            {% endfor %}    
+                
+                
+            </tbody>
+        </table>     
+    
+    </div>
+        {% include 'find_tickets/footer.html' %}
