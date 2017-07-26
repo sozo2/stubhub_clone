@@ -28,10 +28,6 @@ def index(request):
             performerDict['p'+str(counter)]=curr_dict
             counter+=1
         results.append(performerDict)
-    print results
-    for performer in results:
-        print performer['p1']
-        print performer['p2']
     context = {
         'performers':results,
     }

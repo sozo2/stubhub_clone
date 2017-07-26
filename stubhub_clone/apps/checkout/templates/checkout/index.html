@@ -39,27 +39,26 @@
                 </div>
             </div>
             <div id="body">
-                <div id="venuePic">
-                    <h3>Order Details</h3>
-                </div>
+                <h3>Order Details</h3>
+                <div id="venuePic"></div>
                 <div id="ticketInfoContainer">
                     <div class="event">
                         <div class="eventDate">
                             <div class="eventDay">
                                 <div class="day">
-                                    <p>WED</p>
+                                    <p>{{listing.event.start_time | date:"D"}}</p>
                                 </div>
                                 <div class="monthDay">
-                                    <p>Jun 27</p>
+                                    <p>{{listing.event.start_time | date:"M d"}}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="eventDetails">
                             <div class="eventTitle">
-                                <p>Cubs vs Sox</p>
+                                <p>{{listing.event.title}}</p>
                             </div>
                             <div class="eventTimeLocation">
-                                <p>7:30 PM - Wriggle Field</p>
+                                <p>{{listing.event.start_time | date:"g:i A"}} - {{listing.event.venue.title}}</p>
                             </div>
                         </div>
                     </div>
@@ -69,8 +68,14 @@
                         <p class="inlineBlock srs">Row</p>
                         <p class="inlineBlock srs">Seat</p>
                     </div>
+                    <div id="seatInfo">
+                        <h4 class="inlineBlock listing">{{listing.section}}</h4>
+                        <h4 class="inlineBlock listing">{{listing.zone}}</h4>
+                        <h4 class="inlineBlock listing">{{minSeat}} - {{maxSeat}}</h4>
+                    </div>
                     <div id="features">
                         <h5>SEAT FEATURES & TICKET DISCLOURES</h5>
+                        <h5>Food and beverages available for purchase</h5>
                     </div>
                     <div id="delivery">
                         <h4>DELIVERY</h4>
@@ -80,7 +85,7 @@
                     <div id="TicketPriceContainer">
                         <div id="TicketPrice">
                             <h4>TICKET PRICE</h4>
-                            <h3 id="ticketPriceText">$20.00each.</h3>
+                            <h3 id="ticketPriceText">${{price}}0 each.</h3>
                         </div>
                         <div id="numOfTickets">
                             <h4>NUMBER OF TICKETS</h4>

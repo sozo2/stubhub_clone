@@ -3,4 +3,8 @@ $(document).ready(function(){
       .selectmenu()
       .selectmenu( "menuWidget" )
         .addClass( "overflow" );
+
+    $("#logo").click(function(){
+      $(location).attr('href', '/')
+    });
 });
