@@ -146,92 +146,121 @@ h6{
     margin-left: 40px;
     color: #7E868F;
 }
-
 #body{
     width: 100%;
     height: 700px;
+    padding: 0px 100px 100px 100px;
 }
-#venuePic{
-    width: 55%;
-    height: 560px;
+#reviewAndBuyHeader{
+    height: 200px;
+    padding: 60px;
+    background: url('/static/checkout/images/field.jpeg');
+}
+#reviewAndBuyText{
+    font-size: 60px;
+    color: white;
+    width: 100%;
+}
+#reviewTicketsContainer{
+    width: 550px;
+    height: 500px;
     display: inline-block;
-    padding: 40px;
-    padding-top: 0px;
+    margin-left: 90px;
     vertical-align: top;
-    background-image: url("/static/checkout/images/seating.jpg");
-    background-size: cover;
-    background-size: 100%;
 }
-#ticketInfoContainer{
-    width: 40%;
-    height: 700px;
+#addPaymentContainer{
+    width: 500px;
+    height: 500px;
     display: inline-block;
-    padding: 40px;
-    padding-top: 0px;
+    padding: 20px;
 }
-h4{
-    color: #87909A;
+#seatsContainer{
+    width: 550px;
+    height: 200px;
 }
-h5{
-    color: #87909A;
-}
-#sectionRowSeatText{
-    height: 30px;
-}
-.srs{
-    margin-right: 75px;
-    color: #87909A;
+#seats{
+    width: 100px;
+    height: 200px;
+    display: inline-block;
+    padding: 20px;
+    vertical-align: top;
 }
 #seatInfo{
+    width: 400px;
+    height: 200px;
+    display: inline-block;
+    padding: 20px;
+}
+#row{
+    display: inline-block;
+    height: 100px;
+    width: 75px;
+}
+#seat{
+    display: inline-block;
+    height: 100px;
+    width: 75px;
+}
+#deliveryContainer{
+    height: 200px;
+    width: 550px;
+}
+#deliveryText{
+    width: 120px;
+    height: 200px;
+    display: inline-block;
+    padding: 10px;
+    display: inline-block;
+}
+#deliveryLogoContainer{
+    padding-top: 17px;
+    width: 75px;
+    height: 200px;
+    display: inline-block;
+    vertical-align: top;
+}
+#downloadIcon{
+    height: 30px;
+    width: 30px;
+}
+#instantDownloadContainer{
+    width: 330px;
+    height: 200px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 5px;
+}
+#discountContainer{
     width: 100%;
-    height: 50px;
+    height: 65px;
+    border-bottom: 1px dotted #E6E6E6;
 }
-#features{
-    height: 100px;
-    border-bottom: 2px dotted #C1C1C1;
+#orderTotalContainer{
+    width: 100%;
+    height: 130px;
+    border-bottom: 1px dotted black;
+    margin-top: 40px;
 }
-#delivery{
-    height: 100px;
-    border-bottom: 2px dotted #C1C1C1;
-    padding-top: 5px;
+#paymentButton{
+    width: 400px;
+    height: 75px;
+    border: 2px solid #D92B79;
+    color: #D92B79;
+    font-size: 20px;
+    margin-left: 30px;
+    margin-top: 30px;
 }
-#TicketPriceContainer{
-    height: 100px;
-    border-bottom: 2px solid #C1C1C1;
+.greyText{
+    color: #87909A;
 }
-#TicketPrice{
-    height: 100px;
-    width: 200px;
-    display: inline-block;
-    vertical-align: top;
-}
-#numOfTickets{
-    height: 100px;
-    width: 200px;
-    display: inline-block;
-    vertical-align: top;
-}
-#ticketPriceText{
+.darkGreyText{
     color: #5C6570;
 }
-#numberOfTix{
-    width: 190px;
-    height: 30px;
-    margin-top: 7px;
+#fanProtect{
+    margin-top: 40px;
 }
-#checkoutButton{
-    height: 60px;
-    width: 100%;
-    background-color: #D92B79;
-    margin-top: 15px;
-    text-align: center;
-    padding-top: 1px;
-    color: white;
-    font-size: 20px;
-    border: none;
-    border-radius: 2px;
-}
-.listing{
-    margin-right: 95px;
-    color: #87909A;
+#fanProtectText{
+    color: #999999;
+    margin-left: 7px;
+    margin-top: 10px;
 }

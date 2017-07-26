@@ -21,7 +21,7 @@
     font-size: 13px;
 }
 .headerTextBottom{
-    font-size: 15px;
+    font-size: 17px;
 }
 .searchBar{
     height: 70px;
@@ -92,6 +92,7 @@
 .locationWhenText{
     display: inline-block;
     color: #525252;
+    font-size: 14px;
 }
 .locationIcon{
     height: 17px;
@@ -120,7 +121,7 @@
 }
 .event{
     position: relative;
-    height: 95px;
+    height: 105px;
     box-sizing: border-box;
     border-top: 1px solid #e7eaec;
     cursor: pointer;
@@ -244,6 +245,7 @@
 }
 #usaText{
     display: inline-block;
+    font-size: 14px;
 }
 #aboutStubHub{
     width: 250px;
@@ -502,7 +504,8 @@ h6{
 }
 
 #modal-btn h5{
-    font-size: 15px;
+    font-size: 17px;
+    font-weight: 100%;
 }
 .modal-switch{
     text-decoration: none;
@@ -513,4 +516,13 @@ h6{
 .modal-switch:focus{
     outline: none !important;
     box-shadow: none;
+}
+.footerTextSize{
+    font-size: 15px;
+}
+.footerTextSizeSmall{
+    font-size: 11px;
+}
+li{
+    font-size: 12px;
 }
