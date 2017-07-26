@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'sell_tickets/styles.css' %}">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        
+        <script src="{% static 'sell_tickets/script.js' %}"></script>
+        <link rel="icon" href="{% static 'main/images/logo.png' %}">
+        <title>Sell Tickets</title>
+    </head>
+    <body>
+        <div>{{title}} Tickets</div>
+        <form method='post' action='#'>
+            <label for='ticket-number'>How many tickets do you have?</label>
+            <select name='ticket-number'>
+                <option value=1>1 Ticket</option>
+                <option value=2>2 Tickets</option>
+                <option value=3>3 Tickets</option>
+                <option value=4>4 Tickets</option>
+                <option value=5>5 Tickets</option>
+                <option value=6>6 Tickets</option>
+                <option value=7>7 Tickets</option>
+                <option value=8>8 Tickets</option>
+                <option value=9>9 Tickets</option>
+                <option value=10>10 Tickets</option>
+            </select>
+            <div>The average ticket price for this event is ${{price}}0. How much do you want to sell yours for?</div>
+            <div>$<input type='text' name='price-input'></div>
+            <div>Where are your seats?</div>
+            <label for='ticket-section'>Section:</label>
+            <input type='text' name='ticket-section'>
+            <label for='ticket-row'>Row:</label>
+            <input type='text' name='ticket-row'>
+        </form>
+    </body>
+</html>

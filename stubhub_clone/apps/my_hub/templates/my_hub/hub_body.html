@@ -1,0 +1,119 @@
+<div class="container"><h2>My hub</h2></div>
+
+<div id="exTab2" class="container">	
+<ul class="nav nav-tabs">
+			<li class="active">
+            <a  href="#1" data-toggle="tab">My Hub</a>
+			</li>
+			<li><a href="#2" data-toggle="tab">Gift Codes</a>
+			</li>
+			<li><a href="#3" data-toggle="tab">Favorites</a>
+            </li>
+            
+			<li><a href="#4" data-toggle="tab">Settings</a>
+			</li>
+		</ul>
+
+			<div class="tab-content ">
+			  <div class="tab-pane active" id="1">
+                <div><h3>WHAT'S NEXT<h3> <a href="{% url 'my_hub:index' %}">View current and past order</a>
+<p>You don’t have any upcoming events scheduled right now.</p>
+                </div>
+                <div><h3>LISTINGS<h3> <a href="{% url 'my_hub:index' %}">View all listings</a>
+                <p>You don’t have any upcoming events scheduled right now.</p>
+                </div>
+
+<div><div><h3>SALES<h3>
+You don’t have any active sales right now.</div>
+<div><h3>PAYMENTS<h3> <a href="{% url 'my_hub:index' %}">View Payment Statuses</a>
+</div></div>
+
+
+				</div>
+				<div class="tab-pane" id="2">
+         <div><h4>FanCodes & gift codes details</h4>  </div>>
+        <div>
+            <form action="{% url 'my_hub:index' %}">
+                <div class="form-group">
+                <label for="fan_gift_code">Add a FanCode & gift Code</label>
+                <input type="fan_gift_code" class="form-control" id="fan_gift_code" placeholder="FanCode number/gift code" name="fan_gift_code"><button type="submit" class="btn btn-default">Add</button>
+    </div>
+    
+
+            </form>
+            </div> 
+        </div>
+        <div class="tab-pane" id="3">
+          <div id="Favorites" class="container">	
+<ul class="nav nav-tabs">
+			<li class="active">
+            <a  href="#3a" data-toggle="tab">Artists</a>
+			</li>
+			<li><a href="#3b" data-toggle="tab">Team</a>
+			</li>
+			<li><a href="#3c" data-toggle="tab">Venues</a>
+            </li>
+            
+			<li><a href="#3d" data-toggle="tab">Events</a>
+			</li>
+        </ul>
+        Click the star to remove from favorites.
+				</div>
+			</div>
+        <div class="tab-pane" id="4">
+          <div id="Settings" class="container">	
+<ul class="nav nav-tabs">
+			<li class="active">
+            <a  href="#4a" data-toggle="tab">Payment</a>
+			</li>
+			<li><a href="#4b" data-toggle="tab">Notifications</a>
+			</li>
+			<li><a href="#4c" data-toggle="tab">Contact</a>
+            </li>
+            
+			<li><a href="#4d" data-toggle="tab">Linked Accounts</a>
+            </li>
+        </ul>
+        <div>Payment options for buying tickets<br>
+        <br><font color="red">Users Credit Cards</font><br>
+            <a href="/addcc">Add a new payment option</a>
+        </div>
+        <div>Payment options for selling tickets
+            <div id="Payment Currency" class="container">	
+<ul class="nav nav-tabs">
+			<li class="active">
+            <a  href="#4ai" data-toggle="tab">USD($)</a>
+			</li>
+			<li><a href="#4bii" data-toggle="tab">GBP(£)</a>
+			</li>
+			<li><a href="#4ciii" data-toggle="tab">EUR (€)</a>
+            </li>
+            </ul></div>    
+
+            The payment method change will be applied to both existing and new listings.
+Note: This change doesn't apply to "In Progress" payments for already sold tickets.
+ <div class="radio disabled">
+  <label><input type="radio" name="paypal"><a href="">Link your PayPal account to receive payments</a></label>
+</div>
+<div class="radio disabled">
+  <label><input type="radio" name="direct_deposit">Direct deposit<a href="">Add a new direct deposit account for selling</a><br> 
+    Please add a bank account that accepts payments in the currency you listed your tickets in.<br>
+    Or choose PayPal to receive payments.
+    </label>
+</div>
+    <br>
+
+    
+    				</div>
+            </div>
+            
+            
+        </div>    
+
+<hr></hr>
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

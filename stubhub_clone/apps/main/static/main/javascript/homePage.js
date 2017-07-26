@@ -32,6 +32,8 @@ $(document).ready(function (){
         $("#choose-reg").show();
     });
 
+    });
+
     $("#login-now").click(function() {
         $("#choose-reg").hide();
         $("#choose-log").show();

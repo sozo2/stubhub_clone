@@ -1,0 +1,13 @@
+{% load static %}
+<div class='container-fluid'>
+    <div class='row'>
+        <div class='col-md-1 radio event-info'><input type='radio' name='event-selection' class='sell-radios' id='{{event.id}}' value='{{event.id}}'></div>
+        <div class='col-md-2 date'>
+            <div class='day'>{{event.day}}</div>
+            <div class='month'>{{event.date}}</div>
+        </div>
+        <div class='col-md-6 event-info'>{{event.title}}<br>{{event.venue}}</div>
+        <div class='col-md-3 price-info'>Selling for ${{event.avg_price}}0 on average</div>
+    </div>
+
+</div>

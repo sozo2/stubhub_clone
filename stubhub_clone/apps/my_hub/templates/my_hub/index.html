@@ -36,7 +36,8 @@
                             <div class="col-md-12" id="headerSMS">
                                 <a href=""><p class="inlineBlock marginLeft sms">Sell Tickets</p></a>
                                 <a href=""><p class="inlineBlock marginLeft sms">My Tickets</p></a>
-                                <a href=""><p class="inlineBlock marginLeft sms">Signout</p></a>
+                                <!--<a href=""><p class="inlineBlock marginLeft sms">Signout</p></a>-->
+                                <div>{% include 'my_hub/sign_in_out.html' %}</div>
                             </div>
                         </div>
                     </div>
@@ -47,22 +48,10 @@
                     <img id="profilePic" src="/static/my_hub/images/profilePic.jpg" alt="profilePic">
                 </div>
                 <div id="profileBannerName">
-                    <h2>Erick R.</h2>
+                    <h2>{{display_name}}</h2>
                 </div>
             </div>
-            <nav id="navbarBorder" class="navbar navbar-toggleable-md navbar-light bg-faded">
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="#">MY HUB <span class="sr-only">(current)</span></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">GIFT CODES</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">FAVORITES</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">SETTINGS</a></li>
-                    </ul>
-                </div>
-            </nav>
+            <div>{% include 'my_hub/hub_body.html' %}</div>
         </div>
     </body>
 </html>
