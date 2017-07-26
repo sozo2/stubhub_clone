@@ -18,7 +18,9 @@
             </div>
             <div class="eventDetails">
                 <div class="eventTitle">
-                    <p>{{performer.p1.title}}</p>
+                    {% if performer.p1.id %}
+                    <p><a href="{% url 'search:event' event_id=performer.p1.id %}">{{performer.p1.title}}</a></p>
+                    {% endif %}
                 </div>
                 <div class="eventTimeLocation">
                     <p>{{performer.p1.time | date:"g:i A"}} - {{performer.p1.venue}}</p>
