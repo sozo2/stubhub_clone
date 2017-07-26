@@ -40,7 +40,7 @@ def results(request):
     }
     return render(request, 'find_tickets/results.html', context)
     
-def event(request, event_id,sort_by):
+def event(request, event_id,sort_by='price'):
     event_all = Event.objects.get(id=event_id)
     event_dict={}
     event_dict['day']=event_all.start_time.strftime('%a')
@@ -72,4 +72,13 @@ def event(request, event_id,sort_by):
     }
     
     return render(request,"find_tickets/event_home.html", context)
-    #return HttpResponse('Hello World')
+    
+def ticket_change(request):
+    if request.method != "POST":
+        return redirect(reverse ('search:event'))
+    request.session['event_id'] = request.POST['event_id']
+    request.session['tix'] = request.POST['numberOfTix']
+
+    print request.session['tix'] , request.session['event_id']
+    return redirect(reverse('search:event',kwargs={'event_id' : request.session['event_id']}))
+    
