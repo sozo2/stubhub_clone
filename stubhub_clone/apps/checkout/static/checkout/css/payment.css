@@ -1,6 +1,23 @@
 #wrapper{
     width: 970px;
     height: 700px;
-    padding: 100px 150px 100px 150px;
+    padding: 75px 125px 75px 125px;
     margin: auto;
+}
+#body{
+    width: 500px;
+    height: 600px;
+    margin: auto;
+}
+#addPayment{
+    margin-bottom: 40px;
+}
+.centerImage{
+    margin-left: auto;
+	margin-right: auto;
+    display: block;
+    margin-top: 20px;
+}
+#or{
+    text-align: center;
 }
