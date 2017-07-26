@@ -1,0 +1,70 @@
+{% include 'find_tickets/header.html' %}
+{% load static %}
+
+<style>
+td {
+    align: right;
+    valign: middle;
+}
+</style>
+    <div class="event-groupings-list">
+        <div class="event">
+            <div class="eventDate">
+                <div class="eventDay">
+                    <div class="day">
+                        <p>{{event.day}}</p>
+                    </div>
+                    <div class="monthDay">
+                        <p>{{event.date}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="eventDetails">
+                <div class="eventTitle">
+                    <a href="{% url 'search:event' event_id=event.id %} ">{{event.title}}</a>
+                </div> 
+                <div class="eventTimeLocation">
+                    <p>{{event.time}} - {{event.venue}}</p>
+                </div>
+                 
+            </div>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-9">
+            <img src="{% static event.image %}">
+        </div>            
+        <div class="col-3">
+            <table class="table table-sm table-striped " id="ticket-list">   
+            <thead>
+                <tr>
+                    <th>Zone</th>
+                    <th>Section</th>
+                    <th>Row</th>
+                    <th>Price</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for listing in listings %}
+                <tr class='clickable-row' data-href="{% url 'checkout:index' listing_id=listing.id %}"> 
+                    <td>
+                        {{listing.zone}}<br>
+                        {{listing.num_tix}} Tickets 
+                    </td>
+                    <td>{{listing.section}} </td>
+                    <td>{{listing.row}}</td>
+                    <td>
+                        {{listing.price}}<br>
+                        {{listing.delivery}} 
+                    </td>
+                    <td  class="tickets">Value</td>
+                </tr>
+            {% endfor %}    
+            </tbody>
+            </table>
+        </div> 
+    </div> 
+    
+        {% include 'find_tickets/footer.html' %}

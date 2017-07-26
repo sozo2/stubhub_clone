@@ -29,7 +29,6 @@
     float: right;
     margin-left: 20px;
 }
-
 #headerGHE{
     height: 30px;
 }
@@ -44,6 +43,19 @@
     vertical-align: top;
     border-right: 1px solid #E7EAEC;
 }
+#body{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #F6F8F9;
+}
+.eventContainer{
+    text-align: left;
+    border: 1px solid #e7eaec;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
 .title{
     height: 68px;
     padding-top: 25px;
@@ -53,13 +65,14 @@
     display: block;
 }
 .event{
+    position: relative;
     height: 95px;
-    width: 100%;
     box-sizing: border-box;
+    border-bottom: 1px solid #CFD4D9;
+    cursor: pointer;
+    margin-top: 0px;
     margin-bottom: 0px;
     display: flex;
-    border-bottom: 1px solid #CCCCCC;
-    padding-left: 125px;
 }
 .eventTitleHeader{
     display: inline-block;
@@ -119,59 +132,106 @@
     text-overflow: ellipsis;
     overflow:hidden;
 }
+h6{
+    margin-bottom: 0px;
+    color: #616A75;
+}
+#rightsTextTop{
+    font-size: 10px;
+    margin-bottom: 0px;
+    color: #7E868F;
+}
+#rightsTextBottom{
+    font-size: 10px;
+    margin-left: 40px;
+    color: #7E868F;
+}
+
 #body{
-    padding-top: 20px;
-    padding-left: 50px;
-    padding-right: 50px;
-    background-color: orange;
     width: 100%;
-    height: 100%;
+    height: 700px;
 }
-.sms{
-    font-size: 14px;
+#venuePic{
+    width: 55%;
+    height: 560px;
+    display: inline-block;
+    padding: 40px;
+    padding-top: 0px;
+    vertical-align: top;
+    background-image: url("/static/checkout/images/seating.jpg");
+    background-size: cover;
+    background-size: 100%;
 }
-#price{
-    float: right;
-    text-align: left;
+#ticketInfoContainer{
+    width: 40%;
+    height: 700px;
+    display: inline-block;
+    padding: 40px;
+    padding-top: 0px;
 }
-.event{
+h4{
+    color: #87909A;
+}
+h5{
+    color: #87909A;
+}
+#sectionRowSeatText{
+    height: 30px;
+}
+.srs{
+    margin-right: 75px;
+    color: #87909A;
+}
+#seatInfo{
     width: 100%;
+    height: 50px;
 }
-/* 
-#ticket-list{
-    overflow: scroll;
-    width: auto;
-    height: auto;
+#features{
+    height: 100px;
+    border-bottom: 2px dotted #C1C1C1;
+}
+#delivery{
+    height: 100px;
+    border-bottom: 2px dotted #C1C1C1;
+    padding-top: 5px;
+}
+#TicketPriceContainer{
+    height: 100px;
+    border-bottom: 2px solid #C1C1C1;
+}
+#TicketPrice{
+    height: 100px;
+    width: 200px;
     display: inline-block;
-    
-} */
-
-.img-container {
-    position:relative;
-    padding-top:66.59%;
-    padding-bottom:66.59%;
-    padding-left:66.59%;
-    padding-right:66.59%;
+    vertical-align: top;
+}
+#numOfTickets{
+    height: 100px;
+    width: 200px;
     display: inline-block;
-
+    vertical-align: top;
 }
-
-img {
-    position: center;
-    flex-shrink: 0;
-    min-width: 100%
-    min-height:100%;
-    display: inline-block;
-    
+#ticketPriceText{
+    color: #5C6570;
 }
-
-/* tr.spaceUnder > td
-{
-  
-  height: 15px;
+#numberOfTix{
+    width: 190px;
+    height: 30px;
+    margin-top: 7px;
 }
-
-td.tickets{
-    align: center;
-    valign: middle;
-} */
+#checkoutButton{
+    height: 60px;
+    width: 100%;
+    background-color: #D92B79;
+    margin-top: 15px;
+    text-align: center;
+    padding-top: 1px;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 2px;
+}
+.listing{
+    margin-right: 95px;
+    color: #87909A;
+}

@@ -54,8 +54,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
@@ -82,16 +80,10 @@
             </div>
             <div id="body">
                 <div class="row">
-                    {% for event in events %}
-                    <div class="col-md-4">
-                        {% include 'main/eventContainerSnippet.html' %}
-                    </div>
-                    <div class="col-md-4">
-                        {% include 'main/eventContainerSnippet.html' %}
-                    </div>
-                    <div class="col-md-4">
-                        {% include 'main/eventContainerSnippet.html' %}
-                    </div>
+                    {% for performer in performers %}
+                        <div class="col-md-4">
+                            {% include 'main/eventContainerSnippet.html' %}
+                        </div>
                     {% endfor %}
                 </div>
             </div>
@@ -104,9 +96,9 @@
                 </div>
                 <div id="footerConnectWithUs">
                     <h4>Connect with us</h4>
-                    <img class="connectWithUsMedia" src="{% static 'main/images/facebookLogo.png' %}" alt="facebook">
-                    <img class="connectWithUsMedia" src="{% static 'main/images/instagramLogo.jpg' %}" alt="instagram">
-                    <img class="connectWithUsMedia" src="{% static 'main/images/twitterLogo.png' %}" alt="twitter">
+                    <img class="connectWithUsMedia" id="facebook" src="{% static 'main/images/facebookLogo.png' %}" alt="facebook">
+                    <img class="connectWithUsMedia" id="instagram" src="{% static 'main/images/instagramLogo.jpg' %}" alt="instagram">
+                    <img class="connectWithUsMedia" id="twitter" src="{% static 'main/images/twitterLogo.png' %}" alt="twitter">
                     <img id="messenger" src="{% static 'main/images/messenger.png' %}" alt="messenger">
                 </div>
                 <div id="footerAbout">
