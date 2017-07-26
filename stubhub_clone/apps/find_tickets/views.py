@@ -40,7 +40,7 @@ def results(request):
     }
     return render(request, 'find_tickets/results.html', context)
     
-def event(request, event_id):
+def event(request, event_id,sort_by):
     event_all = Event.objects.get(id=event_id)
     event_dict={}
     event_dict['day']=event_all.start_time.strftime('%a')

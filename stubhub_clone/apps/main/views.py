@@ -25,6 +25,7 @@ def index(request):
             curr_dict['title']=event.title
             curr_dict['venue']=event.venue.title
             curr_dict['date']=event.start_time
+            curr_dict['id']=event.id
             performerDict['p'+str(counter)]=curr_dict
             counter+=1
         results.append(performerDict)
