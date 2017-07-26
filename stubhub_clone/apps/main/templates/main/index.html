@@ -22,22 +22,22 @@
         <div id="wrapper">
             <div id="header">
                 <div class="row">
-                    <div class="col-md-6 headerLeft">
+                    <div class="col-md-6" id="headerLeft">
                         <img id="logo" class="inlineBlock" src="{% static 'main/images/StubHubLogo.png' %}" alt="StubHubLogo">
                         <p class="inlineBlock">Find events</p>
                     </div>
-                    <div class="col-md-6 headerRight">
+                    <div class="col-md-6" id="headerRight">
                         <div class="row">
                             <div class="col-md-12" id="headerGHE">
-                                <a href=""><h6 class="inlineBlock marginLeft">Gift cards</h6></a>
-                                <a href=""><h6 class="inlineBlock marginLeft">Help</h6></a>
-                                <a href=""><h6 class="inlineBlock marginLeft">English</h6></a>
+                                <a href=""><h6 class="inlineBlock marginLeft headerTextTop">Gift cards</h6></a>
+                                <a href=""><h6 class="inlineBlock marginLeft headerText">Help</h6></a>
+                                <a href=""><h6 class="inlineBlock marginLeft headerText">English</h6></a>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12" id="headerSMS">
-                                <a href=""><h5 class="inlineBlock marginLeft">Sell Tickets</h5></a>
-                                <a href=""><h5 class="inlineBlock marginLeft">My Tickets</h5></a>
+                                <a href=""><h5 class="inlineBlock marginLeft headerTextBottom">Sell Tickets</h5></a>
+                                <a href=""><h5 class="inlineBlock marginLeft headerTextBottom">My Tickets</h5></a>
                             {% if request.session.user_status == 'logged in' %}
                                  <a href="{% url 'main:logout' %}"><h5 class="inlineBlock marginLeft">Log Out</h5></a>  
                             {% else %}
