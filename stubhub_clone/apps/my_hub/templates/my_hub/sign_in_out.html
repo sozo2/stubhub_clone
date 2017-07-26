@@ -1,0 +1,16 @@
+{% if request.session.user_status == 'logged in' %}
+<a href="{% url 'main:logout' %}"><p class="inlineBlock marginLeft sms">Log Out</p></a>  
+{% else %}
+<button type="button" id="modal-btn" class="inlineBlock marginLeft sms" data-toggle="modal" data-target="#myModal">
+<p class="inlineBlock marginLeft">Sign in</p>
+</button> 
+{% endif %}
+<div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+            {% include '../main/snippet.html' %}
+            </div>
+        </div>
+    </div>
+</div>

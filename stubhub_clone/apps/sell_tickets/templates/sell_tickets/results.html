@@ -1,0 +1,13 @@
+<div id="body">
+    <h3>Search returned {{search_count}} results.</h3>
+    <div class="row">
+        <form method='post' action="{% url 'sell:start_listing' %}" name='select-sell' id='select-sell'>
+        {% csrf_token %}
+        {% for event in search_results %}
+            <div class="col-md-12">
+            {% include 'sell_tickets/ticket_snippet.html' %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+

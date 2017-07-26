@@ -10,10 +10,10 @@ import json
 from django.http import JsonResponse
 
 def index(request):
-    context = {
-        'events':events,
-    }
-    return render(request, "main/index.html", context)
+    #context = {
+     #   'events':events,
+    #}
+    return render(request, "main/index.html")
 
 
 def register(request):

@@ -1,0 +1,23 @@
+.search-results{
+    width: 800px;
+    height: 300px;
+    border: 1px solid black;
+    overflow: scroll;
+    margin-left: 20px;
+}
+
+.date{
+    border: 5px solid black;
+}
+
+.event-info{
+    border: 5px solid black;
+}
+
+.price-info{
+    border: 5px solid black;
+}
+
+.sell-radios{
+    margin-top: 15px;
+}

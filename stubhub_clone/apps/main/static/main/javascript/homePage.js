@@ -17,6 +17,8 @@ $(document).ready(function (){
         $("#choose-log").hide();
         $("#choose-reg").show();
 
+    });
+
     $("#login-now").click(function() {
         $("#choose-reg").hide();
         $("#choose-log").show();
