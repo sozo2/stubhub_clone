@@ -3,4 +3,5 @@ from views import *
 
 urlpatterns = [
     url(r'^/(?P<listing_id>\d+)$', index, name="index"),
+    url(r'review$', review),
 ]

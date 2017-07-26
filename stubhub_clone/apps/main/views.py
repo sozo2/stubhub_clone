@@ -11,7 +11,7 @@ from django.http import JsonResponse
 
 def index(request):
     events = Event.objects.all().order_by('-popularity')[:1]
-    performers_list = ["Chicago Cubs", "Chicago White Sox", "Houston Astros", "New York Yankees", "Washington Nationals", "Los Angeles Dodgers",]
+    performers_list = ["Chicago Cubs", "Chicago White Sox", "Houston Astros", "New York Yankees", "Washington Nationals", "Los Angeles Dodgers"]
     results=[]
     for performer in performers_list:
         performerDict= {}

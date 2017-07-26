@@ -1,0 +1,176 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+#wrapper{
+    width: auto;
+}
+.headerLeft{ 
+    background-color: #260354;
+    height: 90px;
+    padding-left: 100px;
+    padding-top: 15px;
+}
+.headerRight{
+    background-color: #260354;
+    height: 90px;
+    padding-right: 100px;
+    padding-top: 15px;
+}
+#logo{
+    height: 75px;
+    width: 125px;
+}
+.inlineBlock{
+    display: inline-block;
+    color: white;
+}
+.marginLeft{
+    float: right;
+    margin-left: 20px;
+}
+#headerGHE{
+    height: 30px;
+}
+#headerSMS{
+    height: 30px;
+}
+#when{
+    width: 250px;
+    height: 50px;
+    display: inline-block;
+    padding: 7px;
+    vertical-align: top;
+    border-right: 1px solid #E7EAEC;
+}
+#body{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #F6F8F9;
+}
+.eventContainer{
+    text-align: left;
+    border: 1px solid #e7eaec;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+.title{
+    height: 68px;
+    padding-top: 25px;
+    padding-left: 20px;
+}
+.event-groupings-list{
+    display: block;
+}
+.event{
+    position: relative;
+    height: 95px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #CFD4D9;
+    cursor: pointer;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: flex;
+}
+.eventTitleHeader{
+    display: inline-block;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    color: #525252;
+    font-weight: bold;
+    font-size: 17px;
+    overflow:hidden;
+}
+.eventDate{
+    width: 95px;
+    height: 95px;
+    padding-top: 15px;
+    display: inline-block;
+}
+.eventDay{
+    width: 95px;
+    height: 50px;
+    border-right: 1px solid #CFD4D9;
+    padding-left: 25px;
+}
+.day{
+    margin-top: 10px;
+    height: 24px;
+    width: 100%;
+    color: #00A1A1;
+    font-weight: 500;
+    font-size: 21px;
+}
+.monthDay{
+    height: 20px;
+    color: #87909A;
+    margin-top: 5px;
+}
+.eventDetails{
+    display: inline-block;
+    margin-left: 5px;
+    padding-right: 10px;
+    vertical-align: top;
+    padding-top: 25px;
+    overflow:hidden;
+}
+.eventTitle{
+    font-size: 16px;
+    color: #085F99;
+    overflow:hidden;
+}
+.eventTimeLocation{
+    height: 25px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #828282;
+    line-height: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow:hidden;
+}
+h6{
+    margin-bottom: 0px;
+    color: #616A75;
+}
+#rightsTextTop{
+    font-size: 10px;
+    margin-bottom: 0px;
+    color: #7E868F;
+}
+#rightsTextBottom{
+    font-size: 10px;
+    margin-left: 40px;
+    color: #7E868F;
+}
+#body{
+    width: 100%;
+    height: 700px;
+    padding: 0px 100px 100px 100px;
+}
+#reviewAndBuyHeader{
+    height: 200px;
+    padding: 60px;
+    background: url('/static/checkout/images/field.jpeg');
+}
+#reviewAndBuyText{
+    font-size: 60px;
+    color: white;
+    width: 100%;
+}
+#reviewTicketsContainer{
+    width: 550px;
+    height: 500px;
+    background-color: orange;
+    display: inline-block;
+}
+#addPaymentContainer{
+    width: 380px;
+    height: 500px;
+    background-color: green;
+    display: inline-block;
+}

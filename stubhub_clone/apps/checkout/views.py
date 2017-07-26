@@ -11,7 +11,6 @@ def index(request, listing_id):
     seatPrice = Ticket.objects.filter(listing=listing_id).aggregate(Min('price'))
     minSeats =  minSeat['seat__min']
     price = seatPrice['price__min']
-    print price
     maxSeats = minSeats+listing.tickets_for_sale
     context = {
         'listing': listing,
@@ -21,4 +20,6 @@ def index(request, listing_id):
     }
     return render(request, 'checkout/index.html', context)
 
+def review(request):
+    return render(request, 'checkout/review.html')
 

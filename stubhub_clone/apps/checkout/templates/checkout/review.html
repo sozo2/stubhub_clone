@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'checkout/css/review.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="script.js"></script>
+        <title>Review</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                <div class="row">
+                    <div class="col-md-6 headerLeft">
+                        <img id="logo" class="inlineBlock" src="{% static 'main/images/StubHubLogo.png' %}" alt="StubHubLogo"> 
+                        <p class="inlineBlock">Find events</p>
+                    </div>
+                    <div class="col-md-6 headerRight">
+                        <div class="row">
+                            <div class="col-md-12" id="headerGHE">
+                                <a href=""><p class="inlineBlock marginLeft ghe">Gift cards</p></a>
+                                <a href=""><p class="inlineBlock marginLeft ghe">Help</p></a>
+                                <a href=""><p class="inlineBlock marginLeft ghe">English</p></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" id="headerSMS">
+                                <a href=""><p class="inlineBlock marginLeft sms">Sell Tickets</p></a>
+                                <a href=""><p class="inlineBlock marginLeft sms">My Tickets</p></a>
+                                <a href=""><p class="inlineBlock marginLeft sms">Signout</p></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="body">
+                <div id="reviewAndBuyHeader">
+                    <h1 id="reviewAndBuyText">Review And Buy</h1>
+                </div>
+                <div id="reviewTicketsContainer">
+
+                </div>
+                <div id="addPaymentContainer">
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
