@@ -1,5 +1,12 @@
 {% include 'find_tickets/header.html' %}
 {% load static %}
+
+<style>
+td {
+    align: right;
+    valign: middle;
+}
+</style>
     <div class="event-groupings-list">
         <div class="event">
             <div class="eventDate">
@@ -21,16 +28,15 @@
                 </div>
                  
             </div>
-           </div>
+        </div>
         
     </div>
-    <div>
-
-        
-        <div class="img-container">
+    <div class="row">
+        <div class="col-9">
             <img src="{% static event.image %}">
         </div>            
-        <table class="table table-striped">   
+        <div class="col-3">
+            <table class="table table-sm table-striped " id="ticket-list">   
             <thead>
                 <tr>
                     <th>Zone</th>
@@ -43,21 +49,22 @@
             <tbody>
             {% for listing in listings %}
                 <tr class='clickable-row' data-href="{% url 'checkout:index' listing_id=listing.id %}"> 
-                    <td class="center">
+                    <td>
                         {{listing.zone}}<br>
                         {{listing.num_tix}} Tickets 
                     </td>
-                    <td class="center">{{listing.section}} </td>
+                    <td>{{listing.section}} </td>
                     <td>{{listing.row}}</td>
-                    <td class="center">
+                    <td>
                         {{listing.price}}<br>
                         {{listing.delivery}} 
                     </td>
-                    <td class="center" >Value</td>
+                    <td  class="tickets">Value</td>
                 </tr>
             {% endfor %}    
             </tbody>
-        </table>     
-        </div>
-    </div>
+            </table>
+        </div> 
+    </div> 
+    
         {% include 'find_tickets/footer.html' %}
