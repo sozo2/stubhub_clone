@@ -5,13 +5,13 @@
 #wrapper{
     width: auto;
 }
-.headerLeft{ 
+#headerLeft{ 
     background-color: #260354;
     height: 75px;
     padding-left: 100px;
     padding-top: 15px;
 }
-.headerRight{
+#headerRight{
     background-color: #260354;
     height: 75px;
     padding-right: 100px;
