@@ -63,6 +63,7 @@ def event(request, event_id):
         listing_dict['price'] = '${:,.2f}'.format(price)
         listing_dict['num_tix'] = listing.tickets_for_sale
         listing_dict['delivery'] = listing.delivery_method
+        listing_dict['id'] = listing.id
         listings.append(listing_dict)
     print listing_dict
     context = {

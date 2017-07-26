@@ -1,70 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-        {% load static %}
-        <link rel="stylesheet" href="{% static 'find_tickets/css/styles.css' %}">
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-        <script src="{% static 'find_tickets/javascript/script.js' %}"></script>
-        <link rel="icon" href="{% static 'main/images/logo.png' %}">
-        <title>StubHub: My Profile</title>
-    </head>
-    <body>
-        <div id="wrapper">
-            <div id="header">
-                <div class="row">
-                    <div class="col-md-6 headerLeft">
-                        <img id="logo" class="inlineBlock" src="{% static 'main/images/StubHubLogo.png' %}" alt="StubHubLogo"> 
-                        <p class="inlineBlock">Find events</p>
+{% include 'find_tickets/header.html' %}
+{% load static %}
+    <div class="event-groupings-list">
+        <div class="event">
+            <div class="eventDate">
+                <div class="eventDay">
+                    <div class="day">
+                        <p>{{event.day}}</p>
                     </div>
-                    <div class="col-md-6 headerRight">
-                        <div class="row">
-                            <div class="col-md-12" id="headerGHE">
-                                <a href=""><p class="inlineBlock marginLeft ghe">Gift cards</p></a>
-                                <a href=""><p class="inlineBlock marginLeft ghe">Help</p></a>
-                                <a href=""><p class="inlineBlock marginLeft ghe">English</p></a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12" id="headerSMS">
-                                <a href=""><p class="inlineBlock marginLeft sms">Sell Tickets</p></a>
-                                <a href=""><p class="inlineBlock marginLeft sms">My Tickets</p></a>
-                                <a href=""><p class="inlineBlock marginLeft sms">Signout</p></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="event">
-                        <div class="eventDate">
-                            <div class="eventDay">
-                                <div class="day">
-                                    <p>FRI</p>
-                                </div>
-                                <div class="monthDay">
-                                    <p>JUL 27</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="eventDetails">
-                            <div class="eventTitle">
-                                <p>Chicago Cubs at Chicago White Sox</p>
-                            </div>
-                            <div class="eventTimeLocation">
-                                <p>1:20 PM - Wrigley Field</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="body">
-
+                    <div class="monthDay">
+                        <p>{{event.date}}</p>
                     </div>
                 </div>
             </div>
+            <div class="eventDetails">
+                <div class="eventTitle">
+                    <a href="{% url 'search:event' event_id=event.id %} ">{{event.title}}</a>
+                </div> 
+                <div class="eventTimeLocation">
+                    <p>{{event.time}} - {{event.venue}}</p>
+                </div>
+                 
+            </div>
+           </div>
+        
+    </div>
+    <div>
+
+        
+        <div class="img-container">
+            <img src="{% static event.image %}">
+        </div>            
+        <table class="table table-striped">   
+            <thead>
+                <tr>
+                    <th>Zone</th>
+                    <th>Section</th>
+                    <th>Row</th>
+                    <th>Price</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for listing in listings %}
+                <tr class='clickable-row' data-href="{% url 'checkout:index' listing_id=listing.id %}"> 
+                    <td class="center">
+                        {{listing.zone}}<br>
+                        {{listing.num_tix}} Tickets 
+                    </td>
+                    <td class="center">{{listing.section}} </td>
+                    <td>{{listing.row}}</td>
+                    <td class="center">
+                        {{listing.price}}<br>
+                        {{listing.delivery}} 
+                    </td>
+                    <td class="center" >Value</td>
+                </tr>
+            {% endfor %}    
+            </tbody>
+        </table>     
         </div>
-    </body>
-</html>
+    </div>
+        {% include 'find_tickets/footer.html' %}

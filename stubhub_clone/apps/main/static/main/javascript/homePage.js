@@ -9,6 +9,10 @@ function list_html(arr){
 
 
 $(document).ready(function (){
+    
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
 
     $("#logo" ).click(function(){
         $(location).attr('href', '/')

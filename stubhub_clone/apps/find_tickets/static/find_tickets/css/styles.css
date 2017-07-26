@@ -137,7 +137,6 @@
 .event{
     width: 100%;
 }
-<<<<<<< HEAD
 
 .ticket-list{
     overflow: scroll;
@@ -155,11 +154,19 @@
 }
 
 img {
-    position: absolute;
+    position: center;
     top: 0;
     left: 0;
     width:100%;
-    height:600px
+    height:300px
 }
-=======
->>>>>>> ace76ed42899daa295bb17fef156fe4af36de909
+
+tr.spaceUnder > td
+{
+  
+  height: 15px;
+}
+
+td.center{
+    position: center;
+}
