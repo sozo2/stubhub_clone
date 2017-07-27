@@ -10,6 +10,8 @@ import json
 from django.http import JsonResponse
 
 def index(request):
+    if 'current_user_id' not in request.session:
+        request.session['current_user_id'] = 0
     events = Event.objects.all().order_by('-popularity')[:1]
     performers_list = ["Chicago Cubs", "Chicago White Sox", "Houston Astros", "New York Yankees", "Washington Nationals", "Los Angeles Dodgers"]
     results=[]
