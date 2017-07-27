@@ -40,7 +40,9 @@
             </div>
             <div class="eventDetails">
                 <div class="eventTitle">
-                    <p>{{performer.p2.title}}</p>
+                    {% if performer.p2.id %}
+                    <p><a href="{% url 'search:event' event_id=performer.p2.id %}">{{performer.p2.title}}</a></p>
+                    {% endif %}
                 </div>
                 <div class="eventTimeLocation">
                     <p>{{performer.p2.time | date:"g:i A"}} - {{performer.p2.venue}}</p>
@@ -60,7 +62,9 @@
             </div>
             <div class="eventDetails">
                 <div class="eventTitle">
-                    <p>{{performer.p3.title}}</p>
+                    {% if performer.p3.id %}
+                    <p><a href="{% url 'search:event' event_id=performer.p3.id %}">{{performer.p3.title}}</a></p>
+                    {% endif %}
                 </div>
                 <div class="eventTimeLocation">
                     <p>{{performer.p3.time | date:"g:i A"}} - {{performer.p3.venue}}</p>
