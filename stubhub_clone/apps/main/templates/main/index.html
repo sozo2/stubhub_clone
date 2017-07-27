@@ -79,9 +79,15 @@
             <div id="body">
                 <div class="row">
                     {% for performer in performers %}
-                        <div class="col-md-4">
-                            {% include 'main/eventContainerSnippet.html' %}
-                        </div>
+                        {% if performer.thumbnail == "" %}
+                            <div class="col-md-4">
+                                {% include 'main/eventContainerSnippet.html' %}                            
+                            </div>
+                        {% else %}
+                            <div class="col-md-4">
+                                {% include 'main/picContainerSnippet.html' %}                            
+                            </div>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>

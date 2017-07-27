@@ -54,7 +54,7 @@ class Performer(models.Model):
     name = models.CharField(max_length = 255)
     category = models.CharField(max_length = 255)
     popularity = models.IntegerField(default = 0)
-    thumbnail = models.CharField(max_length = 255, null = True)
+    thumbnail = models.CharField(max_length = 255, default = "")
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True) 
 

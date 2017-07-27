@@ -2,33 +2,39 @@
 <div class="eventContainer">
     <div class="title">
         <img class="starIcon" src="{% static 'main/images/starIcon.png' %}" alt="starIcon">
-        <p class="eventTitleHeader">{{performer.performer}}</p>
+        <p class="eventTitleHeader">{{square.performer}}</p>
     </div>
     <div class="event-groupings-list">
 
+        {% if square.picture == 'yes' %}
+            <div class="event">
+                 <img class='thumbnail' src="{{square.row1}}"> 
+            </div>
+        {% else %}
         <div class="event">
             <div class="eventDate">
                 <div class="eventDay">
                     <div class="day">
-                        <p>{{performer.p1.day | date:"D"}}</p>
+                        <p>{{square.row1.start_time | date:"D"}}</p>
                     </div>
                     <div class="monthDay">
-                        <p>{{performer.p1.date | date:"M d"}}</p>
+                        <p>{{square.row1.start_time | date:"M d"}}</p>
                     </div>
                 </div>
             </div>
             <div class="eventDetails">
                 <div class="eventTitle">
-                    {% if performer.p1.id %}
-                    <p><a href="{% url 'search:event' event_id=performer.p1.id %}">{{performer.p1.title}}</a></p>
-                    {% endif %}
+
+                    <p>{{square.row1.title}}</p>
+
                 </div>
                 <div class="eventTimeLocation">
-                    <p>{{performer.p1.time | date:"g:i A"}} - {{performer.p1.venue}}</p>
+                    <p>{{square.row1.start_time | date:"g:i A"}} - {{square.row1.venue.title}}</p>
                 </div>
             </div>
         </div>
-        
+        {% endif %}
+<!-- 
         {% if performer.p2 %}
         <div class="event">
             <div class="eventDate">
@@ -76,6 +82,6 @@
                 </div>
             </div>
         </div>
-        {% endif %}
+        {% endif %} -->
     </div>
 </div>

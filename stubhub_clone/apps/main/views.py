@@ -10,14 +10,67 @@ import json
 from django.http import JsonResponse
 
 def index(request):
+<<<<<<< HEAD
     events_list = Event.objects.all().order_by('-popularity')[:30]
     performers_list = []
+=======
+    if 'user_status' not in request.session:
+        request.session['user_status'] = 'logged out'
+    if 'current_user_id' not in request.session:
+        request.session['current_user_id'] = 0
+
+
+    # all_events = Event.objects.all().order_by('-popularity')
+    # home_squares = []
+    # for i in range(50):
+    #     this_performer = all_events[i].performers
+    #     performer_events = Event.objects.filter(performers__id = this_performer.id).order_by('start_time')
+    #     performer_dict = {}
+    #     if this_performer.thumbnail:
+    #         if len(performer_events) >= 2:
+    #             performer_dict = {
+    #                 'performer' : this_performer.name,
+    #                 'row1' : this_performer.thumbnail,
+    #                 'row2' : performer_events[0],
+    #                 'row3' : performer_events[1],
+    #                 'picture' : 'yes'
+    #             }
+    #     else:
+    #         if len(performer_events) >= 3:
+    #             performer_dict = {
+    #                 'performer' : this_performer.name,
+    #                 'row1' : performer_events[0],
+    #                 'row2' : performer_events[1],
+    #                 'row3' : performer_events[2],
+    #                 'picture' : 'no'
+    #             }
+    #     home_squares.append(performer_dict)
+    #     if len(home_squares) == 9:
+    #         break
+    # context = {
+    #     "home_squares" : home_squares
+    # }
+    events = Event.objects.all().order_by('-popularity')[:1]
+    performers_list = []
+    events_list = Event.objects.all()
+    print events_list
+>>>>>>> b32893a82286a7dea2614c0ac9af26f6ee84f818
     for event in events_list:
         performers_list.append(event.performers.name)
     results=[]
+    names = []
     for performer in performers_list:
         performerDict= {}
+        existing = False
+        for i in range(len(names)):
+            if performer == names[i]:
+                existing = True
+        if existing:
+            continue
+        names.append(performer)
         performerDict['performer'] = performer
+        performer_object = Performer.objects.get(name = performer)
+        performerDict['thumbnail'] = performer_object.thumbnail
         performerEvents = Event.objects.filter(performers__name = performer).order_by('start_time')[:3]
         counter=1
         for event in performerEvents:
@@ -30,7 +83,10 @@ def index(request):
             curr_dict['id']=event.id
             performerDict['p'+str(counter)]=curr_dict
             counter+=1
-        results.append(performerDict)
+        if counter >= 3:
+            results.append(performerDict)
+        if len(results) == 9:
+            break      
     context = {
         'performers':results,
     }
