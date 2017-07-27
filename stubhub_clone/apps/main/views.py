@@ -10,13 +10,8 @@ import json
 from django.http import JsonResponse
 
 def index(request):
-    if 'user_status' not in request.session:
-        request.session['user_status'] = 'logged out'
-    if 'current_user_id' not in request.session:
-        request.session['current_user_id'] = 0
-    events = Event.objects.all().order_by('-popularity')[:1]
-    events_list = Event.objects.all()
-    print events_list
+    events_list = Event.objects.all().order_by('-popularity')[:30]
+    performers_list = []
     for event in events_list:
         performers_list.append(event.performers.name)
     results=[]

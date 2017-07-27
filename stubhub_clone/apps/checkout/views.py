@@ -21,6 +21,11 @@ def index(request, listing_id):
     maxSeatsList = []
     for item in range(0, listing.tickets_for_sale):
         maxSeatsList.append(item + 2)
+    if listing.event.venue.seating_map:
+        seating_map=listing.event.venue.seating_map
+    else:
+        seating_map="www.bykcollege.com/images/index/NoImageAvailable.png"
+    
 
     context = {
         'listing': listing,
@@ -28,6 +33,8 @@ def index(request, listing_id):
         'maxSeat':maxSeats,
         'maxSeatsList': maxSeatsList,
         'price':price,
+        "seating_map":seating_map,
+
     }
     return render(request, 'checkout/index.html', context)
 
