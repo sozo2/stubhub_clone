@@ -157,7 +157,7 @@
     font-size: 14px;
 }
 
-#choose-event{
+#choose-event, .start-listing{
     display: block;
     margin-top: 25px;
     margin-bottom: 40px;
@@ -299,4 +299,8 @@
 
 #make-listing, #secret-price, #secret-seats{
     display: none;
+}
+
+.start-listing {
+    background: rgb(217,65,133) !important;
 }

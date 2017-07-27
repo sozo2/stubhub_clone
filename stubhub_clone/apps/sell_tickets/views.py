@@ -5,9 +5,12 @@ from .models import *
 from django.core.urlresolvers import reverse
 from django.db.models import Min
 from datetime import *
+from django.core import serializers
 import json
 
 def index(request):
+    if 'user_status' not in request.session:
+        request.session['user_status'] = "logged out"
     if 'sell_search' not in request.session:
         request.session['sell_search'] = ""
     if 'listing_event_id' not in request.session:
@@ -46,6 +49,7 @@ def results(request):
         'search_results':events,
         'search_count':search_count
     }
+    print request.session['user_status']
     request.session['sell_stage'] = 'return results'
     return render(request, 'sell_tickets/index.html', context)
 
