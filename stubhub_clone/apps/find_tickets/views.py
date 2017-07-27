@@ -41,6 +41,7 @@ def results(request):
     return render(request, 'find_tickets/results.html', context)
     
 def event(request, event_id,sort_by='price'):
+
     event_all = Event.objects.get(id=event_id)
     event_dict={}
     event_dict['day']=event_all.start_time.strftime('%a')
@@ -52,7 +53,12 @@ def event(request, event_id,sort_by='price'):
     event_dict['image']=event_all.venue.seating_map
     print event_all.venue.seating_map
 
-    listings_all = Listing.objects.filter(event = event_all)
+    if 'tix' not in request.session:
+        desired_tickets= 1
+    else:
+        desired_tickets=request.session['tix']
+
+    listings_all = Listing.objects.filter(event = event_all, tickets_for_sale__gte=desired_tickets)
     listings = []
     for listing in listings_all:
         price = Ticket.objects.filter(listing=listing).first().price
