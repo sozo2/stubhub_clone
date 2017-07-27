@@ -6,6 +6,9 @@
     </div>
     <div class="event-groupings-list">
 
+        <div class="event"><img class="thumbnail" src="{{performer.thumbnail}}"></div>
+
+
         <div class="event">
             <div class="eventDate">
                 <div class="eventDay">
@@ -53,29 +56,6 @@
             </div>
         </div>
         {% endif %}
-        {% if performer.p3 %}
-        <div class="event">
-            <div class="eventDate">
-                <div class="eventDay">
-                    <div class="day">
-                        <p>{{performer.p3.day | date:"D"}}</p>
-                    </div>
-                    <div class="monthDay">
-                        <p>{{performer.p3.date | date:"M d"}}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="eventDetails">
-                <div class="eventTitle">
-                    {% if performer.p3.id %}
-                    <p><a href="{% url 'search:event' event_id=performer.p3.id %}">{{performer.p3.title}}</a></p>
-                    {% endif %}
-                </div>
-                <div class="eventTimeLocation">
-                    <p>{{performer.p3.time | date:"g:i A"}} - {{performer.p3.venue}}</p>
-                </div>
-            </div>
-        </div>
-        {% endif %}
+       
     </div>
 </div>
