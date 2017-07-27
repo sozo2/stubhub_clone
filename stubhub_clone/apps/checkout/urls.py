@@ -6,4 +6,5 @@ urlpatterns = [
     url(r'^process/(?P<listing_id>\d+)$', process, name='process'),
     url(r'/review$', review, name='review'),
     url(r'/payment$', payment, name='payment'),
+    url(r'/confirmation$', confirmation, name='confirmation'),
 ]

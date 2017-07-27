@@ -59,3 +59,11 @@ def review(request):
 
 def payment(request):
     return render(request, 'checkout/payment.html')
+
+def confirmation(request):
+    print request.session['current_user_id']
+    nameOnCard = request.POST['owner']
+    cardNumber = request.POST['cardNumber']
+    expirationMonth = request.POST['expirationMonth']
+    expirationYear = request.POST['expirationYear']
+    return redirect('/')
