@@ -1,0 +1,26 @@
+#wrapper{
+    width: 970px;
+    padding: 75px 125px 75px 125px;
+    margin: auto;
+    background-image: url('/static/checkout/images/background.jpg')
+}
+#body{
+    width: 700px;
+    margin: auto;
+    border: 1px solid black;
+    padding: 20px;
+    background:rgba(255,255,255,0.4);
+}
+#addPayment{
+    margin-bottom: 40px;
+    text-align: center;
+}
+.centerImage{
+    margin-left: auto;
+	margin-right: auto;
+    display: block;
+    margin-top: 20px;
+}
+#or{
+    text-align: center;
+}
