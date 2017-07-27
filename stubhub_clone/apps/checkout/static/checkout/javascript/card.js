@@ -1,62 +1,62 @@
-$(document).ready(function(){
-    $(function() {
+// $(document).ready(function(){
+//     $(function() {
 
-    var owner = $('#owner');
-    var cardNumber = $('#cardNumber');
-    var cardNumberField = $('#card-number-field');
-    var CVV = $("#cvv");
-    var mastercard = $("#mastercard");
-    var confirmButton = $('#confirm-purchase');
-    var visa = $("#visa");
-    var amex = $("#amex");
-
-
-    cardNumber.payform('formatCardNumber');
-    CVV.payform('formatCardCVC');
+//     var owner = $('#owner');
+//     var cardNumber = $('#cardNumber');
+//     var cardNumberField = $('#card-number-field');
+//     var CVV = $("#cvv");
+//     var mastercard = $("#mastercard");
+//     var confirmButton = $('#confirm-purchase');
+//     var visa = $("#visa");
+//     var amex = $("#amex");
 
 
-    cardNumber.keyup(function() {
+//     cardNumber.payform('formatCardNumber');
+//     CVV.payform('formatCardCVC');
 
-        amex.removeClass('transparent');
-        visa.removeClass('transparent');
-        mastercard.removeClass('transparent');
 
-        if ($.payform.validateCardNumber(cardNumber.val()) == false) {
-            cardNumberField.addClass('has-error');
-        } else {
-            cardNumberField.removeClass('has-error');
-            cardNumberField.addClass('has-success');
-        }
+//     cardNumber.keyup(function() {
 
-        if ($.payform.parseCardType(cardNumber.val()) == 'visa') {
-            mastercard.addClass('transparent');
-            amex.addClass('transparent');
-        } else if ($.payform.parseCardType(cardNumber.val()) == 'amex') {
-            mastercard.addClass('transparent');
-            visa.addClass('transparent');
-        } else if ($.payform.parseCardType(cardNumber.val()) == 'mastercard') {
-            amex.addClass('transparent');
-            visa.addClass('transparent');
-        }
-    });
+//         amex.removeClass('transparent');
+//         visa.removeClass('transparent');
+//         mastercard.removeClass('transparent');
 
-    confirmButton.click(function(e) {
+//         if ($.payform.validateCardNumber(cardNumber.val()) == false) {
+//             cardNumberField.addClass('has-error');
+//         } else {
+//             cardNumberField.removeClass('has-error');
+//             cardNumberField.addClass('has-success');
+//         }
 
-        e.preventDefault();
+//         if ($.payform.parseCardType(cardNumber.val()) == 'visa') {
+//             mastercard.addClass('transparent');
+//             amex.addClass('transparent');
+//         } else if ($.payform.parseCardType(cardNumber.val()) == 'amex') {
+//             mastercard.addClass('transparent');
+//             visa.addClass('transparent');
+//         } else if ($.payform.parseCardType(cardNumber.val()) == 'mastercard') {
+//             amex.addClass('transparent');
+//             visa.addClass('transparent');
+//         }
+//     });
 
-        var isCardValid = $.payform.validateCardNumber(cardNumber.val());
-        var isCvvValid = $.payform.validateCardCVC(CVV.val());
+//     confirmButton.click(function(e) {
 
-        if(owner.val().length < 5){
-            alert("Wrong owner name");
-        } else if (!isCardValid) {
-            alert("Wrong card number");
-        } else if (!isCvvValid) {
-            alert("Wrong CVV");
-        } else {
-           $(location).attr('href', '/')
-        }
-    });
-});
+//         e.preventDefault();
 
-});
+//         var isCardValid = $.payform.validateCardNumber(cardNumber.val());
+//         var isCvvValid = $.payform.validateCardCVC(CVV.val());
+
+//         if(owner.val().length < 5){
+//             alert("Wrong owner name");
+//         } else if (!isCardValid) {
+//             alert("Wrong card number");
+//         } else if (!isCvvValid) {
+//             alert("Wrong CVV");
+//         } else {
+//            $(location).attr('href', 'checkout/confirmation')
+//         }
+//     });
+// });
+
+// });

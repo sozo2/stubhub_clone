@@ -28,26 +28,24 @@
             <h1>Credit or Debit card</h1>
             <h4>Pay safely using your Visa, Mastercard or AMEX.</h4>
             <div class="creditCardForm">
-                <div class="heading">
-                    <h1>Confirm Purchase</h1>
-                </div>
                 <div class="payment">
-                    <form action="/" method="post" >
+                    <form action="checkout/confirmation" method="post" >
+                    {% csrf_token %}
                         <div class="form-group owner">
                             <label for="owner">Owner</label>
-                            <input type="text" class="form-control" id="owner">
+                            <input type="text" class="form-control" name="owner" id="owner">
                         </div>
                         <div class="form-group CVV">
                             <label for="cvv">CVV</label>
-                            <input type="text" class="form-control" id="cvv">
+                            <input type="text" class="form-control" name="cvv" id="cvv">
                         </div>
                         <div class="form-group" id="card-number-field">
                             <label for="cardNumber">Card Number</label>
-                            <input type="text" class="form-control" id="cardNumber">
+                            <input type="text" class="form-control" name="cardNumber" id="cardNumber">
                         </div>
                         <div class="form-group" id="expiration-date">
                             <label>Expiration Date</label>
-                            <select>
+                            <select name="expirationMonth">
                                 <option value="01">January</option>
                                 <option value="02">February </option>
                                 <option value="03">March</option>
@@ -61,13 +59,13 @@
                                 <option value="11">November</option>
                                 <option value="12">December</option>
                             </select>
-                            <select>
-                                <option value="16"> 2016</option>
+                            <select name="expirationYear">
                                 <option value="17"> 2017</option>
                                 <option value="18"> 2018</option>
                                 <option value="19"> 2019</option>
                                 <option value="20"> 2020</option>
                                 <option value="21"> 2021</option>
+                                <option value="22"> 2022</option>
                             </select>
                         </div>
                         <div class="form-group" id="credit_cards">
