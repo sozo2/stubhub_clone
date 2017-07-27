@@ -34,8 +34,15 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12" id="headerSMS">
-                                <a href=""><h5 class="inlineBlock marginLeft headerTextBottom">Sell Tickets</h5></a>
-                                <a href=""><h5 class="inlineBlock marginLeft headerTextBottom">My Tickets</h5></a>
+                                <a href="{% url 'sell:index' %}"><h5 class="inlineBlock marginLeft headerTextBottom">Sell Tickets</h5></a>
+
+                            {% if request.session.user_status == 'logged in' %}   
+                                <a href="{% url 'my_hub:index' %}"><h5 class="inlineBlock marginLeft headerTextBottom">My Account</h5></a>
+                            {% else %}
+                                <button type="button" id="modal-btn" class="inlineBlock marginLeft" data-toggle="modal" data-target="#myModal">
+                                <h5 class="inlineBlock marginLeft">My Account</h5>
+                                </button> 
+                            {% endif %}
                             {% if request.session.user_status == 'logged in' %}
                                  <a href="{% url 'main:logout' %}"><h5 class="inlineBlock marginLeft">Log Out</h5></a>  
                             {% else %}
