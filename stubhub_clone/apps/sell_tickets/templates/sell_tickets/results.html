@@ -1,13 +1,18 @@
-<div id="body">
-    <h3>Search returned {{search_count}} results.</h3>
+<div class='container-fluid'>
     <div class="row">
-        <form method='post' action="{% url 'sell:start_listing' %}" name='select-sell' id='select-sell'>
-        {% csrf_token %}
-        {% for event in search_results %}
-            <div class="col-md-12">
-            {% include 'sell_tickets/ticket_snippet.html' %}
+        <div class='col-md-9 results-container'>
+            <div id="result-count">Search returned {{search_count}} results.</div>
+            <div class="result-field">
+                <form method='post' action="{% url 'sell:start_listing' %}" name='select-sell' id='select-sell'>
+                {% csrf_token %}
+                {% for event in search_results %}
+                    <div class="col-md-12 snippet-bar">
+                    {% include 'sell_tickets/ticket_snippet.html' %}
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
+        </div>
     </div>
 </div>
+
 

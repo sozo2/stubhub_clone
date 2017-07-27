@@ -30,7 +30,7 @@ def results(request):
         curr_dict['venue']= search_result.venue.title
         curr_dict['date']=search_result.start_time.strftime('%b %d')
         curr_dict['id']=search_result.id
-        curr_dict['min_price']= int(Ticket_Min['price__min'])
+        #curr_dict['min_price']= int(Ticket_Min['price__min'])
         
         events.append(curr_dict)
     

@@ -1,13 +1,16 @@
 {% load static %}
 <div class='container-fluid'>
     <div class='row'>
-        <div class='col-md-1 radio event-info'><input type='radio' name='event-selection' class='sell-radios' id='{{event.id}}' value='{{event.id}}'></div>
-        <div class='col-md-2 date'>
-            <div class='day'>{{event.day}}</div>
-            <div class='month'>{{event.date}}</div>
+        <div class='col-md-2'>
+            <div class='row'>
+            <div class='col-md-4 radio'><input type='radio' name='event-selection' class='sell-radios' id='{{event.id}}' value='{{event.id}}'></div>
+            <div class='date col-md-8'>
+                <div class='day'>{{event.day}}</div>
+                <div class='monthDay'>{{event.date}}</div>
+            </div></div>
         </div>
-        <div class='col-md-6 event-info'>{{event.title}}<br>{{event.venue}}</div>
-        <div class='col-md-3 price-info'>Selling for ${{event.avg_price}}0 on average</div>
+        <div class='col-md-7 event-info'><span class='title'>{{event.title}}</span><br><span class='time'>{{event.time}} at {{event.venue}}</span></div>
+        <div class='col-md-3 price-info'><span class='listing-count'>{{event.listing_count}} Listings</span><br><span class='avg-price'>Selling for ${{event.avg_price}}0 on average</span></div>
     </div>
 
 </div>

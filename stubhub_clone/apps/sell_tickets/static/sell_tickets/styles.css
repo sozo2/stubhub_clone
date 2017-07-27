@@ -1,23 +1,302 @@
 .search-results{
-    width: 800px;
-    height: 300px;
-    border: 1px solid black;
+    width: 1000px;
+    height: 500px;
+    border-bottom: 1px solid #87909A;
     overflow: scroll;
-    margin-left: 20px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.snippet-bar{
+    padding: 10px 0px;
+    border: 1px solid #87909A;
+    border-bottom: none;
 }
 
 .date{
-    border: 5px solid black;
-}
-
-.event-info{
-    border: 5px solid black;
-}
-
-.price-info{
-    border: 5px solid black;
+    border-right: 1px solid #87909A;
+    width: 40px;
+    display: inline-block;
+    padding-bottom: 10px;
 }
 
 .sell-radios{
     margin-top: 15px;
+    display: inline-block;
+}
+
+.radio{
+    display: inline-block;
+    padding-top: 15px;
+}
+
+
+#ex1Slider .slider-selection {
+	background: #BABABA;
+}
+
+#show-price{
+    display: inline-block;
+}
+
+.price-box {
+    width: 80px;
+    height: 40px;
+    display: inline-block
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#wrapper{
+    width: auto;
+}
+.headerLeft{ 
+    background-color: #260354;
+    height: 90px;
+    padding-left: 100px;
+    padding-top: 15px;
+}
+.headerRight{
+    background-color: #260354;
+    height: 90px;
+    padding-right: 100px;
+    padding-top: 15px;
+}
+#logo{
+    height: 75px;
+    width: 125px;
+}
+.inlineBlock{
+    display: inline-block;
+    color: white;
+}
+.marginLeft{
+    float: right;
+    margin-left: 20px;
+}
+#headerGHE{
+    height: 30px;
+}
+#headerSMS{
+    height: 30px;
+}
+
+#searchBar{
+    width: 450px;
+    height: 45px;
+    margin-top: 15px;
+    margin-left: 33%;
+    font-size: 18px;
+    vertical-align: top;
+    margin-right: 0px;
+}
+#searchIcon{
+    height: 45px;
+    width: 45px;
+    margin-top: 15px;
+}
+
+.search-head{
+    height: 150px;
+    background: #260354;
+}
+
+.search-head h2{
+    color: white;
+    margin-left: 25px;
+    margin-bottom: -5px;
+}
+
+.results-container{
+    margin: auto;
+}
+
+#result-count{
+    font-size: 26px;
+}
+
+.result-field{
+    height: 500px;
+    border-bottom: 1px solid #87909A;
+    overflow: scroll;
+    margin-top: 5px;
+}
+
+.day{
+    margin-top: 10px;
+    height: 24px;
+    width: 100%;
+    color: #00A1A1;
+    font-weight: 500;
+    font-size: 21px;
+}
+.monthDay{
+    height: 20px;
+    color: #87909A;
+    margin-top: 5px;
+}
+
+.title{
+    color: rgb(62,62,78);
+    font-size: 18px;
+}
+
+.time{
+    font-size: 12px;
+    color: #87909A;
+}
+
+.listing-count{
+    font-size: 12px;
+}
+
+.avg-price{
+    color: rgb(62,62,78);
+    font-size: 14px;
+}
+
+#choose-event{
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    border-radius: 0px;
+    border: none;
+    height: 50px;
+    width: 50%;
+    background: rgb(217,65,133);
+    color: white;
+    font-size: 18px;
+}
+
+.listing-head{
+    height: 90px;
+    background: rgb(29,19,64);
+    padding: 40px 0px 0px 30px;
+}
+
+.listing-head h1{
+    color: white;
+}
+
+.decorstrip{
+    width: 140%;
+    height: 50px;
+    margin: 0px -20px;
+}
+
+.head-details{
+    background: rgb(29,19,64);
+    color: white;
+    padding-left: 4px;
+}
+
+.form-body{
+    background: rgb(246,248,249);
+}
+
+.inner-container{
+    margin: auto;
+    /* background: white;
+    border: 1px solid rgb(235,235,235); */
+}
+
+.extra-space{
+    height: 100px;
+}
+
+.fill-in{
+    margin: auto;
+    padding-top: 60px;
+}
+
+.fill-in h5{
+    margin-left: -10px;
+    color: rgb(80,80,80);
+}
+
+.form-elements{
+    border: 1px solid rgb(235,235,235);
+    border-bottom: white;
+    padding: 30px 0px 30px 50px;
+    background: white;
+    color: rgb(80,80,80);
+}
+
+.bottom-line{
+    height: 1px;
+    background: rgb(235,235,235);)
+}
+
+.selectpicker{
+    display: block;
+    border-radius: 0px;
+    border: 1px solid rgb(80,80,80);
+    height: 30px;
+}
+
+.indent{
+    margin-left: 30px;
+}
+
+#ex1{
+    margin: 10px;
+}
+
+.price-slider{
+    margin-top: 10px;
+    margin-left: 30px;
+    display: inline-block;
+}
+
+.min{
+    margin-right: 15px;
+}
+
+.max{
+    margin-left: 15px;
+}
+
+.price-fun{
+    margin:auto;
+}
+
+.price-box, #show-price{
+    font-weight: bold;
+    color: rgb(10,138,202);
+    font-size: 20px;
+}
+
+.my-radios{
+    margin-right: 5px;
+}
+
+.input-space{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.seat-hints{
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+#make-listing{
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 40px;
+    margin-right: 20px;
+    border-radius: 0px;
+    border: none;
+    height: 50px;
+    width: 100%;
+    background: rgb(217,65,133);
+    color: white;
+    font-size: 18px;
+}
+
+#make-listing, #secret-price, #secret-seats{
+    display: none;
 }

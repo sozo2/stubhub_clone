@@ -14,33 +14,76 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
         
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.1/bootstrap-slider.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.1/css/bootstrap-slider.min.css">
+
+        <!-- <script src="alert/dist/sweetalert-dev.js"></script> -->
+        <!-- <script src="{% static 'sell_tickets/sweetalert.min.js' %}"></script> -->
+        <!-- <link rel="stylesheet" href="alert/dist/sweetalert.css"> -->
+        <!-- <link href="{% static 'sell_tickets/sweetalert.css' %}"> -->
+        <script src="{% static 'sell_tickets/bootstrap-sweetalert/dist/sweetalert.min.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'sell_tickets/bootstrap-sweetalert/dist/sweetalert.css' %}">
+
         <script src="{% static 'sell_tickets/script.js' %}"></script>
         <link rel="icon" href="{% static 'main/images/logo.png' %}">
         <title>Sell Tickets</title>
     </head>
     <body>
-        <div>{{title}} Tickets</div>
-        <form method='post' action='#'>
-            <label for='ticket-number'>How many tickets do you have?</label>
-            <select name='ticket-number'>
-                <option value=1>1 Ticket</option>
-                <option value=2>2 Tickets</option>
-                <option value=3>3 Tickets</option>
-                <option value=4>4 Tickets</option>
-                <option value=5>5 Tickets</option>
-                <option value=6>6 Tickets</option>
-                <option value=7>7 Tickets</option>
-                <option value=8>8 Tickets</option>
-                <option value=9>9 Tickets</option>
-                <option value=10>10 Tickets</option>
-            </select>
-            <div>The average ticket price for this event is ${{price}}0. How much do you want to sell yours for?</div>
-            <div>$<input type='text' name='price-input'></div>
-            <div>Where are your seats?</div>
-            <label for='ticket-section'>Section:</label>
-            <input type='text' name='ticket-section'>
-            <label for='ticket-row'>Row:</label>
-            <input type='text' name='ticket-row'>
-        </form>
+        <div>{% include 'sell_tickets/header.html' %}</div>
+        <div class='listing-head col-md-12'><h1>{{title}} Tickets</h1></div>
+        <div class='head-details col-md-12'>{{event.venue.title}} | {{event.venue.city}}</div>
+        <div class='col-md-12'><img class='decorstrip' src="{% static 'sell_tickets/decorstrip.png' %}"></div>
+        <div class='container-fluid form-body'>
+            <div class='row'>
+                <div class='col-md-12 extra-space'><div class='col-md-10 fill-in'><h5>FILL US IN ON YOUR TICKETS</h5></div></div>
+                <div class='inner-container col-md-10 col-md-offset-1'>
+                <form method='post' id='submit-listing' action="{% url 'sell:create_listing' %}">
+                    {% csrf_token %}
+                <div class='col-md-12 form-elements'>
+                    <label for='ticket-number' class='indent'>HOW MANY TICKETS DO YOU HAVE?</label>
+                    <select name='ticket-number' id='selection' class='selectpicker indent'>
+                        <option value='1'>1 Ticket</option>
+                        <option value='2'>2 Tickets</option>
+                        <option value='3'>3 Tickets</option>
+                        <option value='4'>4 Tickets</option>
+                        <option value='5'>5 Tickets</option>
+                        <option value='6'>6 Tickets</option>
+                        <option value='7'>7 Tickets</option>
+                        <option value='8'>8 Tickets</option>
+                        <option value='9'>9 Tickets</option>
+                        <option value='10'>10 Tickets</option>
+                    </select>
+                </div>
+                <div class='col-md-12 form-elements' id='secret-price'>
+                    <div class='indent'>THE AVERAGE TICKET PRICE FOR THIS EVENT IS ${{price}}0. HOW MUCH DO YOU WANT TO SELL YOURS FOR?</div>
+                    <div class='col-md-9 price-fun'>
+                        <div class='price-slider'><span class='min'>${{price_min}}0</span><input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="{{price_min}}" data-slider-max="{{price_max}}" data-slider-step="1.00" name="price-slider"/><span class='max'>${{price_max}}0</span></div>
+                        <div class='price-box indent'>$<div id='show-price'></div>.00</div>
+                    </div>
+                </div>
+                <div class='col-md-12 form-elements' id='secret-seats'>
+                    <div class='indent'>WHERE ARE YOUR SEATS?</div>
+                    <div class='indent input-space'><input type='radio' name='GA' value='True' class='my-radios display-create'>General Admission</div>
+                    <div class='indent'><input class='display-create' type='radio' name='GA' value='False'>
+                        <label for='ticket-zone'>Zone:</label>
+                        <input type='text' name='ticket-zone'>
+                        <label for='ticket-section'>Section:</label>
+                        <input type='text' name='ticket-section'>
+                        <label for='ticket-row'>Row:</label>
+                        <input type='text' name='ticket-row'>
+                        <label for='seat'>Seat(s):</label>
+                        <input type='text' name='seat'>
+                        <div><span class='seat-hints'>If you have more than one ticket, separate seat numbers by commas.</span></div>
+                        <div><span class='seat-hints'>If the information field does not apply to your ticket, leave it blank.</span></div>
+                    </div>
+                </div>
+                <div class='col-md-12 bottom-line'></div>
+                    <div class='row'><div class='col-md-8'></div><div class='col-md-4'><button id='make-listing'>Create Listing</button></div></div>
+                </form>
+                </div>
+            <div class='col-md-12 extra-space'></div>
+            </div>
+        
+        </div>
     </body>
 </html>
