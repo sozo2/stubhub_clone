@@ -27,11 +27,12 @@
                 <img id="mapPic" src="http://{{event.image}}"><br>
             </div>
             <div id="eventTable">
-                        <a href="{%url 'search:event' event_id=event.id sort_by='price' %}"><button type="">Price</button></a><a href="{%url 'search:event' event_id=event.id sort_by='value' %}"><button type="">Value</button></a><a href="{%url 'search:event' event_id=event.id sort_by='best_tickets' %}"><button type="">Best Tickets</button></a>
+                        <a href="{%url 'search:event' event_id=event.id sort_by='tickets__price' %}"><button type="">Price</button></a><a href="{%url 'search:event' event_id=event.id sort_by='price_value' %}"><button type="">Value</button></a><a href="{%url 'search:event' event_id=event.id sort_by='section' %}"><button type="">Best Tickets</button></a>
                             <h4>NUMBER OF TICKETS</h4>
                             <form action="{%url 'search:ticket_change' %}" method="post">
                             {% csrf_token %}
                                 <select name="numberOfTix" id="numberOfTix">
+                                    <option value=”” disabled selected>{{request.session.tix}}</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>

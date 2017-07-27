@@ -40,8 +40,28 @@ def results(request):
     }
     return render(request, 'find_tickets/results.html', context)
     
-def event(request, event_id,sort_by='price'):
+def event(request, event_id,sort_by='tickets__price'):
+    try:
+        if request.session['sort_by'] == sort_by:
+            if request.session['asc'] == 1:
+                request.session['asc'] = 0
+                currsort='-'+sort_by
+            else:
+                request.session['asc'] = 1
+                currsort=sort_by
+        else:
+            request.session['sort_by'] =sort_by
+            currsort=request.session['sort_by']
+            request.session['asc'] = 1
+    except:
+        request.session['sort_by'] =sort_by
+        request.session['asc'] = 1
+        currsort=request.session['sort_by']
 
+    if 'sort_by' not in request.session:
+        request.session['sort_by'] = sort_by
+        
+        
     event_all = Event.objects.get(id=event_id)
     event_dict={}
     event_dict['day']=event_all.start_time.strftime('%a')
@@ -57,8 +77,15 @@ def event(request, event_id,sort_by='price'):
         desired_tickets= 1
     else:
         desired_tickets=request.session['tix']
+    
+    print currsort
+    print request.session['asc']
+    listings_all = Listing.objects.filter(event = event_all, tickets_for_sale__gte=desired_tickets).order_by(currsort).distinct()
+    
+    # for listing in listings_all:
+    #    listing['best'] = int(listing['section']/100)/listing['row'] 
+        
 
-    listings_all = Listing.objects.filter(event = event_all, tickets_for_sale__gte=desired_tickets)
     listings = []
     for listing in listings_all:
         price = Ticket.objects.filter(listing=listing).first().price
@@ -71,7 +98,7 @@ def event(request, event_id,sort_by='price'):
         listing_dict['delivery'] = listing.delivery_method
         listing_dict['id'] = listing.id
         listings.append(listing_dict)
-    print listing_dict
+    
     context = {
         'event':event_dict,
         'listings':listings,
@@ -81,10 +108,12 @@ def event(request, event_id,sort_by='price'):
     
 def ticket_change(request):
     if request.method != "POST":
-        return redirect(reverse ('search:event'))
+        return redirect(reverse ('search:event'))        
     request.session['event_id'] = request.POST['event_id']
-    request.session['tix'] = request.POST['numberOfTix']
-
+    try:
+        request.session['tix'] = request.POST['numberOfTix']
+    except:
+        pass
     print request.session['tix'] , request.session['event_id']
     return redirect(reverse('search:event',kwargs={'event_id' : request.session['event_id']}))
     
