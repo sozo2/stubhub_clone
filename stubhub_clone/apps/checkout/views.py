@@ -87,4 +87,4 @@ def confirmation(request):
     #     # for i in range(0, tickets):
     #     #     ticketSet[i].sold = True
 
-    return redirect('checkout/')
+    return redirect('/')
