@@ -55,5 +55,6 @@ def register(request):
 #         return redirect(reverse('my_hub:index'))
 
 def logout(request):
+    print '------------- logging OUT!@'
     request.session.clear()
     return redirect('/')

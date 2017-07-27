@@ -37,6 +37,13 @@
         {% if request.session.user_status == 'logged in' %}
 
             <div class='row'><div class='col-md-8'></div><div class='col-md-4'><input type='submit' class='start-listing'  value='Start Listing' id='choose-event'></div></div>
+
+
+        {% else %}
+            <div class='row'><div class='col-md-8'></div><div class='col-md-4'>
+                <button type="button" id="modal-btn" data-toggle="modal" class='start-listing' data-target="#myModal">Start Listing</button> 
+            </div></div>
+
             <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
@@ -46,12 +53,6 @@
                     </div>
                 </div>
             </div>
-
-
-        {% else %}
-            <div class='row'><div class='col-md-8'></div><div class='col-md-4'>
-                <button type="button" id="modal-btn" data-toggle="modal" class='start-listing' data-target="#myModal">Start Listing</button> 
-            </div></div>
             
         {% endif %}
         </form>

@@ -10,6 +10,8 @@ import json
 from django.http import JsonResponse
 
 def index(request):
+    if 'user_status' not in request.session:
+        request.session['user_status'] = 'logged out'
     if 'current_user_id' not in request.session:
         request.session['current_user_id'] = 0
     events = Event.objects.all().order_by('-popularity')[:1]
@@ -87,5 +89,6 @@ def authenticate(request):
         return JsonResponse({"RESPONSE": 12123})
 
 def logout(request):
+    print '------------- logging OUT!@'
     request.session.clear()
     return redirect(reverse('main:index'))
