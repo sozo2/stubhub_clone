@@ -14,38 +14,6 @@ def index(request):
         request.session['user_status'] = 'logged out'
     if 'current_user_id' not in request.session:
         request.session['current_user_id'] = 0
-
-
-    # all_events = Event.objects.all().order_by('-popularity')
-    # home_squares = []
-    # for i in range(50):
-    #     this_performer = all_events[i].performers
-    #     performer_events = Event.objects.filter(performers__id = this_performer.id).order_by('start_time')
-    #     performer_dict = {}
-    #     if this_performer.thumbnail:
-    #         if len(performer_events) >= 2:
-    #             performer_dict = {
-    #                 'performer' : this_performer.name,
-    #                 'row1' : this_performer.thumbnail,
-    #                 'row2' : performer_events[0],
-    #                 'row3' : performer_events[1],
-    #                 'picture' : 'yes'
-    #             }
-    #     else:
-    #         if len(performer_events) >= 3:
-    #             performer_dict = {
-    #                 'performer' : this_performer.name,
-    #                 'row1' : performer_events[0],
-    #                 'row2' : performer_events[1],
-    #                 'row3' : performer_events[2],
-    #                 'picture' : 'no'
-    #             }
-    #     home_squares.append(performer_dict)
-    #     if len(home_squares) == 9:
-    #         break
-    # context = {
-    #     "home_squares" : home_squares
-    # }
     events = Event.objects.all().order_by('-popularity')[:1]
     performers_list = []
     events_list = Event.objects.all()
