@@ -1,0 +1,27 @@
+ {% load static %}
+<div id="wrapper">
+            <div id="header">
+                <div class="row">
+                    <div class="col-md-6 headerLeft">
+                        <img id="logo" class="inlineBlock" src="{% static 'main/images/StubHubLogo.png' %}" alt="StubHubLogo"> 
+                        <p class="inlineBlock">Find events</p>
+                    </div>
+                    <div class="col-md-6 headerRight">
+                        <div class="row">
+                            <div class="col-md-12" id="headerGHE">
+                                <a href=""><p class="inlineBlock marginLeft ghe">Gift cards</p></a>
+                                <a href=""><p class="inlineBlock marginLeft ghe">Help</p></a>
+                                <a href=""><p class="inlineBlock marginLeft ghe">English</p></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12" id="headerSMS">
+                                <a href=""><p class="inlineBlock marginLeft sms">Sell Tickets</p></a>
+                                <a href=""><p class="inlineBlock marginLeft sms">My Tickets</p></a>
+                                <!--<a href=""><p class="inlineBlock marginLeft sms">Signout</p></a>-->
+                                <div>{% include 'my_hub/sign_in_out.html' %}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>

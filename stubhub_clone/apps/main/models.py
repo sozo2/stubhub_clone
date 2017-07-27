@@ -82,8 +82,8 @@ class Event(models.Model):
 class Listing(models.Model):
     seller = models.ForeignKey(User, related_name = 'listings')
     event = models.ForeignKey(Event,related_name = 'listings')
-    zone = models.CharField(max_length = 255)
-    section = models.CharField(max_length = 255)
+    zone = models.CharField(max_length = 255, null=True)
+    section = models.CharField(max_length = 255, null=True)
     row = models.CharField(max_length = 255, null=True)
     tickets_for_sale = models.IntegerField(default = 0)
     delivery_method = models.CharField(max_length = 255, default='electronic delivery')
@@ -93,7 +93,7 @@ class Listing(models.Model):
 
 class Ticket(models.Model):
     listing = models.ForeignKey(Listing, related_name = 'tickets')
-    seat = models.IntegerField(default = 0)
+    seat = models.IntegerField(default = 0, null=True)
     price = models.FloatField(default = 0.0)
     sold = models.BooleanField(default = False)
     created_at = models.DateTimeField(auto_now_add = True)

@@ -19,14 +19,20 @@
         <title>Sell Tickets</title>
     </head>
     <body>
-        <form action="{% url 'sell:search' %}" method='post'>
-            {% csrf_token %}
-            <label for='search'>Search Tickets to Sell:</label>
-            <input type='text' name='search' placeholder="Search for Events">
-            <input type='submit' value='Search'>
+        <div>{% include 'sell_tickets/header.html' %}</div>
+
+        <div class="col-md-12 searchBar search-head">
+            <h2 class='text-center'>What are you selling?</h2>
+            <form action="{% url 'sell:search' %}" method='post' id='sell-search-form'>
+                {% csrf_token %}
+                <input name='search' id="searchBar" type="text" placeholder="Seach for events...">
+                <input id="searchIcon" type="image" src="{% static 'main/images/searchIcon.png' %}" alt="searchIcon">
+            </form>
+        </div>
+    {% if request.session.sell_stage == 'return results' %}
+        <div class='container-fluid'>{% include 'sell_tickets/results.html' %}</div>
+        <div class='row'><div class='col-md-8'></div><div class='col-md-4'><input type='submit' value='Start Listing' id='choose-event'></div></div>
         </form>
-        <div class="search-results">{% include 'sell_tickets/results.html' %}</div>
-        <input type='submit' value='Start Listing'>
-        </form>
+    {% endif %}
     </body>
 </html>
