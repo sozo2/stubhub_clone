@@ -97,7 +97,7 @@ def confirmation(request):
         for ticket in ticketSet:
             ticket.sold = True
     else:
-        for i in range(0, tickets):
+        for i in range(0, int(tickets)):
             ticketSet[i].sold = True
 
     return redirect('/')
