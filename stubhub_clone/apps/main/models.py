@@ -87,7 +87,7 @@ class Listing(models.Model):
     section = models.CharField(max_length = 255)
     row = models.CharField(max_length = 255, null=True)
     tickets_for_sale = models.IntegerField(default = 0)
-    delivery_method = models.CharField(max_length = 255, default='electronic delivery')
+    delivery_method = models.CharField(max_length = 255, default='Electronic')
     price_value=models.FloatField(default = 0.0)
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True) 

@@ -3,8 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
         {% load static %}
+        <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
         <link rel="stylesheet" href="{% static 'checkout/css/styles.css' %}">
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -99,13 +105,27 @@
                             </select>
                         </div>
                     </div>
-                    <div>
-                        <input type="hidden" name="priceOfTix" value="{{price}}">
-                        <input id="checkoutButton" type="submit" value="Go to checkout">
+                    <div><input type="hidden" name="priceOfTix" value="{{price}}"> </div>
+
+
+            {% if request.session.user_status == 'logged in' %}
+
+                <input id="checkoutButton" type="submit" value="Go to checkout">
+            {% else %}
+                <button type="button" id="modal-btn" data-toggle="modal" class='checkout-button' data-target="#myModal">Go to checkout</button> 
+
+                <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                            {% include '../main/snippet.html' %}
+                            </div>
+                        </div>
                     </div>
-                        </form>
                 </div>
-            </div>
-        </div>
+                
+            {% endif %}
+
+            </form>
     </body>
 </html>

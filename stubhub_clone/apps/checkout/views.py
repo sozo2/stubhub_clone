@@ -5,8 +5,13 @@ from django.shortcuts import render, HttpResponse, redirect
 from models import *
 from django.db.models import Min
 from django.urls import reverse
+from django.core import serializers
+import json
 
 def index(request, listing_id):
+    if 'user_status' not in request.session:
+        request.session['user_status'] = "logged out"
+    print request.session['user_status']
     listing = Listing.objects.get(id=listing_id)
     minSeat = Ticket.objects.filter(listing=listing_id).aggregate(Min('seat'))
     seatPrice = Ticket.objects.filter(listing=listing_id).aggregate(Min('price'))
@@ -46,6 +51,8 @@ def process(request, listing_id):
     return redirect(reverse('checkout:review'))
 
 def review(request):
+    print request.session['user_status']
+    print request.session['current_user_id']
     listingID = request.session['context']['listing']
     listing = Listing.objects.get(id=listingID)
     tickets =request.session['context']['tickets']

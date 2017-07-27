@@ -16,9 +16,19 @@
 
 			<div class="tab-content ">
 			  <div class="tab-pane active" id="1">
-                <div><h3>WHAT'S NEXT<h3> <a href="{% url 'my_hub:index' %}">View current and past order</a>
-<p>You don’t have any upcoming events scheduled right now.</p>
-                </div>
+                  <div class="whatsNextHeader">
+                    <h3 class="whatsNextText">WHAT'S NEXT<h3> 
+                    <p class="floatRight" href="{% url 'my_hub:index' %}">View current and past order</p>
+                  </div>
+                
+                {% if futuretrans %}
+                    {% for listing in futuretrans %}
+                    Listing No. {{listing.id}} <br>
+                    <a href="{% url 'search:event' event_id=listing.event_id %}">{{listing.event}}</a><br>
+                    {% endfor %}
+                {% else %}
+                    <p>You don’t have any upcoming events scheduled right now.</p>
+                {% endif %}
                 <div><h3>LISTINGS<h3> <a href="{% url 'my_hub:index' %}">View all listings</a>
                 <p>You don’t have any upcoming events scheduled right now.</p>
                 </div>
