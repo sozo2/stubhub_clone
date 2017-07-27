@@ -16,7 +16,13 @@ def process(request):
 
 def results(request):
     search_string = request.session['search_string']
-    
+    if len(Venue.objects.filter(title=search_string)):
+        id = Venue.objects.get(title=search_string).id
+        return redirect(reverse("search:venue",kwargs={'venue_id':id}))
+    if len(Performer.objects.filter(name=search_string)):
+        id = Performer.objects.get(name=search_string).id
+        return redirect(reverse("search:performer",kwargs={'performer_id':id}))
+
     event_results = Event.objects.filter(title__icontains=search_string).order_by('start_time')
     search_count = Event.objects.filter(title__icontains=search_string).count()
     
@@ -30,7 +36,7 @@ def results(request):
         curr_dict['venue']= search_result.venue.title
         curr_dict['date']=search_result.start_time.strftime('%b %d')
         curr_dict['id']=search_result.id
-        #curr_dict['min_price']= int(Ticket_Min['price__min'])
+        curr_dict['min_price']= int(Ticket_Min['price__min'])
         
         events.append(curr_dict)
     
@@ -70,7 +76,10 @@ def event(request, event_id,sort_by='tickets__price'):
     event_dict['venue']=event_all.venue.title
     event_dict['date']=event_all.start_time.strftime('%b %d')
     event_dict['id']=event_all.id
-    event_dict['image']=event_all.venue.seating_map
+    if event_all.venue.seating_map:
+        event_dict['image']=event_all.venue.seating_map
+    else:
+        event_dict['image']="www.bykcollege.com/images/index/NoImageAvailable.png"
     print event_all.venue.seating_map
 
     if 'tix' not in request.session:
@@ -116,4 +125,57 @@ def ticket_change(request):
         pass
     print request.session['tix'] , request.session['event_id']
     return redirect(reverse('search:event',kwargs={'event_id' : request.session['event_id']}))
+
+def venue(request, venue_id):
+    venue=Venue.objects.get(id = venue_id)
+    event_results = Event.objects.filter(venue__id=venue_id).order_by('start_time')
+    search_count = Event.objects.filter(venue__id=venue_id).count()
+    
+    events=[]
+    for search_result in event_results:
+        curr_dict = {}
+        Ticket_Min = Ticket.objects.filter(listing__event__id = search_result.id).aggregate(Min('price'))        
+        curr_dict['day']=search_result.start_time.strftime('%a')
+        curr_dict['time']=search_result.start_time.strftime('%I:%M %p')
+        curr_dict['title']= search_result.title
+        curr_dict['venue']= search_result.venue.title
+        curr_dict['date']=search_result.start_time.strftime('%b %d')
+        curr_dict['id']=search_result.id
+        curr_dict['min_price']= int(Ticket_Min['price__min'])
+        
+        events.append(curr_dict)
+    
+    context = {
+        'search_results':events,
+        'search_count':search_count,
+        'venue_name':venue.title,
+        'venue_banner':venue.banner,
+    }
+    return render(request, 'find_tickets/venue_home.html', context)
+    
+def performer(request, performer_id):
+    performer = Performer.objects.get(id=performer_id) 
+    event_results = Event.objects.filter(title__icontains=performer.name).order_by('start_time')
+    search_count = Event.objects.filter(title__icontains=performer.name).count()
+    
+    events=[]
+    for search_result in event_results:
+        curr_dict = {}
+        Ticket_Min = Ticket.objects.filter(listing__event__id = search_result.id).aggregate(Min('price'))        
+        curr_dict['day']=search_result.start_time.strftime('%a')
+        curr_dict['time']=search_result.start_time.strftime('%I:%M %p')
+        curr_dict['title']= search_result.title
+        curr_dict['venue']= search_result.venue.title
+        curr_dict['date']=search_result.start_time.strftime('%b %d')
+        curr_dict['id']=search_result.id
+        curr_dict['min_price']= int(Ticket_Min['price__min'])
+        
+        events.append(curr_dict)
+    
+    context = {
+        'search_results':events,
+        'search_count':search_count,
+        'performer_name':performer.name,
+    }
+    return render(request, 'find_tickets/performer_home.html', context)
     
