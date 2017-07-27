@@ -25,7 +25,6 @@ def index(request, listing_id):
         seating_map=listing.event.venue.seating_map
     else:
         seating_map="www.bykcollege.com/images/index/NoImageAvailable.png"
-    
 
     context = {
         'listing': listing,
