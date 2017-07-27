@@ -54,7 +54,7 @@ def review(request):
     request.session['total'] = total
     context = {
         'listing': listing,
-        'total':total
+        'total':total,
     }
     return render(request, 'checkout/review.html', context)
 
@@ -83,8 +83,8 @@ def confirmation(request):
     if listingObject.tickets_for_sale == int(tickets):
         for ticket in ticketSet:
             ticket.sold = True
-    # else:
-    #     # for i in range(0, tickets):
-    #     #     ticketSet[i].sold = True
+    else:
+        for i in range(0, tickets):
+            ticketSet[i].sold = True
 
-    return redirect('checkout/')
+    return redirect('/')

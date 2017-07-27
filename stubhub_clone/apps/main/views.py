@@ -13,7 +13,10 @@ def index(request):
     if 'current_user_id' not in request.session:
         request.session['current_user_id'] = 0
     events = Event.objects.all().order_by('-popularity')[:1]
-    performers_list = ["Chicago Cubs", "Chicago White Sox", "Houston Astros", "New York Yankees", "Washington Nationals", "Los Angeles Dodgers"]
+    events_list = Event.objects.all()
+    print events_list
+    for event in events_list:
+        performers_list.append(event.performers.name)
     results=[]
     for performer in performers_list:
         performerDict= {}
