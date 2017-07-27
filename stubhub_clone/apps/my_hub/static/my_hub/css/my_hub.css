@@ -77,3 +77,16 @@ li{
 .sms{
     font-size: 14px;
 }
+.whatsNextHeader{
+    height: 200px;
+    width: 400px;
+    background-color: orange;
+    display: inline-block;
+}
+.floatRight{
+    text-align: right;
+    display: inline-block;
+}
+.whatsNextText{
+    display: inline-block;
+}

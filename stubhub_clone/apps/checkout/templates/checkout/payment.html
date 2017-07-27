@@ -12,6 +12,8 @@
         <link rel="stylesheet" type="text/css" href="{% static 'checkout/css/card.css' %}">
         <script src="{% static 'checkout/javascript/jquery.payform.min.js' %}" charset="utf-8"></script>
         <script src="{% static 'checkout/javascript/card.js' %}"></script>
+        <script src="{% static 'sell_tickets/bootstrap-sweetalert/dist/sweetalert.min.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'sell_tickets/bootstrap-sweetalert/dist/sweetalert.css' %}">
         <title>StubHub!</title>
         </head>
     <body id="wrapper">
@@ -29,19 +31,19 @@
             <h4>Pay safely using your Visa, Mastercard or AMEX.</h4>
             <div class="creditCardForm">
                 <div class="payment">
-                    <form action="checkout/confirmation" method="post" >
+                    <form action="checkout/confirmation" method="post" id="cardForm">
                     {% csrf_token %}
                         <div class="form-group owner">
                             <label for="owner">Owner</label>
-                            <input type="text" class="form-control" name="owner" id="owner">
+                            <input type="text" class="form-control" name="cardOwner" id="owner">
                         </div>
                         <div class="form-group CVV">
                             <label for="cvv">CVV</label>
-                            <input type="text" class="form-control" name="cvv" id="cvv">
+                            <input type="text" class="form-control" name="cvvOwner" id="cvv">
                         </div>
                         <div class="form-group" id="card-number-field">
                             <label for="cardNumber">Card Number</label>
-                            <input type="text" class="form-control" name="cardNumber" id="cardNumber">
+                            <input type="text" class="form-control" name="cardNumberOwner" id="cardNumber">
                         </div>
                         <div class="form-group" id="expiration-date">
                             <label>Expiration Date</label>

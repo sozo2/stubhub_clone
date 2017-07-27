@@ -58,6 +58,7 @@ def review(request):
     tickets =request.session['context']['tickets']
     ticketPrice = request.session['context']['price']
     total = float(tickets)*ticketPrice
+    request.session['total'] = total
     context = {
         'listing': listing,
         'total':total
@@ -68,9 +69,29 @@ def payment(request):
     return render(request, 'checkout/payment.html')
 
 def confirmation(request):
-    print request.session['current_user_id']
-    nameOnCard = request.POST['owner']
-    cardNumber = request.POST['cardNumber']
+    #creating creditcard object
+    userID = request.session['current_user_id']
+    userObject = User.objects.get(id=userID)
+    nameOnCard = request.POST['cardOwner']
+    cardNumber = request.POST['cardNumberOwner']
     expirationMonth = request.POST['expirationMonth']
     expirationYear = request.POST['expirationYear']
+    expiration = str(expirationMonth+expirationYear)
+    creditcardObject = CreditCard.objects.create(user=userObject, name_on_card=nameOnCard, number=cardNumber, expiration=expiration)
+
+    #creating transaction object
+    listingID = request.session['context']['listing']
+    listingObject = Listing.objects.get(id=listingID)
+    tickets = request.session['context']['tickets']
+    total = request.session['total']
+    Transaction.objects.create(buyer=userObject, listing=listingObject, tickets_bought=tickets, credit_card=creditcardObject, total=total)
+    listingObject.tickets_for_sale = listingObject.tickets_for_sale - int(tickets)
+    ticketSet = Ticket.objects.filter(listing__id = listingID).order_by('seat')
+    if listingObject.tickets_for_sale == int(tickets):
+        for ticket in ticketSet:
+            ticket.sold = True
+    # else:
+    #     # for i in range(0, tickets):
+    #     #     ticketSet[i].sold = True
+
     return redirect('/')
