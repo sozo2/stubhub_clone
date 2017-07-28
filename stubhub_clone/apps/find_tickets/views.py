@@ -5,6 +5,7 @@ from .models import *
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.db.models import Min
+from django.utils import timezone
 from datetime import *
 
 # Create your views here.
@@ -23,7 +24,7 @@ def results(request):
         id = Performer.objects.get(name=search_string).id
         return redirect(reverse("search:performer",kwargs={'performer_id':id}))
 
-    event_results = Event.objects.filter(title__icontains=search_string).order_by('start_time')
+    event_results = Event.objects.filter(title__icontains=search_string,start_time__gte=timezone.now()).order_by('start_time')
     search_count = Event.objects.filter(title__icontains=search_string).count()
     
     events=[]
@@ -128,7 +129,7 @@ def ticket_change(request):
 
 def venue(request, venue_id):
     venue=Venue.objects.get(id = venue_id)
-    event_results = Event.objects.filter(venue__id=venue_id).order_by('start_time')
+    event_results = Event.objects.filter(venue__id=venue_id,start_time__gte=timezone.now()).order_by('start_time')
     search_count = Event.objects.filter(venue__id=venue_id).count()
     
     events=[]
@@ -155,7 +156,7 @@ def venue(request, venue_id):
     
 def performer(request, performer_id):
     performer = Performer.objects.get(id=performer_id) 
-    event_results = Event.objects.filter(title__icontains=performer.name).order_by('start_time')
+    event_results = Event.objects.filter(title__icontains=performer.name,start_time__gte=timezone.now()).order_by('start_time')
     search_count = Event.objects.filter(title__icontains=performer.name).count()
     
     events=[]
