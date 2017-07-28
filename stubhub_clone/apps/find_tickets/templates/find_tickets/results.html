@@ -23,14 +23,14 @@
                     </div>
                     <div class="col-md-6 headerRight">
                         <div class="row">
-                            <div class="col-md-12" id="headerGHE">
+                            <div class="col-md-12 headerNoBorder" id="headerGHE">
                                 <a href=""><h6 class="inlineBlock marginLeft">Gift cards</h6></a>
                                 <a href=""><h6 class="inlineBlock marginLeft">Help</h6></a>
                                 <a href=""><h6 class="inlineBlock marginLeft">English</h6></a>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12" id="headerSMS">
+                            <div class="col-md-12 headerNoBorder" id="headerSMS">
                                 <a href=""><h5 class="inlineBlock marginLeft">Sell Tickets</h5></a>
                                 <a href=""><h5 class="inlineBlock marginLeft">My Tickets</h5></a>
                                 <a href=""><h5 id="signIn" class="inlineBlock marginLeft">Sign in</h5></a>
@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div id="body">
-                <h3>    Search returned {{search_count}} results.</h3>
+                <h3>Search returned {{search_count}} results.</h3>
                 <div class="row">
                     {% for event in search_results %}
                     <div class="col-md-12">
@@ -67,9 +67,9 @@
                     </div>
                     {% endfor %}
                     <div class="seeMore">
-            <p>View more events</p>
-        </div>
+                    <p>View more events</p>
                 </div>
+            </div>
             </div>
             <div id="footer">
                 <div id="footerGetApps">
