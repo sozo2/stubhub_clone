@@ -59,6 +59,11 @@
     width: 45px;
     margin-top: 15px;
 }
+
+#wrapper{
+     margin-left: -20px;
+    margin-right: -20px;
+}
 #locationRow{
     height: 50px;
     border-bottom: 1px solid #E7EAEC;
@@ -585,4 +590,8 @@ li{
     margin: 0 auto;
     padding-left: 50px;
     padding-right: 50px;
+}
+
+.count-row{
+    height: 100px;
 }

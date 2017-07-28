@@ -629,3 +629,6 @@ li{
 .inputs{
     display: inline-block;
 }
+#searchReturnedText{
+    display: block;
+}

@@ -14,7 +14,7 @@
         <title>Buy sports, concert and theater</title>
     </head>
     <body>
-        <div id="wrapper">
+        <div id="wrapper" class='container-fluid'>
             <div id="header">
                 <div class="row">
                     <div class="col-md-6 headerLeft">
@@ -74,7 +74,10 @@
                 </div>
             </div>
             <div id="body">
-                <h3>Search returned {{search_count}} results.</h3>
+                <div class='row'>
+                <div class="col-md-12 count-row">
+                    <h3 id="searchReturnedText">Search returned {{search_count}} results.</h3>
+                </div></div>
                 <div class="row">
                     {% for event in search_results %}
                     <div class="col-md-12">
