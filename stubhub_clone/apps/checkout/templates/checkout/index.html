@@ -47,14 +47,9 @@
             </div>
             <div id="body">
                 <h3>Order Details</h3>
-<<<<<<< HEAD
-                <div id="venuePic">
-                    <img src="http://{{seating_map}}" alt="map">
-=======
                 <div id="venuePicContainer">
-                    <img id="venuePic" src="http://{{seating_map}}" alt="map">
->>>>>>> fa44d8a4a012b735d354a7b52f97f017d208ebce
-                </div>
+                    <img id="venuePic" src="http://{{seating_map}}" alt="map"> 
+                </div>  
                 <div id="ticketInfoContainer">
                     <div class="event">
                         <div class="eventDate">
@@ -106,32 +101,29 @@
                         <form action="{%url 'checkout:process' listing_id=listing.id%}" method="post" id="checkout-form">
                         {% csrf_token %}</form>
                             <select name="numberOfTix" id="numberOfTix" form="checkout-form">
+                                    <option selected="selected" value="{{request.session.tix}}">{{request.session.tix}}</option>
                                 {% for seat in maxSeatsList %}
                                     <option value="{{seat}}">{{seat}}</option>
                                 {% endfor %}
                             </select>
                         </div>
                     </div>
-                    <div><input type="hidden" name="priceOfTix" value="{{price}}" form="checkout-form"> </div>
-
-                </div>
-            {% if request.session.user_status == 'logged in' %}
-
-                <input id="checkoutButton" type="submit" value="Go to checkout" form="checkout-form">
-            {% else %}
-                <button type="button" id="modal-btn" data-toggle="modal" class='checkout-button' data-target="#myModal">Go to checkout</button> 
-
-                <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                            {% include '../main/snippet.html' %}
+                    <div><input type="hidden" name="priceOfTix" value="{{price}}" form="checkout-form"></div>
+                        {% if request.session.user_status == 'logged in' %}
+                            <input id="checkoutButton" type="submit" value="Go to checkout" form="checkout-form">
+                        {% else %}
+                        <button type="button" id="checkoutButton" data-toggle="modal" class='checkout-button' data-target="#myModal">Go to checkout</button> 
+                        <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                    {% include '../main/snippet.html' %}
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-            {% endif %}
+                    {% endif %}
+            </div>
         </div>
     </body>
 </html>
