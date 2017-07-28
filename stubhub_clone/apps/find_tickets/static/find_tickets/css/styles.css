@@ -7,13 +7,13 @@
 }
 .headerLeft{ 
     background-color: #260354;
-    height: 75px;
+    height: 90px;
     padding-left: 100px;
     padding-top: 15px;
 }
 .headerRight{
     background-color: #260354;
-    height: 75px;
+    height: 90px;
     padding-right: 100px;
     padding-top: 15px;
 }
@@ -563,4 +563,26 @@ li{
 #ticket-list{
     border: 1px solid #CCCCCC;
     border-left: 10px solid #CCA5CE;
+}
+#howManyTicketsText{
+    text-align: center;
+    margin-top: 50px;
+}
+.howManyTicketsButtom{
+    height: 200px;
+    width: 200px;
+    background-color: #260354;
+    margin: auto;
+    font-size: 40px;
+    color: white;
+    margin: 0 auto;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+.howManyTicketsContainer{
+    height: auto;
+    width: auto;
+    margin: 0 auto;
+    padding-left: 50px;
+    padding-right: 50px;
 }
