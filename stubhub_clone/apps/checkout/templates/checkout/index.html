@@ -89,7 +89,7 @@
                     <div id="delivery">
                         <h4>DELIVERY</h4>
                         <h5>Instant Download</h5>
-                        <h5>Ready to download and print within minuetes</h5>
+                        <h5>Ready to download and print within minutes</h5>
                     </div>
                     <div id="TicketPriceContainer">
                         <div id="TicketPrice">
@@ -101,6 +101,7 @@
                         <form action="{%url 'checkout:process' listing_id=listing.id%}" method="post">
                         {% csrf_token %}
                             <select name="numberOfTix" id="numberOfTix">
+                                    <option selected="selected" value="{{request.session.tix}}">{{request.session.tix}}</option>
                                 {% for seat in maxSeatsList %}
                                     <option value="{{seat}}">{{seat}}</option>
                                 {% endfor %}

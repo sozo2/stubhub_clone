@@ -48,6 +48,11 @@ def results(request):
     return render(request, 'find_tickets/results.html', context)
     
 def event(request, event_id,sort_by='tickets__price'):
+    if 'tix' not in request.session or request.session['tix']=='':
+        return redirect(reverse('search:tickets', kwargs={"event_id":event_id}))
+    else:
+        desired_tickets=request.session['tix']
+    
     try:
         if request.session['sort_by'] == sort_by:
             if request.session['asc'] == 1:
@@ -83,10 +88,6 @@ def event(request, event_id,sort_by='tickets__price'):
         event_dict['image']="www.bykcollege.com/images/index/NoImageAvailable.png"
     print event_all.venue.seating_map
 
-    if 'tix' not in request.session:
-        desired_tickets= 1
-    else:
-        desired_tickets=request.session['tix']
     
     print currsort
     print request.session['asc']
@@ -179,4 +180,10 @@ def performer(request, performer_id):
         'performer_name':performer.name,
     }
     return render(request, 'find_tickets/performer_home.html', context)
+
+def tickets(request,event_id):
+    return render(request, 'find_tickets/tickets.html',{'event_id':event_id})
     
+def ticketspass(request,event_id,tickets):
+    request.session['tix']=tickets
+    return redirect(reverse('search:event',kwargs={'event_id':event_id}))
