@@ -1,5 +1,5 @@
 {% if request.session.user_status == 'logged in' %}
-<a href="{% url 'main:logout' %}"><p class="inlineBlock marginLeft sms">Log Out</p></a>  
+<a href="{% url 'main:logout' %}"><p class="inlineBlock marginLeft sms logout-size">Log Out</p></a>  
 {% else %}
 <button type="button" id="modal-btn" class="inlineBlock marginLeft sms" data-toggle="modal" data-target="#myModal">
 <p class="inlineBlock marginLeft">Sign in</p>

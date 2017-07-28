@@ -27,10 +27,12 @@
     height: 70px;
     background-color: #260354;
 }
-#logo{
-    height: 75px;
-    width: 125px;
+
+#home-logo{
+    height: 50px;
+    width: 160px;
 }
+
 .inlineBlock{
     display: inline-block;
     color: white;
@@ -336,6 +338,9 @@ h6{
     color: #7E868F;
 }
 
+.logout-size{
+    font-size: 18px;
+}
 
 /* ADDING LOGIN MODAL STYLES HERE */
 

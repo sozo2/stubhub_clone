@@ -3,21 +3,24 @@
     <div class="row">
         <div class="col-md-6 headerLeft">
             <img id="logo" class="inlineBlock" src="{% static 'main/images/StubHubLogo.png' %}" alt="StubHubLogo">
-            <p class="inlineBlock">Find events</p>
         </div>
         <div class="col-md-6 headerRight">
             <div class="row">
                 <div class="col-md-12 headerNoBorder" id="headerGHE">
-                    <a href=""><h6 class="inlineBlock marginLeft">Gift cards</h6></a>
-                    <a href=""><h6 class="inlineBlock marginLeft">Help</h6></a>
-                    <a href=""><h6 class="inlineBlock marginLeft">English</h6></a>
+                    <a href="{% url 'sell:index' %}"><p class="inlineBlock marginLeft sms">Sell Tickets</p></a>
+                    <a href="{% url 'my_hub:index' %}"><p class="inlineBlock marginLeft sms">My Tickets</p></a>
+                    <div>{% include 'my_hub/sign_in_out.html' %}</div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 headerNoBorder" id="headerSMS">
-                    <a href=""><h5 class="inlineBlock marginLeft">Sell Tickets</h5></a>
+                    <!-- <a href=""><h5 class="inlineBlock marginLeft">Sell Tickets</h5></a>
                     <a href=""><h5 class="inlineBlock marginLeft">My Tickets</h5></a>
-                    <a href=""><h5 id="signIn" class="inlineBlock marginLeft">Sign in</h5></a>
+                    <a href=""><h5 id="signIn" class="inlineBlock marginLeft">Sign in</h5></a> -->
+
+                    <a href="{% url 'sell:index' %}"><p class="inlineBlock marginLeft sms">Sell Tickets</p></a>
+                    <a href="{% url 'my_hub:index' %}"><p class="inlineBlock marginLeft sms">My Tickets</p></a>
+                    <div>{% include 'my_hub/sign_in_out.html' %}</div>
                 </div>
             </div>
         </div>
