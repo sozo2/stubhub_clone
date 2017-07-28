@@ -17,15 +17,14 @@ def index(request, listing_id):
     seatPrice = Ticket.objects.filter(listing=listing_id).aggregate(Min('price'))
     minSeats =  minSeat['seat__min']
     price = seatPrice['price__min']
-    maxSeats = minSeats+listing.tickets_for_sale
+    maxSeats = minSeats+int(request.session['tix'])
     maxSeatsList = []
     for item in range(0, listing.tickets_for_sale):
-        maxSeatsList.append(item + 2)
+        maxSeatsList.append(item + 1)
     if listing.event.venue.seating_map:
         seating_map=listing.event.venue.seating_map
     else:
         seating_map="www.bykcollege.com/images/index/NoImageAvailable.png"
-
     context = {
         'listing': listing,
         'minSeat':minSeats,

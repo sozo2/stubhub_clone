@@ -107,26 +107,22 @@
                             </select>
                         </div>
                     </div>
-                    <div><input type="hidden" name="priceOfTix" value="{{price}}" form="checkout-form"> </div>
-
-                </div>
-            {% if request.session.user_status == 'logged in' %}
-
-                <input id="checkoutButton" type="submit" value="Go to checkout" form="checkout-form">
-            {% else %}
-                <button type="button" id="modal-btn" data-toggle="modal" class='checkout-button' data-target="#myModal">Go to checkout</button> 
-
-                <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                            {% include '../main/snippet.html' %}
+                    <div><input type="hidden" name="priceOfTix" value="{{price}}" form="checkout-form"></div>
+                        {% if request.session.user_status == 'logged in' %}
+                            <input id="checkoutButton" type="submit" value="Go to checkout" form="checkout-form">
+                        {% else %}
+                        <button type="button" id="checkoutButton" data-toggle="modal" class='checkout-button' data-target="#myModal">Go to checkout</button> 
+                        <div class="modal fade custom" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                    {% include '../main/snippet.html' %}
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-            {% endif %}
+                    {% endif %}
+            </div>
         </div>
     </body>
 </html>
