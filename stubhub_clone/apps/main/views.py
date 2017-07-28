@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse
 from django.core import serializers
 import json
 from django.http import JsonResponse
+from django.utils import timezone
 
 def index(request):
     if 'user_status' not in request.session:
@@ -36,7 +37,7 @@ def index(request):
         performerDict['performer'] = performer
         performer_object = Performer.objects.get(name = performer)
         performerDict['thumbnail'] = performer_object.thumbnail
-        performerEvents = Event.objects.filter(performers__name = performer).order_by('start_time')[:3]
+        performerEvents = Event.objects.filter(performers__name = performer,start_time__gte=timezone.now()).order_by('start_time')[:3]
         counter=1
         for event in performerEvents:
             curr_dict = {}
