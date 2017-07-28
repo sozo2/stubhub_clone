@@ -67,6 +67,11 @@ $(document).ready(function (){
              });
     });
 
+    $(".sell-radios").click(function(){
+        $(".start-listing").show();
+    });
+
+
     $("#ex1").slider({
 	    formatter: function(value) {
             $("#show-price").text(value)
@@ -82,8 +87,9 @@ $(document).ready(function (){
     });
 
     $(".display-create").click(function(){
-        $("#make-listing").show();
+        $("#secret-card").show();
     });
+
 
     $("#make-listing").click(function(){
         $("#submit-listing").submit(function(e){

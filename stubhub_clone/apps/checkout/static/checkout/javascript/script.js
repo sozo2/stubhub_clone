@@ -36,7 +36,8 @@ $(document).ready(function(){
                    if (data.fail == true){
                         $('#login-msg-placeholder').html(list_html(msgs));
                    } else {
-                       window.location.href = "/checkout/review";
+                       $("#checkout-form").submit();
+                    //    window.location.href = "/checkout/review";
                    }
                }
         });
@@ -58,7 +59,8 @@ $(document).ready(function(){
                    if (data.fail == true){
                         $('#register-msg-placeholder').html(list_html(msgs));
                    } else {
-                       window.location.href = '/checkout/review';
+                       $("#checkout-form").submit();
+                    //    window.location.href = '/checkout/review';
                    }
                }
              });

@@ -171,6 +171,10 @@
     font-size: 18px;
 }
 
+#choose-event {
+    display: none;
+}
+
 .listing-head{
     height: 90px;
     background: rgb(29,19,64);
@@ -297,7 +301,7 @@
     font-size: 18px;
 }
 
-#make-listing, #secret-price, #secret-seats{
+#make-listing, #secret-price, #secret-seats, #secret-card{
     display: none;
 }
 

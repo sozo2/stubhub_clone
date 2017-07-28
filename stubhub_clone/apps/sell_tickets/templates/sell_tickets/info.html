@@ -17,14 +17,16 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.1/bootstrap-slider.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.1/css/bootstrap-slider.min.css">
 
-        <!-- <script src="alert/dist/sweetalert-dev.js"></script> -->
-        <!-- <script src="{% static 'sell_tickets/sweetalert.min.js' %}"></script> -->
-        <!-- <link rel="stylesheet" href="alert/dist/sweetalert.css"> -->
-        <!-- <link href="{% static 'sell_tickets/sweetalert.css' %}"> -->
+        <link rel="stylesheet" type="text/css" href="{% static 'sell_tickets/assets/css/styles.css' %}">
+
         <script src="{% static 'sell_tickets/bootstrap-sweetalert/dist/sweetalert.min.js' %}"></script>
         <link rel="stylesheet" href="{% static 'sell_tickets/bootstrap-sweetalert/dist/sweetalert.css' %}">
 
+
         <script src="{% static 'sell_tickets/script.js' %}"></script>
+
+        <script src="{% static 'sell_tickets/assets/js/jquery.payform.min.js' %}" charset="utf-8"></script>
+        <script src="{% static 'sell_tickets/assets/js/script.js' %}"></script>
         <link rel="icon" href="{% static 'main/images/logo.png' %}">
         <title>Sell Tickets</title>
     </head>
@@ -76,6 +78,9 @@
                         <div><span class='seat-hints'>If you have more than one ticket, separate seat numbers by commas.</span></div>
                         <div><span class='seat-hints'>If the information field does not apply to your ticket, leave it blank.</span></div>
                     </div>
+                </div>
+                <div class='col-md-12 form-elements' id='secret-card'>
+                        {% include 'sell_tickets/card.html' %}
                 </div>
                 <div class='col-md-12 bottom-line'></div>
                     <div class='row'><div class='col-md-8'></div><div class='col-md-4'><button id='make-listing'>Create Listing</button></div></div>
