@@ -17,7 +17,10 @@ def index(request, listing_id):
     seatPrice = Ticket.objects.filter(listing=listing_id).aggregate(Min('price'))
     minSeats =  minSeat['seat__min']
     price = seatPrice['price__min']
-    maxSeats = minSeats+int(request.session['tix'])
+    maxSeats = minSeats + int(request.session['tix'])
+    #request.session['maxSeats'] = maxSeats
+    print minSeats
+    #print maxSeats
     maxSeatsList = []
     for item in range(0, listing.tickets_for_sale):
         maxSeatsList.append(item + 1)
@@ -44,6 +47,7 @@ def process(request, listing_id):
     seatPrice = Ticket.objects.filter(listing=listing_id).aggregate(Min('price'))
     minSeats =  minSeat['seat__min']
     price = seatPrice['price__min']
+    request.session['max_seat'] = (int(minSeats) + int(tickets)) - 1
     maxSeats = minSeats+listing.tickets_for_sale
     request.session['context'] = {
         'listing': listing.id,
