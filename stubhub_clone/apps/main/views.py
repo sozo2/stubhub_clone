@@ -20,7 +20,10 @@ def index(request):
     performers_list = []
     events_list = Event.objects.all()
     print events_list
+<<<<<<< HEAD
+=======
     performers_list=[]
+>>>>>>> fa44d8a4a012b735d354a7b52f97f017d208ebce
     for event in events_list:
         performers_list.append(event.performers.name)
     results=[]

@@ -47,8 +47,13 @@
             </div>
             <div id="body">
                 <h3>Order Details</h3>
+<<<<<<< HEAD
+                <div id="venuePic">
+                    <img src="http://{{seating_map}}" alt="map">
+=======
                 <div id="venuePicContainer">
                     <img id="venuePic" src="http://{{seating_map}}" alt="map">
+>>>>>>> fa44d8a4a012b735d354a7b52f97f017d208ebce
                 </div>
                 <div id="ticketInfoContainer">
                     <div class="event">
@@ -89,7 +94,7 @@
                     <div id="delivery">
                         <h4>DELIVERY</h4>
                         <h5>Instant Download</h5>
-                        <h5>Ready to download and print within minuetes</h5>
+                        <h5>Ready to download and print within minutes</h5>
                     </div>
                     <div id="TicketPriceContainer">
                         <div id="TicketPrice">
@@ -98,21 +103,21 @@
                         </div>
                         <div id="numOfTickets">
                             <h4>NUMBER OF TICKETS</h4>
-                        <form action="{%url 'checkout:process' listing_id=listing.id%}" method="post">
-                        {% csrf_token %}
-                            <select name="numberOfTix" id="numberOfTix">
+                        <form action="{%url 'checkout:process' listing_id=listing.id%}" method="post" id="checkout-form">
+                        {% csrf_token %}</form>
+                            <select name="numberOfTix" id="numberOfTix" form="checkout-form">
                                 {% for seat in maxSeatsList %}
                                     <option value="{{seat}}">{{seat}}</option>
                                 {% endfor %}
                             </select>
                         </div>
                     </div>
-                    <div><input type="hidden" name="priceOfTix" value="{{price}}"> </div>
+                    <div><input type="hidden" name="priceOfTix" value="{{price}}" form="checkout-form"> </div>
 
-
+                </div>
             {% if request.session.user_status == 'logged in' %}
 
-                <input id="checkoutButton" type="submit" value="Go to checkout">
+                <input id="checkoutButton" type="submit" value="Go to checkout" form="checkout-form">
             {% else %}
                 <button type="button" id="modal-btn" data-toggle="modal" class='checkout-button' data-target="#myModal">Go to checkout</button> 
 
@@ -127,7 +132,6 @@
                 </div>
                 
             {% endif %}
-
-            </form>
+        </div>
     </body>
 </html>

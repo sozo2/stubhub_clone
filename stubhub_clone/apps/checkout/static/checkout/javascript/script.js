@@ -20,7 +20,6 @@ $(document).ready(function(){
     });
 
     $("#login-form").submit(function(e) {
-      console.log('HUZA HUZA')
         e.preventDefault(); // avoid to execute the actual submit of the form.
         var url = "/authenticate"; // the script where you handle the form input.
         $.ajax({
@@ -36,7 +35,8 @@ $(document).ready(function(){
                    if (data.fail == true){
                         $('#login-msg-placeholder').html(list_html(msgs));
                    } else {
-                       window.location.href = "/checkout/review";
+                       $("#checkout-form").submit();
+                    //    window.location.href = "/checkout/review";
                    }
                }
         });
@@ -58,7 +58,8 @@ $(document).ready(function(){
                    if (data.fail == true){
                         $('#register-msg-placeholder').html(list_html(msgs));
                    } else {
-                       window.location.href = '/checkout/review';
+                       $("#checkout-form").submit();
+                    //    window.location.href = '/checkout/review';
                    }
                }
              });

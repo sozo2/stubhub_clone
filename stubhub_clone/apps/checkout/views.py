@@ -100,4 +100,5 @@ def confirmation(request):
         for i in range(0, int(tickets)):
             ticketSet[i].sold = True
 
+    request.session['tix']=''
     return redirect('/')

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <link rel="stylesheet" href="styles.css">
+   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+   <script src=" "></script>
+   <title>How Many Tickets?</title>
+</head>
+<body>
+    {% include 'find_tickets/header.html' %}
+
+   <h1>How Many tickets would you like?</h1>
+    
+   <a href="{% url 'search:ticketspass' event_id=event_id tickets=1 %}"><button type="">1</button></a>
+   <a href="{% url 'search:ticketspass' event_id=event_id tickets=2 %}"><button type="">2</button></a>
+   <a href="{% url 'search:ticketspass' event_id=event_id tickets=3 %}"><button type="">3</button></a>
+   <a href="{% url 'search:ticketspass' event_id=event_id tickets=4 %}"><button type="">4</button></a>
+   <a href="{% url 'search:ticketspass' event_id=event_id tickets=5 %}"><button type="">5 or more</button></a>
+
+</body>
+</html>

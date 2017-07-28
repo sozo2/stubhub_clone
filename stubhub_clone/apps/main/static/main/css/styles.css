@@ -64,23 +64,52 @@
     border-bottom: 1px solid #E7EAEC;
     background-color: #F6F8F9;
 }
+
+#loc-when{
+    width: 950px;
+    margin: auto;
+}
+
 #location{
-    width: 250px;
+    width: 450px;
     height: 50px;
     display: inline-block;
-    padding: 7px;
-    margin-left: 470px;
+    padding-left: 50px;
     vertical-align: top;
     border-left: 1px solid #E7EAEC;
     border-right: 1px solid #E7EAEC;
+    color: rgb(82,82,82);
+    line-height: 50px;
 }
+#location h3{
+    font-size: 18px;
+}
+
+#when h3{
+    font-size: 18px;
+}
+
 #when{
-    width: 250px;
+    width: 450px;
     height: 50px;
     display: inline-block;
-    padding: 7px;
+    padding-left: 50px;
     vertical-align: top;
     border-right: 1px solid #E7EAEC;
+    color: rgb(82,82,82);
+    line-height: 50px;
+}
+
+#cal{
+    height: 23px;
+    border: 1px solid rgb(166,166,166);
+    border-radius: 5px;
+    box-shadow: none;
+    background: rgb(246,248,249);
+}
+
+#cal:focus{
+    outline: none;
 }
 .dropDownIcon{
     height: 15px;
@@ -91,7 +120,7 @@
 }
 .locationWhenText{
     display: inline-block;
-    color: #525252;
+    color: rgb(82,82,82);
     font-size: 14px;
 }
 .locationIcon{

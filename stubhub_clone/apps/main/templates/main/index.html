@@ -65,22 +65,38 @@
                     <div class="col-md-12 searchBar">
                         <form action="{% url 'search:process' %}" method="post">
                             {% csrf_token %}
-                            <input id="searchBar" name="searchInfo" type="text" placeholder="Seach for events, artist, teams or venues">
+                            <input id="searchBar" name="searchInfo" type="text" placeholder="Seach for events, artists, teams or venues">
                             <input id="searchIcon" type="image" src="{% static 'main/images/searchIcon.png' %}" alt="searchIcon">
                         </form>
                     </div>
                 </div>
             </div>
             <div id="locationRow">
+                <div id='loc-when'>
                 <div id="location">
-                    <img class="locationIcon" src="{% static 'main/images/locationIcon.png' %}" alt="locationIcon">
-                    <h5 class="locationWhenText">Chicago, IL</h5>
-                    <img class="dropDownIcon" src="https://image.flaticon.com/icons/svg/118/118738.svg" alt="dropdownicon">
+                    <form method='post' action="{% url 'search:category_process' %}" id='category'>
+                        {% csrf_token %}
+                        <h3 class="locationWhenText">Search by Category:</h3>
+                        <select name='category' onchange="this.form.submit()">
+                            <option></option>
+                            <option class='category' value='theater'>Theater</option>
+                            <option class='category' value='sports'>Sports</option>
+                            <option class='category' value='music'>Music</option>
+                            <option class='category' value='comedy'>Comedy</option>
+                            <option class='category' value='literary'>Literary</option>
+                            <option class='category' value='family'>Family</option>
+                            <option class='category' value='football'>Football</option>
+                            <option class='category' value='baseball'>Baseball</option>
+                        </select>
+                    </form>
                 </div>
                 <div id="when">
-                    <img class="locationIcon" src="{% static 'main/images/calenderIcon.png' %}" alt="calenderIcon">
-                    <h5 class="locationWhenText">When</h5>
-                    <img class="dropDownIcon" src="https://image.flaticon.com/icons/svg/118/118738.svg" alt="dropdownicon">
+                    <form method='post' action="{% url 'search:date_process' %}">
+                        {% csrf_token %}
+                        <h3 class="locationWhenText">Search by Date:</h3>
+                        <input type="date" id='cal' name="search-date" min="2017-07-28" onchange="this.form.submit()">
+                    </form>
+                </div>
                 </div>
             </div>
             <div id="body">
