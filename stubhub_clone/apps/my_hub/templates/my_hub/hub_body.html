@@ -126,12 +126,6 @@
         </ul>
         Payment options for buying tickets<br>
         <br>
-        upload.wikimedia.org/wikipedia/commons/6/6a/Visa-europe-logo.gif
-        
-        upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/2000px-MasterCard_Logo.svg.png
-
-        upload.wikimedia.org/wikipedia/commons/thumb/3/30/American_Express_logo.svg/2000px-American_Express_logo.svg.png
-
         {% if ccs %}
             {% for cc in ccs %}
                 <div class="myHubElement">
@@ -143,7 +137,7 @@
             <p>You don’t have any upcoming events scheduled right now.</p>
         {% endif %}
 
-            <a href="{% url 'my_hub:cc_add' %}">Add a new payment option</a>
+            <a href="{% url 'my_hub:cc_add_form' %}">Add a new payment option</a>
         </div>
         Payment options for selling tickets
 

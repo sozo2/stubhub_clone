@@ -110,8 +110,8 @@ def index(request):
     all_ccs = []
     for cc in credit_cards:
         curr_dict = {}
-        curr_dict['num_end']= cc.number[:4]
-        first_two_dig = cc.number[2:]
+        curr_dict['num_end']= cc.number[-4:]
+        first_two_dig = cc.number[:2]
         if first_two_dig == 34 or first_two_dig == 37:
             curr_dict['thumbnail']= 'upload.wikimedia.org/wikipedia/commons/thumb/3/30/American_Express_logo.svg/2000px-American_Express_logo.svg.png'
         elif first_two_dig>=50 and first_two_dig <56:
@@ -152,6 +152,15 @@ def cc_delete(request,cc_id):
     CreditCard.objects.get(id=cc_id).delete()
     return redirect(reverse('my_hub:index'))
 
+def cc_add_form(request):
+    return render(request, "my_hub/add_cc_form.html")
+
 def cc_add(request):
-    CreditCard.objects.get(id=cc_id).delete()
+    if request.method != "POST":
+        return redirect(reverse('my_hub:index'))
+    number = request.POST['card_number']
+    name_on_card =request.POST['name_on_card']
+    exp_date=request.POST['expirationMonth']+request.POST['expirationYear']    
+
+    print CreditCard.objects.create(user_id = request.session['current_user_id'],number =number, name_on_card=name_on_card,expiration=exp_date)    
     return redirect(reverse('my_hub:index'))
