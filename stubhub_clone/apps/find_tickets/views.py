@@ -5,6 +5,7 @@ from .models import *
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.db.models import Min
+from django.utils import timezone
 from datetime import *
 from django.db.models import Q
 
@@ -24,7 +25,7 @@ def results(request):
         id = Performer.objects.get(name=search_string).id
         return redirect(reverse("search:performer",kwargs={'performer_id':id}))
 
-    event_results = Event.objects.filter(title__icontains=search_string).order_by('start_time')
+    event_results = Event.objects.filter(title__icontains=search_string,start_time__gte=timezone.now()).order_by('start_time')
     search_count = Event.objects.filter(title__icontains=search_string).count()
     
     events=[]
@@ -125,6 +126,11 @@ def date_results(request):
     return render(request, 'find_tickets/results.html', context)
     
 def event(request, event_id,sort_by='tickets__price'):
+    if 'tix' not in request.session or request.session['tix']=='':
+        return redirect(reverse('search:tickets', kwargs={"event_id":event_id}))
+    else:
+        desired_tickets=request.session['tix']
+    
     try:
         if request.session['sort_by'] == sort_by:
             if request.session['asc'] == 1:
@@ -160,10 +166,6 @@ def event(request, event_id,sort_by='tickets__price'):
         event_dict['image']="www.bykcollege.com/images/index/NoImageAvailable.png"
     print event_all.venue.seating_map
 
-    if 'tix' not in request.session:
-        desired_tickets= 1
-    else:
-        desired_tickets=request.session['tix']
     
     print currsort
     print request.session['asc']
@@ -206,7 +208,7 @@ def ticket_change(request):
 
 def venue(request, venue_id):
     venue=Venue.objects.get(id = venue_id)
-    event_results = Event.objects.filter(venue__id=venue_id).order_by('start_time')
+    event_results = Event.objects.filter(venue__id=venue_id,start_time__gte=timezone.now()).order_by('start_time')
     search_count = Event.objects.filter(venue__id=venue_id).count()
     
     events=[]
@@ -233,7 +235,7 @@ def venue(request, venue_id):
     
 def performer(request, performer_id):
     performer = Performer.objects.get(id=performer_id) 
-    event_results = Event.objects.filter(title__icontains=performer.name).order_by('start_time')
+    event_results = Event.objects.filter(title__icontains=performer.name,start_time__gte=timezone.now()).order_by('start_time')
     search_count = Event.objects.filter(title__icontains=performer.name).count()
     
     events=[]
@@ -256,4 +258,10 @@ def performer(request, performer_id):
         'performer_name':performer.name,
     }
     return render(request, 'find_tickets/performer_home.html', context)
+
+def tickets(request,event_id):
+    return render(request, 'find_tickets/tickets.html',{'event_id':event_id})
     
+def ticketspass(request,event_id,tickets):
+    request.session['tix']=tickets
+    return redirect(reverse('search:event',kwargs={'event_id':event_id}))

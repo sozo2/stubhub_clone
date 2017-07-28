@@ -36,15 +36,15 @@
                     </div>      
                 </div>
             </div>
-            <div id="seatingMap">
-                <img id="mapPic" src="http://{{event.image}}"><br>
+            <div id="venuePicContainer">
+                <img id="venuePic" src="http://{{event.image}}"><br>
             </div>
             <div id="eventTable">
                 <div id="tableHead">
                     <a href="{%url 'search:event' event_id=event.id sort_by='tickets__price' %}"><button class="pvb" type="">Price</button></a>
                     <a href="{%url 'search:event' event_id=event.id sort_by='price_value' %}"><button class="pvb" type="">Value</button></a>
                     <a href="{%url 'search:event' event_id=event.id sort_by='section' %}"><button class="pvb" type="">Best Tickets</button></a>
-                    <h4 class="greyText">NUMBER OF TICKETS</h4>
+                    <h4 id="numberOfTixText" class="greyText">NUMBER OF TICKETS</h4>
                     <form action="{%url 'search:ticket_change' %}" method="post">
                         {% csrf_token %}
                         <select name="numberOfTix" class="selectpicker" id="numberOfTix">

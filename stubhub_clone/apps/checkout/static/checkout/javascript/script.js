@@ -20,7 +20,6 @@ $(document).ready(function(){
     });
 
     $("#login-form").submit(function(e) {
-      console.log('HUZA HUZA')
         e.preventDefault(); // avoid to execute the actual submit of the form.
         var url = "/authenticate"; // the script where you handle the form input.
         $.ajax({
@@ -65,31 +64,7 @@ $(document).ready(function(){
                }
              });
     });
-
-
-    // $("#login-form").submit(function(e) {
-    //     e.preventDefault(); // avoid to execute the actual submit of the form.
-    //     var url = "/authenticate"; // the script where you handle the form input.
-    //     $.ajax({
-    //            type: "POST",
-    //            url: url,
-    //            data: $("#login-form").serialize(), // serializes the form's elements.
-    //            dataType: "json",
-    //            success: function(data)
-    //            {
-    //                console.log(data);
-    //                var msgs = data.messages;
-    //                console.log(msgs);
-    //                if (data.fail == true){
-    //                     $('#login-msg-placeholder').html(list_html(msgs));
-    //                } else {
-    //                    window.location.href = '/checkout/review';
-    //                }
-    //            }
-    //     });
-    // });
-
-
+            
     $( "#number" )
       .selectmenu()
       .selectmenu( "menuWidget" )

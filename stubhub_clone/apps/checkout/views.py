@@ -25,7 +25,6 @@ def index(request, listing_id):
         seating_map=listing.event.venue.seating_map
     else:
         seating_map="www.bykcollege.com/images/index/NoImageAvailable.png"
-    
 
     context = {
         'listing': listing,
@@ -98,7 +97,8 @@ def confirmation(request):
         for ticket in ticketSet:
             ticket.sold = True
     else:
-        for i in range(0, tickets):
+        for i in range(0, int(tickets)):
             ticketSet[i].sold = True
 
+    request.session['tix']=''
     return redirect('/')

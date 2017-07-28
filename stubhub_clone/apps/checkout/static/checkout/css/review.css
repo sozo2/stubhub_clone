@@ -155,6 +155,9 @@ h6{
     height: 200px;
     padding: 60px;
     background: url('/static/checkout/images/field.jpeg');
+    background-size: 100%;
+    background-size: cover;
+    background-position: center;
 }
 #reviewAndBuyText{
     font-size: 60px;
