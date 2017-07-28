@@ -40,9 +40,7 @@ $(document).ready(function(){
         }
     });
 
-    confirmButton.click(function(e) {
-
-        e.preventDefault();
+    confirmButton.click(function() {
 
         var isCardValid = $.payform.validateCardNumber(cardNumber.val());
         var isCvvValid = $.payform.validateCardCVC(CVV.val());
@@ -54,11 +52,14 @@ $(document).ready(function(){
         } else if (!isCvvValid) {
             alert("Wrong CVV");
         } else {
-            $("#cardForm").submit();
+            $('#cardForm').submit(function(e){
+            e.preventDefault();
+        });
+        swal("Thank you for your purchase!", "Enjoy the event!", "success");
+        $(".confirm").click(function(){
+            $("#cardForm").unbind("submit").submit();
+        });
         }
-        // $("#confirm-purchase").click(function(){
-        //     swal("Thank you for your purchase!", "Enjoy the event!", "success")
-        // });
     });
 });
 

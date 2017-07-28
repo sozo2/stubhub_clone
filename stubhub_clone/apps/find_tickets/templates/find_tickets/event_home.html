@@ -1,87 +1,96 @@
-{% include 'find_tickets/header.html' %}
-{% load static %}
-
-    <div class="event-groupings-list">
-        <div class="event">
-            <div class="eventDate">
-                <div class="eventDay">
-                    <div class="day">
-                        <p>{{event.day}}</p>
-                    </div>
-                    <div class="monthDay">
-                        <p>{{event.date}}</p>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'find_tickets/css/eventHome.css' %}">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="{% static 'main/javascript/homePage.js' %}"></script>
+        <script src="{% static 'find_tickets/javascript/script.js' %}"></script>
+        <link rel="icon" href="{% static 'main/images/logo.png' %}"> 
+    </head>
+    <body>
+        {% include 'find_tickets/header.html' %}
+        <div id="wrapper">
+            <div class="event">
+                <div class="eventDate">
+                    <div class="eventDay">
+                        <div class="day">
+                            <p>{{event.day}}</p>
+                        </div>
+                        <div class="monthDay">
+                            <p>{{event.date}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="eventDetails">
-                <div class="eventTitle">
-                    <a href="{% url 'search:event' event_id=event.id %} ">{{event.title}}</a>
-                </div> 
-                <div class="eventTimeLocation">
-                    <p>{{event.time}} - {{event.venue}}</p>
+                <div class="eventDetails">
+                    <div class="eventTitle">
+                        <a href="{% url 'search:event' event_id=event.id %} ">{{event.title}}</a>
+                    </div> 
+                    <div class="eventTimeLocation">
+                        <p>{{event.time}} - {{event.venue}}</p>
+                    </div>      
                 </div>
-                 
             </div>
-        </div>
             <div id="seatingMap">
                 <img id="mapPic" src="http://{{event.image}}"><br>
             </div>
             <div id="eventTable">
-                        <a href="{%url 'search:event' event_id=event.id sort_by='tickets__price' %}"><button type="">Price</button></a><a href="{%url 'search:event' event_id=event.id sort_by='price_value' %}"><button type="">Value</button></a><a href="{%url 'search:event' event_id=event.id sort_by='section' %}"><button type="">Best Tickets</button></a>
-                            <h4>NUMBER OF TICKETS</h4>
-                            <form action="{%url 'search:ticket_change' %}" method="post">
-                            {% csrf_token %}
-                                <select name="numberOfTix" id="numberOfTix">
-                                    <option value=”” disabled selected>{{request.session.tix}}</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>            
-                                </select>
-                            <input type="hidden" name="event_id" value="{{event.id}}">
-                            <input id="checkoutButton" type="submit" value="Ticket Reload">
-                            </form>
-                        
-                        <table class="table" id="ticket-list"> 
-                        
-                        <thead>
-                            <tr>
-                                <th>Zone</th>
-                                <th>Section</th>
-                                <th>Row</th>
-                                <th>Price</th>
-                                <th>Value</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {% for listing in listings %}
-                            <tr class='clickable-row' data-href="{% url 'checkout:index' listing_id=listing.id %}"> 
-                                <td>
-                                    {{listing.zone}}<br>
-                                    {{listing.num_tix}} Tickets 
-                                </td>
-                                <td>{{listing.section}} </td>
-                                <td>{{listing.row}}</td>
-                                <td>
-                                    {{listing.price}}<br>
-                                    {{listing.delivery}} 
-                                </td>
-                                <td  class="tickets">Value</td>
-                            </tr>
-                        {% endfor %}    
-                        </tbody>
-                        </table>
-                    </div> 
-                </div> 
+                <div id="tableHead">
+                    <a href="{%url 'search:event' event_id=event.id sort_by='tickets__price' %}"><button class="pvb" type="">Price</button></a>
+                    <a href="{%url 'search:event' event_id=event.id sort_by='price_value' %}"><button class="pvb" type="">Value</button></a>
+                    <a href="{%url 'search:event' event_id=event.id sort_by='section' %}"><button class="pvb" type="">Best Tickets</button></a>
+                    <h4 class="greyText">NUMBER OF TICKETS</h4>
+                    <form action="{%url 'search:ticket_change' %}" method="post">
+                        {% csrf_token %}
+                        <select name="numberOfTix" class="selectpicker" id="numberOfTix">
+                            <option selected="selected">{{request.session.tix}}</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>            
+                        </select>
+                        <input type="hidden" name="event_id" value="{{event.id}}">
+                        <input class="pvb" type="submit" value="Ticket Reload">
+                    </form>    
+                </div>
+                <table class="table table-striped" id="ticket-list">     
+                    <thead>
+                        <tr>
+                            <th>Tickets</th>
+                            <th>Zone</th>
+                            <th>Section</th>
+                            <th>Row</th>
+                            <th>Price</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for listing in listings %}
+                        <tr class='clickable-row' data-href="{% url 'checkout:index' listing_id=listing.id %}"> 
+                            <td>{{listing.num_tix}} Ticket(s)</td>
+                            <td>{{listing.zone}}</td>
+                            <td>{{listing.section}}</td>
+                            <td>{{listing.row}}</td>
+                            <td>{{listing.price}}<p>{{listing.delivery}}</p></td>
+                            <td>Value</td>
+                        </tr>
+                    {% endfor %}    
+                    </tbody>
+                </table>
             </div>
-            
-    
-        {% include 'find_tickets/footer.html' %}
+        </div>  
+    </body>
+</html>

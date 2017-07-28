@@ -14,16 +14,28 @@ def index(request):
         request.session['user_status'] = 'logged out'
     if 'current_user_id' not in request.session:
         request.session['current_user_id'] = 0
+
     events = Event.objects.all().order_by('-popularity')[:1]
+    performers_list = []
     events_list = Event.objects.all()
     print events_list
     performers_list=[]
     for event in events_list:
         performers_list.append(event.performers.name)
     results=[]
+    names = []
     for performer in performers_list:
         performerDict= {}
+        existing = False
+        for i in range(len(names)):
+            if performer == names[i]:
+                existing = True
+        if existing:
+            continue
+        names.append(performer)
         performerDict['performer'] = performer
+        performer_object = Performer.objects.get(name = performer)
+        performerDict['thumbnail'] = performer_object.thumbnail
         performerEvents = Event.objects.filter(performers__name = performer).order_by('start_time')[:3]
         counter=1
         for event in performerEvents:
@@ -36,7 +48,10 @@ def index(request):
             curr_dict['id']=event.id
             performerDict['p'+str(counter)]=curr_dict
             counter+=1
-        results.append(performerDict)
+        if counter >= 3:
+            results.append(performerDict)
+        if len(results) == 9:
+            break      
     context = {
         'performers':results,
     }

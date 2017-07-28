@@ -4,14 +4,16 @@
 }
 #wrapper{
     width: auto;
+    padding-left: 100px;
+    padding-right: 100px;
 }
-#headerLeft{ 
+.headerLeft{ 
     background-color: #260354;
     height: 75px;
     padding-left: 100px;
     padding-top: 15px;
 }
-#headerRight{
+.headerRight{
     background-color: #260354;
     height: 75px;
     padding-right: 100px;
@@ -527,32 +529,40 @@ li{
     font-size: 12px;
 }
 #seatingMap{
-    width: 700px;
+    width: 600px;
     display: inline-block;
     vertical-align: top;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     margin: auto;
+    margin-right: 100px;
 }
 #eventTable{
-    width: 500px;
+    width: 450px;
     display: inline-block;
     vertical-align: top;
-    margin: auto;
 }
 #mapPic{
-    /* flex-shrink: 0; */
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
 }
-
-#venue_banner {
-    /* height: 30px; 
-    margin-top: 0px; 
-    margin-bottom: 0px;  
-    width: 996px; 
-    padding: 0px; */
-    
+.pvb{
+    width: 100px;
+    height: 30px;
+    border-radius: 2px;
+    background-color: #00B5B5;
+    color: white;
+    margin-left: 10px;
+}
+#tableHead{
+    width: 450px;
+    height: 150px;
+    border: 1px solid #CCCCCC;
+    padding: 30px;
+}
+#ticket-list{
+    border: 1px solid #CCCCCC;
+    border-left: 10px solid #CCA5CE;
 }
