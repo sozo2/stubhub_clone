@@ -18,27 +18,39 @@
     <div class="tab-pane active" id="1">
         <div class="whatsNextHeader">
             <h3 class="whatsNextText">WHAT'S NEXT<h3> 
-            <a class="floatRight" href="{% url 'my_hub:index' %}">View current and past order</a>
-        </div>
-                
+            <p class="whatsNextText"><a href="{% url 'my_hub:index' %}">View current and past order</a></p>
+        </div>       
         {% if futuretrans %}
             {% for listing in futuretrans %}
-                <div class="myHubElement">
-                    <br>Listing No. {{listing.id}} <br>
-                    <a href="{% url 'search:event' event_id=listing.event_id %}">{{listing.event}}</a><br>
-                    {{listing.start}}<br>
-                    at <a href="{% url 'search:venue' venue_id=listing.venue_id %}">{{listing.venue}}</a>, {{listing.city}}
+            <div class="event">
+                <p class="listingNumber">Listing No. {{listing.id}}</p>
+                <div class="eventDate">
+                    <div class="eventDay">
+                        <div class="day">
+                            <p>{{listing.start | date:"D"}}</p>
+                        </div>
+                        <div class="monthDay">
+                            <p>{{listing.start | date:"M d"}}</p>
+                        </div>
+                    </div>
                 </div>
+                <div class="eventDetails">
+                    <div class="eventTitle">
+                        <p>{{listing.event}}</p>
+                    </div>
+                    <div class="eventTimeLocation">
+                        <p>{{listing.start | date:"g:i A"}} - {{listing.venue}}, {{listing.city}}</p>
+                    </div>
+                </div>
+            </div>
             {% endfor %}
         {% else %}
             <p>You don’t have any upcoming events scheduled right now.</p>
         {% endif %}
-
         <div class="whatsNextHeader">
             <h3 class="whatsNextText">Listings<h3> 
             <a class="floatRight" href="{% url 'my_hub:index' %}">View current and past listings</a>
-        </div>
-                
+        </div>       
         {% if activelists %}
             {% for listing in activelists %}
                 <div class="myHubElement">
@@ -51,13 +63,10 @@
         {% else %}
             <p>You don’t have any upcoming events scheduled right now.</p>
         {% endif %}
-
-
         <div class="whatsNextHeader">
             <h3 class="whatsNextText">Sales<h3> 
             <a class="floatRight" href="{% url 'my_hub:index' %}">View current and past Sales</a>
-        </div>
-                
+        </div> 
         {% if all_sales %}
             {% for sale in all_sales %}
                 <div class="myHubElement">
@@ -70,7 +79,6 @@
         {% else %}
             <p>You don’t have any upcoming events scheduled right now.</p>
         {% endif %}
-
         <div class="whatsNextHeader">
             <h3 class="whatsNextText">Contact Info<h3> 
             <a class="floatRight" href="{% url 'my_hub:index' %}">Change Password</a>
@@ -78,21 +86,18 @@
             {{user.first}} {{user.last}}<br>
             {{user.address}}<br>
             {{user.city}}, {{user.state}} {{user.zip}}
-    </div>    
-    
+        </div>    
     <div class="tab-pane" id="2">
          <div><h4>FanCodes & Gift Codes Details</h4>  </div>
         <div>
             <form action="{% url 'my_hub:index' %}">
                 <div class="form-group">
-                <label for="fan_gift_code">Add a FanCode & gift Code</label>
-                <input type="fan_gift_code" class="form-control" id="fan_gift_code" placeholder="FanCode number/gift code" name="fan_gift_code"><button type="submit" class="btn btn-default">Add</button>
-    </div>
-    
-
+                    <label for="fan_gift_code">Add a FanCode & gift Code</label>
+                    <input type="fan_gift_code" class="form-control" id="fan_gift_code" placeholder="FanCode number/gift code" name="fan_gift_code"><button type="submit" class="btn btn-default">Add</button>
+                </div>
             </form>
-            </div> 
-        </div>
+        </div> 
+    </div>
         <div class="tab-pane" id="3">
           <div id="Favorites" class="container">	
 <ul class="nav nav-tabs">
