@@ -2,46 +2,86 @@
 
 <div id="exTab2" class="container">	
 <ul class="nav nav-tabs">
-			<li class="active">
-            <a  href="#1" data-toggle="tab">My Hub</a>
-			</li>
-			<li><a href="#2" data-toggle="tab">Gift Codes</a>
-			</li>
-			<li><a href="#3" data-toggle="tab">Favorites</a>
-            </li>
-            
-			<li><a href="#4" data-toggle="tab">Settings</a>
-			</li>
-		</ul>
+	<li class="active">
+    <a  href="#1" data-toggle="tab">My Hub</a>
+    </li>
+    <li><a href="#2" data-toggle="tab">Gift Codes</a>
+    </li>
+    <li><a href="#3" data-toggle="tab">Favorites</a>
+    </li>
+    
+    <li><a href="#4" data-toggle="tab">Settings</a>
+    </li>
+</ul>
 
-			<div class="tab-content ">
-			  <div class="tab-pane active" id="1">
-                  <div class="whatsNextHeader">
-                    <h3 class="whatsNextText">WHAT'S NEXT<h3> 
-                    <p class="floatRight" href="{% url 'my_hub:index' %}">View current and past order</p>
-                  </div>
+<div class="tab-content ">
+    <div class="tab-pane active" id="1">
+        <div class="whatsNextHeader">
+            <h3 class="whatsNextText">WHAT'S NEXT<h3> 
+            <a class="floatRight" href="{% url 'my_hub:index' %}">View current and past order</a>
+        </div>
                 
-                {% if futuretrans %}
-                    {% for listing in futuretrans %}
-                    Listing No. {{listing.id}} <br>
+        {% if futuretrans %}
+            {% for listing in futuretrans %}
+                <div class="myHubElement">
+                    <br>Listing No. {{listing.id}} <br>
                     <a href="{% url 'search:event' event_id=listing.event_id %}">{{listing.event}}</a><br>
-                    {% endfor %}
-                {% else %}
-                    <p>You don’t have any upcoming events scheduled right now.</p>
-                {% endif %}
-                <div><h3>LISTINGS<h3> <a href="{% url 'my_hub:index' %}">View all listings</a>
-                <p>You don’t have any upcoming events scheduled right now.</p>
+                    {{listing.start}}<br>
+                    at <a href="{% url 'search:venue' venue_id=listing.venue_id %}">{{listing.venue}}</a>, {{listing.city}}
                 </div>
+            {% endfor %}
+        {% else %}
+            <p>You don’t have any upcoming events scheduled right now.</p>
+        {% endif %}
 
-<div><div><h3>SALES<h3>
-You don’t have any active sales right now.</div>
-<div><h3>PAYMENTS<h3> <a href="{% url 'my_hub:index' %}">View Payment Statuses</a>
-</div></div>
+        <div class="whatsNextHeader">
+            <h3 class="whatsNextText">Listings<h3> 
+            <a class="floatRight" href="{% url 'my_hub:index' %}">View current and past listings</a>
+        </div>
+                
+        {% if activelists %}
+            {% for listing in activelists %}
+                <div class="myHubElement">
+                    <br>Listing No. {{listing.id}} <br>
+                    <a href="{% url 'search:event' event_id=listing.event_id %}">{{listing.event}}</a><br>
+                    {{listing.start}}<br>
+                    at <a href="{% url 'search:venue' venue_id=listing.venue_id %}">{{listing.venue}}</a>, {{listing.city}}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>You don’t have any upcoming events scheduled right now.</p>
+        {% endif %}
 
 
-				</div>
-				<div class="tab-pane" id="2">
-         <div><h4>FanCodes & gift codes details</h4>  </div>>
+        <div class="whatsNextHeader">
+            <h3 class="whatsNextText">Sales<h3> 
+            <a class="floatRight" href="{% url 'my_hub:index' %}">View current and past Sales</a>
+        </div>
+                
+        {% if all_sales %}
+            {% for sale in all_sales %}
+                <div class="myHubElement">
+                    <br>Listing No. {{sale.id}} <br>
+                    <a href="{% url 'search:event' event_id=sale.event_id %}">{{sale.event}}</a><br>
+                    {{sale.start}}<br>
+                    at <a href="{% url 'search:venue' venue_id=sale.venue_id %}">{{sale.venue}},</a> {{sale.city}}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>You don’t have any upcoming events scheduled right now.</p>
+        {% endif %}
+
+        <div class="whatsNextHeader">
+            <h3 class="whatsNextText">Contact Info<h3> 
+            <a class="floatRight" href="{% url 'my_hub:index' %}">Change Password</a>
+        </div><br>
+            {{user.first}} {{user.last}}<br>
+            {{user.address}}<br>
+            {{user.city}}, {{user.state}} {{user.zip}}
+    </div>    
+    
+    <div class="tab-pane" id="2">
+         <div><h4>FanCodes & Gift Codes Details</h4>  </div>
         <div>
             <form action="{% url 'my_hub:index' %}">
                 <div class="form-group">
@@ -84,11 +124,23 @@ You don’t have any active sales right now.</div>
 			<li><a href="#4d" data-toggle="tab">Linked Accounts</a>
             </li>
         </ul>
-        <div>Payment options for buying tickets<br>
-        <br><font color="red">Users Credit Cards</font><br>
-            <a href="/addcc">Add a new payment option</a>
+        Payment options for buying tickets<br>
+        <br>
+        {% if ccs %}
+            {% for cc in ccs %}
+                <div class="myHubElement">
+                    Name on Card : {{cc.name}}   <br>CC: XXXX-XXXX-XXXX-{{cc.num_end}} <br>EXP:{{cc.exp_date}} <a href="{% url 'my_hub:cc_delete' cc_id=cc.id %}">delete</a>
+                        <img src="http://{{cc.thumbnail}}" alt="map">
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>You don’t have any upcoming events scheduled right now.</p>
+        {% endif %}
+
+            <a href="{% url 'my_hub:cc_add_form' %}">Add a new payment option</a>
         </div>
-        <div>Payment options for selling tickets
+        Payment options for selling tickets
+
             <div id="Payment Currency" class="container">	
 <ul class="nav nav-tabs">
 			<li class="active">
@@ -100,7 +152,7 @@ You don’t have any active sales right now.</div>
             </li>
             </ul></div>    
 
-            The payment method change will be applied to both existing and new listings.
+            <br>The payment method change will be applied to both existing and new listings.
 Note: This change doesn't apply to "In Progress" payments for already sold tickets.
  <div class="radio disabled">
   <label><input type="radio" name="paypal"><a href="">Link your PayPal account to receive payments</a></label>

@@ -78,8 +78,6 @@ li{
     font-size: 14px;
 }
 .whatsNextHeader{
-    height: 200px;
-    width: 400px;
     background-color: orange;
     display: inline-block;
 }
@@ -89,4 +87,8 @@ li{
 }
 .whatsNextText{
     display: inline-block;
+}
+
+.myHubElement{
+    outline: 1px solid orange;
 }
