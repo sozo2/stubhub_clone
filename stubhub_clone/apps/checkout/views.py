@@ -18,9 +18,6 @@ def index(request, listing_id):
     minSeats =  minSeat['seat__min']
     price = seatPrice['price__min']
     maxSeats = minSeats + int(request.session['tix'])
-    #request.session['maxSeats'] = maxSeats
-    print minSeats
-    #print maxSeats
     maxSeatsList = []
     for item in range(0, listing.tickets_for_sale):
         maxSeatsList.append(item + 1)

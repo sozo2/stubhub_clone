@@ -1,9 +1,9 @@
-<div class="container"><h2>My hub</h2></div>
+<div class="container"><h2 id="myHub">My Hub</h2></div>
 
 <div id="exTab2" class="container">	
 <ul class="nav nav-tabs">
 	<li class="active">
-    <a  href="#1" data-toggle="tab">My Hub</a>
+    <a  href="#1" data-toggle="tab"><p>My Hub</p></a>
     </li>
     <li><a href="#2" data-toggle="tab">Gift Codes</a>
     </li>
@@ -17,8 +17,12 @@
 <div class="tab-content ">
     <div class="tab-pane active" id="1">
         <div class="whatsNextHeader">
-            <h3 class="whatsNextText">WHAT'S NEXT<h3> 
-            <p class="whatsNextText"><a href="{% url 'my_hub:index' %}">View current and past order</a></p>
+            <div id="whatsNextLeft">
+                <h3 class="whatsNextText">WHAT'S NEXT<h3> 
+            </div>
+            <div id="whatsNextRight">
+                <p class="whatsNextText"><a href="{% url 'my_hub:index' %}">View current and past order</a></p>
+            </div>
         </div>       
         {% if futuretrans %}
             {% for listing in futuretrans %}
@@ -53,12 +57,27 @@
         </div>       
         {% if activelists %}
             {% for listing in activelists %}
-                <div class="myHubElement">
-                    <br>Listing No. {{listing.id}} <br>
-                    <a href="{% url 'search:event' event_id=listing.event_id %}">{{listing.event}}</a><br>
-                    {{listing.start}}<br>
-                    at <a href="{% url 'search:venue' venue_id=listing.venue_id %}">{{listing.venue}}</a>, {{listing.city}}
+            <div class="event">
+                <p class="listingNumber">Listing No. {{listing.id}}</p>
+                <div class="eventDate">
+                    <div class="eventDay">
+                        <div class="day">
+                            <p>{{listing.start | date:"D"}}</p>
+                        </div>
+                        <div class="monthDay">
+                            <p>{{listing.start | date:"M d"}}</p>
+                        </div>
+                    </div>
                 </div>
+                <div class="eventDetails">
+                    <div class="eventTitle">
+                        <p>{{listing.event}}</p>
+                    </div>
+                    <div class="eventTimeLocation">
+                        <p>{{listing.start | date:"g:i A"}} - {{listing.venue}}, {{listing.city}}</p>
+                    </div>
+                </div>
+            </div>
             {% endfor %}
         {% else %}
             <p>You don’t have any upcoming events scheduled right now.</p>
@@ -69,12 +88,27 @@
         </div> 
         {% if all_sales %}
             {% for sale in all_sales %}
-                <div class="myHubElement">
-                    <br>Listing No. {{sale.id}} <br>
-                    <a href="{% url 'search:event' event_id=sale.event_id %}">{{sale.event}}</a><br>
-                    {{sale.start}}<br>
-                    at <a href="{% url 'search:venue' venue_id=sale.venue_id %}">{{sale.venue}},</a> {{sale.city}}
+                <div class="event">
+                <p class="listingNumber">Listing No. {{sale.id}}</p>
+                <div class="eventDate">
+                    <div class="eventDay">
+                        <div class="day">
+                            <p>{{sale.start | date:"D"}}</p>
+                        </div>
+                        <div class="monthDay">
+                            <p>{{sale.start | date:"M d"}}</p>
+                        </div>
+                    </div>
                 </div>
+                <div class="eventDetails">
+                    <div class="eventTitle">
+                        <p>{{sale.event}}</p>
+                    </div>
+                    <div class="eventTimeLocation">
+                        <p>{{sale.start | date:"g:i A"}} - {{sale.venue}}, {{sale.city}}</p>
+                    </div>
+                </div>
+            </div>
             {% endfor %}
         {% else %}
             <p>You don’t have any upcoming events scheduled right now.</p>
@@ -85,7 +119,7 @@
         </div><br>
             {{user.first}} {{user.last}}<br>
             {{user.address}}<br>
-            {{user.city}}, {{user.state}} {{user.zip}}
+            {{user.city}} {{user.state}} {{user.zip}}
         </div>    
     <div class="tab-pane" id="2">
          <div><h4>FanCodes & Gift Codes Details</h4>  </div>
@@ -135,7 +169,7 @@
             {% for cc in ccs %}
                 <div class="myHubElement">
                     Name on Card : {{cc.name}}   <br>CC: XXXX-XXXX-XXXX-{{cc.num_end}} <br>EXP:{{cc.exp_date}} <a href="{% url 'my_hub:cc_delete' cc_id=cc.id %}">delete</a>
-                        <img src="http://{{cc.thumbnail}}" alt="map">
+                        <img class="creditCardPic" src="http://{{cc.thumbnail}}" alt="map">
                 </div>
             {% endfor %}
         {% else %}
@@ -156,7 +190,6 @@
 			<li><a href="#4ciii" data-toggle="tab">EUR (€)</a>
             </li>
             </ul></div>    
-
             <br>The payment method change will be applied to both existing and new listings.
 Note: This change doesn't apply to "In Progress" payments for already sold tickets.
  <div class="radio disabled">

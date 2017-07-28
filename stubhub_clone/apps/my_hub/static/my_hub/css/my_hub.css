@@ -86,9 +86,13 @@ li{
 }
 .whatsNextText{
     display: inline-block;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-weight: bold;
+    color: #828282;
 }
 .myHubElement{
-    outline: 1px solid orange;
+    border-bottom: 1px solid #E7EAEC;
 }
 .eventContainer{
     text-align: left;
@@ -178,4 +182,18 @@ li{
     margin-left: 20px;
     color: #636363;
     font-weight: bold;
+}
+#myHub{
+    color: #828282;
+}
+#whatsNextLeft{
+    display: inline-block;
+}
+#whatsNextRight{
+    display: inline-block;
+    float: right;
+}
+.creditCardPic{
+    height: 60px;
+    width: 100px
 }
