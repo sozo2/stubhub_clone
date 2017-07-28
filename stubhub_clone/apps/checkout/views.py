@@ -20,7 +20,7 @@ def index(request, listing_id):
     maxSeats = minSeats+listing.tickets_for_sale
     maxSeatsList = []
     for item in range(0, listing.tickets_for_sale):
-        maxSeatsList.append(item + 2)
+        maxSeatsList.append(item + 1)
     if listing.event.venue.seating_map:
         seating_map=listing.event.venue.seating_map
     else:
