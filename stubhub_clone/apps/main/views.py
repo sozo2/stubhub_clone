@@ -17,6 +17,7 @@ def index(request):
     events = Event.objects.all().order_by('-popularity')[:1]
     events_list = Event.objects.all()
     print events_list
+    performers_list=[]
     for event in events_list:
         performers_list.append(event.performers.name)
     results=[]
