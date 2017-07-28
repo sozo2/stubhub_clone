@@ -80,7 +80,7 @@
                     <tbody>
                     {% for listing in listings %}
                         <tr class='clickable-row' data-href="{% url 'checkout:index' listing_id=listing.id %}"> 
-                            <td>{{listing.num_tix}} Ticket(s)</td>
+                            <a href="{% url 'checkout:index' listing_id=listing.id %}"><td>{{listing.num_tix}} Ticket(s)</td></a>
                             <td>{{listing.zone}}</td>
                             <td>{{listing.section}}</td>
                             <td>{{listing.row}}</td>
